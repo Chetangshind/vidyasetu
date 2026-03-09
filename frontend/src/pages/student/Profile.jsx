@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import casteData from "./casteData.json";
+import casteData from "./CasteData.json";
 import API from "../../api";
 import "./Profile.css";
 

@@ -10,7 +10,7 @@ import {
   FaBan,
   FaUndo,
 } from "react-icons/fa";
-import "./notifications.css";
+import "./Notifications.css";
 import API from "../../api";
 
 const API_BASE = `${API}/api`;
