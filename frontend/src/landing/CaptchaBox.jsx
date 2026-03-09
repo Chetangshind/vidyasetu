@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import API from "../../api";
 
-const API = import.meta.env.VITE_API_URL;
-
 export default function CaptchaBox({
   captchaText,
   setCaptchaText,
@@ -25,21 +23,21 @@ export default function CaptchaBox({
 
   return (
     <div className="captcha-box">
-<div className="captcha-row">
-  <img src={captchaImg} alt="captcha" />
-  <span className="captcha-refresh" onClick={loadCaptcha}>
-    Refresh
-  </span>
-</div>
+      <div className="captcha-row">
+        <img src={captchaImg} alt="captcha" />
+        <span className="captcha-refresh" onClick={loadCaptcha}>
+          Refresh
+        </span>
+      </div>
 
-<p className="captcha-hint">Enter the text shown in image</p>
+      <p className="captcha-hint">Enter the text shown in image</p>
 
-<input
-  type="text"
-  value={captchaText}
-  onChange={(e) => setCaptchaText(e.target.value.toUpperCase())}
-  className="auth-input"
-/>
+      <input
+        type="text"
+        value={captchaText}
+        onChange={(e) => setCaptchaText(e.target.value.toUpperCase())}
+        className="auth-input"
+      />
     </div>
   );
 }
