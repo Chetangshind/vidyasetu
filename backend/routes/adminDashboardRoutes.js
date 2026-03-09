@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const {
   getDashboardStats,
-} = require("../controllers/Admindashboardcontroller");
+} = require("../controllers/AdminDashboardController");
 // const { protect, isAdmin } = require("../middlewares/authMiddleware"); // ← uncomment if you want auth guard
 
 // GET /api/admin/dashboard/stats
