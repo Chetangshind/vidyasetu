@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./Auth.css";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import API from "../../api";
+import API from "../api";
 
 export default function Signup() {
   const location = useLocation();

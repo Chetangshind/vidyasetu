@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "../landing/Navbar";
 import "./LandingPage.css";
 import { FiCheckCircle } from "react-icons/fi";
-import API from "../../api";
+import API from "../api";
 
 import donorFinancial from "../assets/features/donor_financial_aid.jpg";
 import hero from "../assets/hero.jpg";

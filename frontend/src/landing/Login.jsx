@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./Auth.css";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import CaptchaBox from "./CaptchaBox";
-import API from "../../api";
+import API from "../api";
 
 export default function Login() {
   const location = useLocation();
