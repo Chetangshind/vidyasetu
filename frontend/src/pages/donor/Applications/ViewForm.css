@@ -1,0 +1,205 @@
+
+.dvf-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #0b4fae;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+/* ================= SECTIONS ================= */
+
+.dvf-section-title {
+  margin-top: 26px;
+  font-size: 14px;
+  background: #0b4fae;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 4px 4px 0 0;
+  text-transform: uppercase;
+}
+
+.dvf-box {
+  border: 1px solid #dbeafe;
+  padding: 12px 14px;
+  border-radius: 0 0 4px 4px;
+}
+
+/* ================= ROWS ================= */
+
+.dvf-row {
+  display: grid;
+  grid-template-columns: 45% 55%;
+  padding: 6px 0;
+  border-bottom: 1px dotted #cbd5e1;
+  font-size: 14px;
+}
+
+.dvf-row span {
+  color: #1e3a8a;
+  font-weight: 600;
+}
+
+.dvf-row strong {
+  color: #111827;
+  font-weight: 500;
+}
+
+/* ================= DOCUMENT BUTTON ================= */
+
+.dvf-doc-btn {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.25s ease;
+}
+
+.dvf-doc-btn:hover {
+  background: #1d4ed8;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+/* ================= ACTION BUTTON ROW ================= */
+
+.action-btn-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 50px auto 30px;
+  max-width: 950px;
+}
+
+/* CENTER BACK BUTTON */
+.action-btn-row .btn-back {
+  margin: 0 auto;
+}
+
+/* ================= BUTTON BASE ================= */
+
+.btn-back,
+.btn-reject,
+.btn-approve {
+  padding: 12px 30px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  transition: all 0.25s ease;
+  opacity: 1;              /* 🔥 FIX: back button invisible issue */
+  filter: none;            /* 🔥 FIX */
+}
+
+/* ================= APPROVE ================= */
+
+.btn-approve {
+  background: #22c55e;
+  color: white;
+}
+
+.btn-approve:hover {
+  background: #15803d;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+}
+
+/* ================= REJECT ================= */
+
+.btn-reject {
+  background: #ef4444;
+  color: white;
+}
+
+.btn-reject:hover {
+  background: #b91c1c;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+}
+
+
+
+/* ================= BACK ================= */
+
+.btn-back {
+  background: #e5e7eb;
+  color: #111827;
+}
+
+.btn-back:hover {
+  background: #d1d5db;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+}
+
+/* ===== Reject Modal Select ===== */
+.modal-box select {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1.5px solid #d1d5db;
+  font-size: 14px;
+  background-color: #ffffff;
+  color: #111827;
+  cursor: pointer;
+  outline: none;
+}
+
+/* Focus state */
+.modal-box select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+}
+
+/* Remove ugly default blue on some browsers */
+.modal-box select option {
+  background: #ffffff;
+  color: #111827;
+  font-size: 14px;
+}
+
+/* Hover (supported in some browsers) */
+.modal-box select option:hover {
+  background-color: #f3f4f6;
+}
+
+/* Selected option (Firefox / some Chromium) */
+.modal-box select option:checked {
+  background-color: #e5e7eb;
+  color: #111827;
+}
+
+.reject-reasons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.reason-item {
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: #f5f7fb;
+  border: 1px solid #d6dbea;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.reason-item:hover {
+  background: #e9edff;
+}
+
+.reason-item.active {
+  background: #e3e9ff;
+  border-color: #4f6cff;
+  color: #1e3cff;
+}
+
+

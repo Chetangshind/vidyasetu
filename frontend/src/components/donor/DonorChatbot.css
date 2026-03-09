@@ -1,0 +1,201 @@
+.Veda-wrapper{
+  position:fixed;
+  bottom:40px;
+  right:30px;
+  z-index:9999;
+}
+
+/* BOT */
+.Veda-bot{
+  width:150px;
+  height:180px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  position:relative;
+  animation:float 3s ease-in-out infinite;
+  margin-right: 50px;
+  margin-bottom: -70px;
+}
+
+/* BOT IMAGE */
+.Veda-bot img{
+  width:100%;
+  height:auto;
+}
+
+/* BUBBLE ATTACHED TO BOT */
+.Veda-bot::before{
+  content:"Hi 👋 I'm Veda";
+
+  position:absolute;
+  bottom:150px;
+  right:-30px;
+
+  background:#2563eb;
+  color:#fff;
+
+  padding:8px 16px;
+  border-radius:18px;
+
+  font-size:13px;
+  font-weight:600;
+
+  box-shadow:0 8px 20px rgba(0,0,0,0.2);
+  white-space:nowrap;
+}
+
+/* BUBBLE ARROW */
+.Veda-bot::after{
+  content:"";
+
+  position:absolute;
+  bottom:140px;
+  left:90px;
+
+  width:12px;
+  height:12px;
+
+  background:#2563eb;
+  transform:rotate(45deg);
+}
+
+/* FLOAT ANIMATION */
+@keyframes float{
+  0%{transform:translateY(0px)}
+  50%{transform:translateY(-10px)}
+  100%{transform:translateY(0px)}
+}
+
+/* CHAT WINDOW */
+.Veda-chat{
+  position:fixed;
+  bottom:150px;
+  right:30px;
+  width:360px;
+  height:520px;
+  border-radius:20px;
+  background:#ffffff;
+  box-shadow:0 25px 60px rgba(0,0,0,0.25);
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+  z-index:9999;
+}
+
+/* HEADER */
+.Veda-header{
+  padding:16px;
+  background:linear-gradient(90deg,#2563eb,#3b82f6);
+  color:#fff;
+  font-weight:600;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-size:15px;
+}
+
+.Veda-header span{
+  cursor:pointer;
+  font-size:18px;
+}
+
+/* MESSAGE AREA */
+.Veda-messages{
+  flex:1;
+  padding:15px;
+  overflow-y:auto;
+  background:#f1f6ff;
+}
+
+/* MESSAGE BUBBLE */
+.Veda-message{
+  padding:10px 14px;
+  border-radius:16px;
+  margin-bottom:10px;
+  max-width:75%;
+  font-size:14px;
+  line-height:1.4;
+}
+
+.Veda-message.bot{
+  background:#e5efff;
+  color:#333;
+}
+
+.Veda-message.user{
+  background:#2563eb;
+  color:#fff;
+  margin-left:auto;
+}
+
+/* INPUT */
+.Veda-input{
+  display:flex;
+  padding:12px;
+  border-top:1px solid #eee;
+  background:#fff;
+}
+
+.Veda-input input{
+  flex:1;
+  padding:10px 12px;
+  border-radius:20px;
+  border:1px solid #ddd;
+  outline:none;
+  font-size:14px;
+}
+
+.Veda-input button{
+  margin-left:8px;
+  padding:8px 16px;
+  border-radius:20px;
+  border:none;
+  background:#2563eb;
+  color:#fff;
+  cursor:pointer;
+  font-weight:500;
+}
+
+.Veda-input button:hover{
+  background:#1d4ed8;
+}
+
+/* ANIMATION */
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(10px)}
+  to{opacity:1; transform:translateY(0)}
+}
+
+.Veda-question-list{
+  margin-top:10px;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+.Veda-question{
+  padding:9px 12px;
+  border-radius:14px;
+  background:#eaf2ff;
+  cursor:pointer;
+  font-size:13px;
+}
+
+.Veda-question:hover{
+  background:#2563eb;
+  color:white;
+}
+
+.Veda-question.support{
+  background:#ffe6e6;
+  color:#d62828;
+  font-weight:600;
+  border:1px solid #ffb3b3;
+}
+
+.Veda-question.support:hover{
+  background:#d62828;
+  color:white;
+}

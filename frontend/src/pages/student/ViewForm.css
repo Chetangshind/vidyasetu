@@ -1,0 +1,902 @@
+/* =========================================================
+   HEADER SHAPE: UPDATED & ENLARGED PROFILE PREVIEW
+========================================================= */
+
+.msbte-container {
+  position: relative;
+  padding: 40px 22px 24px;
+  padding-top: 205px;            /* ⬅️ increased to match bigger header */
+  background: #ffffff;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.12);
+  border: 1px solid #d7e3ff;
+  overflow: hidden;
+}
+
+/* =========================================================
+   BLUE HEADER SHAPE (TALLER & SMOOTHER)
+========================================================= */
+.msbte-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 165px;                /* ⬅️ BIGGER SHAPE */
+  width: 100%;
+  background: #0b4fae;
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 62%,
+    52% 62%,
+    46% 100%,
+    0 100%
+  );
+  z-index: 1;
+}
+
+/* =========================================================
+   PROFILE PREVIEW TITLE
+========================================================= */
+.msbte-title {
+  position: absolute;
+  top: 55px;                    /* ⬅️ vertically centered */
+  left: 30px;
+  z-index: 3;
+  margin: 0;
+  font-size: 34px;              /* optional but recommended */
+  font-weight: 700;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* =========================================================
+   LOGO BADGE – MSBTE V-CUT SHAPE (EMBEDDED)
+========================================================= */
+.msbte-logo-badge {
+  position: absolute;
+  top:-1px;                    /* ⬅️ embedded into blue bar */
+  right: 80px;
+  width: 96px;
+  height: 100px;
+  background: #ffffff url("/src/assets/logo.png") no-repeat center;
+  background-size: 100%;
+  z-index: 5;
+
+clip-path: polygon(
+  1% 0%,   /* ⬅️ straight top-left */
+  100% 0%,   /* ⬅️ straight top-right */
+  100% 18%,
+  100% 82%,
+  50% 100%,
+  0% 82%,
+  0% 18%
+);
+
+
+  box-shadow: 0 6px 16px rgba(0,0,0,0.18);
+}
+
+/* =========================================================
+   DATE (CLEARLY IN WHITE AREA)
+========================================================= */
+.msbte-date-display {
+  position: absolute;
+  top: 115px;                   /* ⬅️ moved down */
+  right: 60px;
+  z-index: 3;
+  font-weight: 800;
+  color: #0b4fae;
+  font-size: 19px;
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   BASE RESET
+========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: #ffffff;
+  font-family: Arial, sans-serif;
+}
+
+/* =========================================================
+   PAGE WRAPPER (A4-LIKE CARD)
+========================================================= */
+
+.msbte-page {
+  max-width: 900px;
+  margin: 20px auto;
+  background: #f3f6fb;
+  padding: 18px;
+}
+
+/* =========================================================
+   SECTION TITLES & BOXES
+========================================================= */
+
+.msbte-section-title {
+  margin-top: 22px;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: #0b4fae;
+  color: #ffffff;
+  padding: 6px 10px;
+  border-radius: 4px 4px 0 0;
+}
+
+.msbte-box {
+  border: 1px solid #d7e3ff;
+  padding: 10px 14px;
+  margin-top: 0;
+  background: #ffffff;
+  border-radius: 0 0 4px 4px;
+}
+
+/* =========================================================
+   ROW LAYOUT
+========================================================= */
+
+.msbte-row {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  padding: 4px 0;
+  border-bottom: 1px dotted #d0d7e2;
+  font-size: 13px;
+}
+
+.msbte-row:last-child {
+  border-bottom: none;
+}
+
+.msbte-row span {
+  color: #0f3f79;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.msbte-row strong {
+  font-size: 13px;
+  font-weight: 500;
+  color: #111827;
+}
+
+/* =========================================================
+   ACTION BUTTONS (BOTTOM BAR)
+========================================================= */
+
+.action-btn-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+
+  height: 120px;              /* fixed height section */
+  background: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+}
+
+.action-btn {
+  min-width: 180px;
+  padding: 12px 22px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+}
+
+.btn-print {
+  background: #ffffff;
+  color: #1e40af;
+  border: 1px solid #c7d2fe;
+}
+
+.btn-print:hover {
+  background: #c1cbf2;
+  transform: translateY(-1px);
+}
+
+.action-btn-row .btn-submit {
+  background: #22c55e !important;
+  color: #ffffff !important;
+}
+
+.action-btn-row .btn-submit:hover {
+  background: #16a34a !important;
+  transform: translateY(-1px);
+}
+
+
+.action-btn:disabled {
+  background: #cbd5e1;
+  color: #64748b;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* =========================================================
+   VIEW / DOC BUTTONS
+========================================================= */
+
+.msbte-actions {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.primary-btn {
+  background: #f04d3b;
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+.primary-btn:hover {
+  background: #d71111;
+}
+
+.secondary-btn {
+  background: #2d7ff0;
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 4px;
+  margin-bottom: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: 0.2s ease;
+}
+
+.secondary-btn:hover {
+  background: #185ec2;
+}
+
+.view-doc-btn {
+  background: #1e73e8;
+  color: white;
+  padding: 4px 12px;
+  height: 34px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: 0.2s ease;
+}
+
+.view-doc-btn:hover {
+  background: #185ec2;
+}
+
+.view-icon {
+  font-size: 12px;
+  margin-top: 1px;
+}
+
+/* =========================================================
+   DOCUMENT DROPDOWN & TABLE
+========================================================= */
+
+.docs-box {
+  margin-top: 12px;
+  display: none;
+}
+
+.docs-box.active {
+  display: block;
+}
+
+.msbte-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.msbte-table th,
+.msbte-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  font-size: 14px;
+}
+
+.msbte-table th {
+  background: #e0ebff;
+  font-weight: 600;
+  color: #0b4fae;
+}
+
+.file-note {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+/* =========================================================
+   POPUP OVERLAYS – PREMIUM VERSION
+========================================================= */
+
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeIn 0.25s ease;
+}
+
+.popup-box {
+  background: #ffffff;
+  width: 500px;
+  max-width: 94%;
+  border-radius: 18px;
+  padding: 40px 42px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  animation: scaleIn 0.25s ease;
+}
+
+/* ===== TITLE ===== */
+
+.popup-box h3 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+  color: #1e293b;
+  position: relative;
+}
+
+.popup-box h3::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: #2563eb;
+  margin: 12px auto 0;
+  border-radius: 4px;
+}
+
+/* ===== DESCRIPTION ===== */
+
+.popup-box p {
+  margin-top: 22px;
+  font-size: 15px;
+  line-height: 1.75;
+  color: #475569;
+}
+
+/* ===== DECLARATION CHECKBOX ===== */
+
+.declaration-box {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 32px;
+  text-align: left;
+  justify-content: center;
+}
+
+.declaration-box input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: #22c55e;
+}
+
+.declaration-box label {
+  font-size: 15px;
+  color: #1f2937;
+  cursor: pointer;
+}
+
+/* ===== BUTTON ROW ===== */
+
+.popup-actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 36px;
+}
+
+.popup-actions .vf-btn-reset,
+.popup-actions .vf-btn-save {
+  flex: 1;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* ===== SUCCESS STYLE ===== */
+
+/* TITLE */
+
+.popup-box.success h3 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #0f172a;
+  margin-bottom: 12px;
+}
+
+.popup-box.success h3::after {
+  background: #2563eb;   /* ✅ FORCE BLUE */
+}
+
+
+/* ===== ANIMATIONS ===== */
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* =========================================================
+   PRINT STYLES
+========================================================= */
+
+@media print {
+  @page {
+    size: A4;
+    margin: 12mm;
+  }
+
+  html,
+  body {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    overflow: visible !important;
+    background: #ffffff !important;
+    font-size: 12px;
+  }
+
+  .msbte-page {
+    background: #ffffff;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+  }
+
+  .msbte-section-title {
+    background: #e9f3ff;
+    padding: 6px 10px;
+    margin-top: 18px;
+    border-left: 4px solid #007bff;
+    font-size: 14px;
+    color: #003366;
+    page-break-after: avoid;
+    border-radius: 0;
+  }
+
+  .msbte-box {
+    border: 1px solid #cfd8e3;
+    padding: 10px;
+    margin-bottom: 10px;
+    page-break-inside: avoid;
+    border-radius: 0;
+  }
+
+  .msbte-row {
+    display: grid !important;
+    grid-template-columns: 45% 55%;
+    border-bottom: 1px dashed #ddd;
+    padding: 4px 0;
+    font-size: 12px;
+  }
+
+  .msbte-row span {
+    color: #333 !important;
+    font-weight: 600;
+  }
+
+  .msbte-row strong {
+    font-weight: 500;
+    color: #000;
+  }
+
+  .msbte-table {
+    width: 100%;
+    page-break-inside: auto;
+  }
+
+  .msbte-table th {
+    background: #f1f5f9 !important;
+    color: #000;
+  }
+
+  .msbte-table th,
+  .msbte-table td {
+    border: 1px solid #cfd8e3;
+    font-size: 12px;
+    padding: 6px;
+  }
+
+  tr {
+    page-break-inside: avoid;
+    page-break-after: auto;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+
+  .docs-box {
+    display: block !important;
+  }
+
+  .action-btn-row,
+  .secondary-btn,
+  header,
+  footer,
+  nav,
+  .navbar,
+  .sidebar,
+  .popup-overlay {
+    display: none !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+
+.submit-btn:disabled {
+  background: #cbd5e1 !important;
+  color: #64748b !important;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.vf-btn-reset {
+  background: #ef4444;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.vf-btn-reset:hover {
+  background: #dc2626;
+}
+
+.vf-btn-save {
+  background: #22c55e;  /* light green */
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.vf-btn-save:hover:not(:disabled) {
+  background: #16a34a;  /* dark green hover */
+}
+
+.vf-btn-save:disabled {
+  background: #cbd5e1 !important;
+  color: #64748b !important;
+  cursor: not-allowed;
+}
+
+/* ================= SUCCESS POPUP PROFESSIONAL ================= */
+
+.popup-box.success {
+  position: relative;
+  padding: 55px 40px 45px;
+  text-align: center;
+}
+
+/* CLOSE BUTTON */
+
+.popup-close {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  background: transparent;
+  border: none;
+  font-size: 22px;
+  font-weight: 600;
+  color: #94a3b8;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.popup-close:hover {
+  color: #ef4444;
+  transform: scale(1.1);
+}
+
+/* SUCCESS ICON */
+
+.success-icon {
+  width: 65px;
+  height: 65px;
+  margin: 0 auto 22px;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: bold;
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.35);
+}
+
+/* TEXT */
+
+.popup-box.success p {
+  margin-top: 16px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #475569;
+}
+
+/* BUTTON FULL WIDTH */
+
+.popup-box.success .vf-btn-save {
+  margin-top: 28px;
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: white;
+  border: none;
+  transition: 0.3s ease;
+}
+
+.popup-box.success .vf-btn-save:hover {
+  background: linear-gradient(135deg, #1e40af, #1d4ed8);
+  transform: translateY(-2px);
+}
+
+/* ================= SUCCESS POPUP PROFESSIONAL ================= */
+
+.popup-box.success {
+  position: relative;
+  padding: 60px 44px 48px;
+  text-align: center;
+}
+
+/* CLOSE BUTTON */
+
+.popup-close {
+  position: absolute;
+  top: 18px;
+  right: 24px;
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  font-weight: 600;
+  color: #cbd5e1;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup-close:hover {
+  color: #ef4444;
+  transform: rotate(90deg);
+  background: #fef2f2;
+  border-radius: 50%;
+}
+
+/* SUCCESS ICON */
+
+.success-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 28px;
+  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  font-weight: bold;
+  box-shadow: 0 15px 40px rgba(34, 197, 94, 0.3);
+  animation: successPulse 0.6s ease;
+}
+
+@keyframes successPulse {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* TITLE */
+
+.popup-box.success h3 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+
+.popup-box.success h3::after {
+  content: "";
+  display: block;
+  width: 70px;
+  height: 4px;
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  margin: 16px auto 0;
+  border-radius: 2px;
+}
+
+/* DESCRIPTION */
+
+.popup-box.success p {
+  margin-top: 18px;
+  font-size: 15px;
+  line-height: 1.8;
+  color: #4b5563;
+  letter-spacing: 0.3px;
+}
+
+/* BUTTON FULL WIDTH */
+
+.popup-box.success .vf-btn-save {
+  margin-top: 32px;
+  width: 100%;
+  height: 52px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+  color: white;
+  border: none;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+}
+
+.popup-box.success .vf-btn-save:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(34, 197, 94, 0.35);
+}
+
+/* =========================
+   MOBILE RESPONSIVE (ONLY)
+========================= */
+@media (max-width:768px){
+
+  .msbte-page{
+    margin:0;
+    padding:10px;
+  }
+
+  .msbte-container{
+    padding:20px 14px 16px;
+    padding-top:150px; /* adjust header spacing */
+  }
+
+  /* Header title */
+  .msbte-title{
+    font-size:22px;
+    top:40px;
+    left:16px;
+  }
+
+  /* Logo badge */
+  .msbte-logo-badge{
+    right:16px;
+    width:70px;
+    height:74px;
+  }
+
+  /* Date text */
+  .msbte-date-display{
+    top:95px;
+    right:16px;
+    font-size:14px;
+  }
+
+  /* Section titles */
+  .msbte-section-title{
+    font-size:13px;
+    padding:6px 8px;
+  }
+
+  .msbte-row span{
+    font-size:12px;
+  }
+
+  .msbte-row strong{
+    font-size:13px;
+  }
+
+  /* Document table scroll */
+  .msbte-table{
+    min-width:600px;
+  }
+
+  .docs-box{
+    overflow-x:auto;
+  }
+
+  /* Buttons */
+  .action-btn-row{
+    flex-direction:column;
+    height:auto;
+    padding:20px 0;
+    gap:14px;
+  }
+
+  .action-btn{
+    width:90%;
+    min-width:auto;
+  }
+
+}
+
+@media (max-width:768px){
+
+ .msbte-row{
+  display:grid;
+  grid-template-columns:140px 1fr;
+  align-items:start;
+  gap:10px;
+  padding:8px 0;
+}
+
+.msbte-row span{
+  font-size:12px;
+  font-weight:600;
+  white-space:nowrap;
+}
+
+.msbte-row strong{
+  font-size:13px;
+  word-break:break-word;
+  text-align:left;
+}
+
+}

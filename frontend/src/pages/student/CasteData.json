@@ -1,0 +1,302 @@
+{
+  "General": {
+    "Brahmin": [
+      "Deshastha Brahmin",
+      "Chitpavan Brahmin",
+      "Karhade Brahmin",
+      "Saraswat Brahmin",
+      "Smartha Brahmin",
+      "Iyer",
+      "Iyengar"
+    ],
+    "Maratha": [
+      "Kunbi Maratha",
+      "96 Kuli Maratha",
+      "Deshmukh Maratha",
+      "Patil Maratha",
+      "Pawar Maratha",
+      "More Maratha"
+    ],
+    "Kshatriya": [
+      "Rajput",
+      "Somvanshi",
+      "Suryavanshi",
+      "Bhonsle"
+    ],
+    "Vaishya": [
+      "Jain Vaishya",
+      "Agarwal",
+      "Gupta",
+      "Bania",
+      "Merchants"
+    ],
+    "Kayastha": [
+      "Kayastha Subcaste 1",
+      "Kayastha Subcaste 2"
+    ],
+    "Sindhi": [
+      "Amil",
+      "Bhaiband",
+      "Khatri"
+    ]
+  },
+
+  "OBC": {
+    "Teli": [
+      "Sahu",
+      "Tilwan",
+      "Soni Teli"
+    ],
+    "Sutar": [
+      "Badhai",
+      "Panchal"
+    ],
+    "Lohar": [
+      "Panchal",
+      "Khasgar",
+      "Lohar Subcaste"
+    ],
+    "Bhandari": [
+      "Pachkalshi",
+      "Gabit"
+    ],
+    "Nhavi": [
+      "Hajjam",
+      "Kshurak"
+    ],
+    "Mali": [
+      "Phoolmali",
+      "Halumali",
+      "Mali Subcaste"
+    ],
+    "Koli": [
+      "Mahadev Koli",
+      "Dongar Koli",
+      "Mangela Koli",
+      "Son Koli",
+      "Matang Koli"
+    ],
+    "Dhangar": [
+      "Hatkar",
+      "Ahir",
+      "Gavli",
+      "Koli Dhangar"
+    ],
+    "Agri": [
+      "Agri Subcaste 1",
+      "Agri Subcaste 2"
+    ],
+    "Kumbhar": [
+      "Prajapati",
+      "Kumbhar Subcaste"
+    ],
+    "Sonar": [
+      "Sonar Subcaste 1",
+      "Sonar Subcaste 2"
+    ],
+    "Vishwakarma": [
+      "Kasar",
+      "Gurav",
+      "Kanchanakar"
+    ]
+  },
+
+  "SBC": {
+    "Lingayat": [
+      "Banajiga",
+      "Panchamashali",
+      "Lingayat Subcaste"
+    ],
+    "Gosavi": [
+      "Gosavi Subcaste 1",
+      "Gosavi Subcaste 2"
+    ],
+    "Maratha-SBC": [
+      "Kunbi SBC",
+      "SBC Maratha"
+    ],
+    "Kshatriya-SBC": [
+      "Kshatriya SBC 1"
+    ]
+  },
+
+  "VJNT-A": {
+    "Gondhali": [
+      "Gondhali Subcaste 1",
+      "Gondhali Subcaste 2"
+    ],
+    "Gopal": [
+      "Gopal Subcaste 1",
+      "Gopal Subcaste 2"
+    ],
+    "Bhil": [
+      "Pawar Bhil",
+      "Kotwal Bhil",
+      "Bhil Subcaste 3"
+    ],
+    "Kolam": [
+      "Kolam Subcaste"
+    ]
+  },
+
+  "VJNT-B": {
+    "Dhangar NT": [
+      "Ahir Dhangar",
+      "Hatkar Dhangar"
+    ],
+    "Nayak": [
+      "Nayak Subcaste 1",
+      "Nayak Subcaste 2"
+    ],
+    "Koli NT": [
+      "Koli NT Sub1",
+      "Koli NT Sub2"
+    ]
+  },
+
+  "VJNT-C": {
+    "Kasar": [
+      "Tambat Kasar",
+      "Panchal Kasar",
+      "Kasar Subcaste X"
+    ],
+    "Mathura": [
+      "Mathura Subcaste 1",
+      "Mathura Subcaste 2"
+    ],
+    "Chamar VJNT": [
+      "Chamar Sub1",
+      "Chamar Sub2"
+    ]
+  },
+
+  "VJNT-D": {
+    "Shimpi": [
+      "Namdev Shimpi",
+      "Chambhar Shimpi",
+      "Shimpi Subcaste"
+    ],
+    "Tamboli": [
+      "Tamboli Subcaste"
+    ],
+    "Chamber": [
+      "Chamber Sub1"
+    ]
+  },
+
+  "SC": {
+    "Mahar": [
+      "Dikshitar Mahar",
+      "Chambhar Mahar",
+      "Mahar Subcaste A"
+    ],
+    "Matang": [
+      "Potraj",
+      "Dombari",
+      "Matang Sub2"
+    ],
+    "Chambhar": [
+      "Chambhar Subcaste 1",
+      "Chambhar Subcaste 2"
+    ],
+    "Bhangi": [
+      "Bhangi Sub1",
+      "Bhangi Sub2"
+    ],
+    "Mhar/ Mhant": [
+      "Mhar Sub1"
+    ]
+  },
+
+  "ST": {
+    "Warli": [
+      "Varli",
+      "Varlikar",
+      "Warli Sub1"
+    ],
+    "Thakar": [
+      "Kathkar",
+      "Thakar Subcaste"
+    ],
+    "Gond": [
+      "Rajgond",
+      "Koyt",
+      "Gond Sub3"
+    ],
+    "Korku": [
+      "Korku Sub1",
+      "Korku Sub2"
+    ],
+    "Bhilla": [
+      "Bhilla Sub1"
+    ]
+  },
+
+  "Other Backward Classes (Central list)": {
+    "Kurmi": [
+      "Kurmi Sub1",
+      "Kurmi Sub2"
+    ],
+    "Yadav": [
+      "Gawala",
+      "Ahir Yadav",
+      "Yadav Sub3"
+    ],
+    "Kahar": [
+      "Kahar Sub1"
+    ]
+  },
+
+  "Religious Minorities": {
+    "Muslim": [
+      "Sunni",
+      "Shia",
+      "Bohra",
+      "Khoja",
+      "Aga Khan"
+    ],
+    "Christian": [
+      "Roman Catholic",
+      "Protestant",
+      "Syro-Malabar"
+    ],
+    "Buddhist": [
+      "Navayana",
+      "Theravada"
+    ]
+  },
+
+  "Region-specific": {
+    "Konkan": [
+      "Agri",
+      "Koli",
+      "Bhandari"
+    ],
+    "Vidarbha": [
+      "Kunbi",
+      "Teli",
+      "Gond"
+    ],
+    "Marathwada": [
+      "Mahar",
+      "Lambadi",
+      "Chambhar"
+    ]
+  },
+
+  "Small Communities": {
+    "Lambadi / Banjara": [
+      "Lambadi Sub1",
+      "Lambadi Sub2"
+    ],
+    "Parit / Paritkar": [
+      "Parit Sub1"
+    ],
+    "Dombari": [
+      "Dombari Sub1"
+    ],
+    "Kutchi": [
+      "Kutchi Sub1"
+    ]
+  }
+}

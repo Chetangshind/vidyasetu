@@ -1,0 +1,453 @@
+/* ----------------------------------------
+   PAGE HEADER
+----------------------------------------- */
+.page-header h2 {
+  font-size: 30px;
+  font-weight: 700;
+  color: #003d67;
+  margin-bottom: 4px;
+  margin-left: 20px;
+  display: inline-block;
+}
+
+.page-header-underline {
+    width: 325px;
+  height: 3px;
+  background: #0163a8;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  margin-left: 20px;
+}
+
+
+/* ----------------------------------------
+   TABS
+----------------------------------------- */
+.tabs-row {
+  display: flex;
+  background: #e9f1fb;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.tab-item {
+  flex: 1;
+  text-align: center;
+  padding: 14px 20px;
+  font-size: 15.5px;
+  font-weight: 600;
+  cursor: pointer;
+  background: #e9f1fb;
+  color: #024281ff;
+  border-right: 1px solid #d2dcec;
+  transition: 0.25s ease;
+}
+
+.tab-item:last-child {
+  border-right: none;
+}
+
+.tab-item:hover {
+  background: #d7e6fa;
+}
+
+.tab-item.active {
+  background: #035ac8;
+  color: #ffffff;
+}
+
+/* ----------------------------------------
+   ACTION BAR
+----------------------------------------- */
+.action-bar {
+  margin-top: 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.search-input {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  background: #f5f9ff;
+  border: 1.5px solid #d7e3f4;
+  padding: 10px 14px;
+  border-radius: 10px;
+  gap: 10px;
+  transition: 0.25s;
+}
+
+.search-input:hover {
+  border-color: #99c2ff;
+  box-shadow: 0 0 6px rgba(0, 68, 255, 0.15);
+}
+
+.search-input input {
+  border: none;
+  outline: none;
+  background: transparent;
+  width: 100%;
+  font-size: 15px;
+}
+
+.btn {
+  padding: 8px 14px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.25s ease;
+  font-size: 14.8px;
+}
+
+.btn.primary {
+  background: #005bbb;
+  color: white;
+}
+
+.btn.primary:hover {
+  background: #004b97;
+  transform: translateY(-1px);
+}
+
+.btn.secondary {
+  background: #f0f6ff;
+  color: #024281ff;
+  border: 1px solid #c8d9f0;
+}
+
+.btn.secondary:hover {
+  background: #e2eeff;
+  border-color: #99c2ff;
+}
+
+/* ----------------------------------------
+   CONTENT CONTAINER
+----------------------------------------- */
+.content-box {
+  margin-top: 18px;
+  background: #ffffff;
+  border: 1px solid #dfe7f2;
+  padding: 22px;
+  border-radius: 14px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.04);
+  transition: 0.3s ease;
+}
+
+/* ----------------------------------------
+   TABLE
+----------------------------------------- */
+.scheme-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  font-size: 15px;
+}
+
+.scheme-table th {
+  background: #e9f1fb;
+  padding: 14px 12px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #024281ff;
+  border-bottom: 2px solid #d4e0ef;
+  text-align: left;
+}
+
+.scheme-table td {
+  padding: 14px 12px;
+  border-bottom: 1px solid #edf1f7;
+  vertical-align: top;
+  line-height: 1.45;
+}
+
+.scheme-table tr:hover {
+  background: #f7fbff;
+  transition: 0.25s;
+}
+
+/* ----------------------------------------
+   LINKS
+----------------------------------------- */
+.link,
+.table-link {
+  color: #005bbb;
+  cursor: pointer;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.table-link:hover {
+  color: #003f99;
+}
+
+/* ----------------------------------------
+   STATUS PILL
+----------------------------------------- */
+.status-pill {
+  background: #d9f7e8;
+  color: #17884b;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  display: inline-block;
+  width: fit-content;
+}
+
+/* ----------------------------------------
+   CANCEL BUTTON
+----------------------------------------- */
+.cancel-btn {
+  background: #e74c3c;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.cancel-btn:hover {
+  background: #c0392b;
+  transform: scale(1.05);
+}
+
+/* ----------------------------------------
+   EMPTY STATE
+----------------------------------------- */
+.empty-msg {
+  text-align: center;
+  color: #024281ff;
+  padding: 16px;
+  font-weight: 500;
+}
+
+.empty-section {
+  text-align: center;
+  padding: 40px 0;
+  color: #024281ff;
+}
+
+.empty-img {
+  width: 110px;
+  margin-bottom: 10px;
+  opacity: 0.85;
+}
+
+/* ----------------------------------------
+   MODAL
+----------------------------------------- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(3px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3000;
+}
+
+.modal-box {
+  width: 60%;
+  max-height: 80vh;
+  overflow-y: auto;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-header {
+  padding: 14px 20px;
+  background: #024281ff;
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-header button {
+  background: white;
+  border: none;
+  padding: 4px 8px;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.modal-content {
+  padding: 20px;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ------------------------------------------------
+   📱 MOBILE RESPONSIVE DESIGN (DO NOT TOUCH DESKTOP)
+-------------------------------------------------- */
+@media (max-width: 768px) {
+
+  /* Page Header */
+  .page-header h2 {
+    font-size: 20px;
+    margin-left: 6px;
+  }
+
+  .page-header-underline {
+    width: 220px;
+    margin-left: 6px;
+  }
+
+  /* Tabs */
+  .tabs-row {
+    border-radius: 8px;
+  }
+
+  .tab-item {
+    padding: 10px 6px;
+    font-size: 13px;
+  }
+
+  /* Search + Filter Row */
+  .action-bar {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .search-input {
+    width: 100%;
+    padding: 8px 12px;
+  }
+
+  .search-input input {
+    font-size: 14px;
+  }
+
+  .btn {
+    font-size: 13px;
+    padding: 7px 10px;
+  }
+
+  /* Content Box */
+  .content-box {
+    padding: 16px;
+    border-radius: 10px;
+  }
+
+  /* TABLE → scrollable on mobile */
+  .scheme-table {
+    width: 700px; /* keeps table readable */
+    font-size: 13px;
+  }
+
+  .scheme-table th,
+  .scheme-table td {
+    padding: 10px 8px;
+    font-size: 13px;
+  }
+
+  /* Table container */
+  .table-wrapper {
+    overflow-x: auto;
+    width: 100%;
+  }
+
+  /* Links */
+  .table-link {
+    font-size: 13px;
+  }
+
+  /* Status Pill */
+  .status-pill {
+    font-size: 11px;
+    padding: 4px 8px;
+    border-radius: 6px;
+  }
+
+  /* Cancel button */
+  .cancel-btn {
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+
+  /* Empty state */
+  .empty-img {
+    width: 80px;
+  }
+
+  .empty-section {
+    padding: 20px;
+    font-size: 14px;
+  }
+
+  /* Modal */
+  .modal-box {
+    width: 92%;
+    max-height: 85vh;
+  }
+
+  .modal-header {
+    font-size: 15px;
+    padding: 10px 14px;
+  }
+
+  .modal-content {
+    font-size: 14px;
+    padding: 14px;
+  }
+}
+
+/* Section spacing */
+.section {
+  margin-bottom: 20px;
+}
+
+.section-title {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #444;
+}
+
+/* Horizontal radio row */
+.radio-row {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+/* Individual label */
+.radio-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* Modern radio style */
+.radio-label input[type="radio"] {
+  accent-color: #1e5ae9;
+  transform: scale(1.15);
+}
+

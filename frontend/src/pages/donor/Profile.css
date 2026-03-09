@@ -1,0 +1,1649 @@
+/* ---------- PAGE WRAPPER ---------- */
+.profile-page {
+  padding-top: 30px;
+  padding-left: 30px;
+  background: #f5f8fb;
+  min-height: 100vh;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+/* Reuse .scheme-title from your existing CSS:
+   font-size: 26px; font-weight: 700; color: #003d67;
+   border-bottom: 3px solid #0163a8; etc.
+*/
+
+/* ---------- MAIN CONTAINER ---------- */
+.profile-container {
+  background: #ffffff;
+  padding: 26px 28px 30px;
+  border-radius: 14px;
+  width: 1160px;
+  margin: 12px 0 20px 0;
+  border: 1px solid #e3e9f1;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+/* ---------- TOP GRID: SUMMARY + QUICK EDIT ---------- */
+.profile-top-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 20px;
+  margin-bottom: 22px;
+}
+
+/* Shared card look */
+.profile-card {
+  background: #f9fcff;
+  border-radius: 12px;
+  border: 1px solid #dde7f1;
+  padding: 18px 20px 20px;
+  transition: 0.2s ease;
+}
+
+/* subtle hover animation on cards */
+.profile-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06);
+}
+
+/* ---------- SUMMARY CARD ---------- */
+/* Keep avatar centered */
+.profile-summary-card {
+  align-items: center;
+}
+
+.profile-name,
+.profile-tagline,
+.help-box,
+.profile-summary-row {
+  align-self: flex-start; /* ensures left alignment of text area */
+  margin-left: 8px;
+}
+
+.profile-avatar {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #e6e6e6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  position: relative;
+  border: 4px solid #fff;
+  outline: 3px solid #0b73d9;
+}
+
+.profile-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Fixes stretching */
+}
+
+.profile-name {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+  color: #053b63;
+}
+
+.profile-tagline {
+  margin: 2px 0 12px;
+  color: #6f8092;
+  font-size: 14px;
+}
+
+.profile-summary-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: #29445e;
+  margin-bottom: 6px;
+}
+
+.profile-summary-row svg {
+  font-size: 16px;
+  color: #0a64bc;
+}
+
+.profile-pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.profile-pill {
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(10, 100, 188, 0.08);
+  color: #0a64bc;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.profile-pill-soft {
+  background: rgba(3, 126, 191, 0.06);
+  color: #2f4f65;
+}
+
+/* ---------- QUICK EDIT FORM ---------- */
+.profile-quick-edit {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.profile-section-header h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #053b63;
+  font-weight: 700;
+}
+
+.profile-section-sub {
+  font-size: 13px;
+  color: #7a8da3;
+}
+
+.profile-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px 18px;
+}
+
+.profile-quick-edit label {
+  font-weight: 600;
+  color: #004c7a;
+  margin-bottom: 4px;
+  display: block;
+}
+
+/* Icon inside input */
+.input-with-icon {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #f9fcff;
+  border-radius: 10px;
+  border: 1.5px solid #c7d5e6;
+  padding: 0 10px;
+  transition: 0.18s ease;
+}
+
+.input-with-icon svg {
+  font-size: 17px;
+  color: #7a8da3;
+}
+
+.input-with-icon input {
+  border: none;
+  outline: none;
+  background: transparent;
+  flex: 1;
+  padding: 10px 2px;
+  font-size: 14px;
+}
+
+.input-with-icon:focus-within {
+  border-color: #0080ca;
+  box-shadow: 0 0 6px rgba(0, 128, 202, 0.35);
+}
+
+/* Save button */
+.profile-save-btn {
+  align-self: flex-end;
+  margin-top: 6px;
+  padding: 10px 22px;
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(135deg, #0163a8, #0489d8);
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+  box-shadow: 0 8px 18px rgba(1, 99, 168, 0.25);
+}
+
+.profile-save-btn:hover {
+  background: linear-gradient(135deg, #004d83, #026fa3);
+  transform: translateY(-1px);
+}
+
+/* ---------- BOTTOM GRID (DETAIL CARDS) ---------- */
+.profile-bottom-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.profile-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.profile-card-header h3 {
+  margin: 0;
+  font-size: 17px;
+  color: #053b63;
+}
+
+.profile-card-header span {
+  font-size: 12px;
+  color: #7e8ea3;
+}
+
+.profile-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 999px;
+  border: 1px solid rgba(1, 99, 168, 0.32);
+  background: #ffffff;
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #0163a8;
+  cursor: pointer;
+  transition: 0.18s ease;
+}
+
+.profile-icon-btn svg {
+  font-size: 15px;
+}
+
+.profile-icon-btn:hover {
+  background: #0163a8;
+  color: #ffffff;
+}
+
+/* info rows inside cards */
+.profile-details-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.profile-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #7d8ca1;
+}
+
+.profile-details-grid p {
+  margin: 0;
+  font-size: 14px;
+  color: #163852;
+  font-weight: 500;
+}
+
+/* ---------- MODAL ---------- */
+.profile-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(4, 33, 54, 0.42);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.profile-modal {
+  background: #ffffff;
+  width: 520px;
+  max-width: 95%;
+  border-radius: 14px;
+  padding: 18px 20px 18px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+  animation: profile-modal-pop 0.2s ease-out;
+}
+
+@keyframes profile-modal-pop {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.profile-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.profile-modal-header h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #053b63;
+}
+
+.profile-modal-close {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 20px;
+  color: #7a8da3;
+}
+
+.profile-modal-close:hover {
+  color: #053b63;
+}
+
+.profile-modal-body label {
+  font-weight: 600;
+  color: #004c7a;
+  margin-bottom: 4px;
+  display: block;
+  font-size: 13px;
+}
+
+.profile-modal-body input,
+.profile-modal-body select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 9px;
+  border: 1.4px solid #c7d5e6;
+  background: #f9fcff;
+  font-size: 14px;
+  margin-bottom: 10px;
+  transition: 0.18s;
+}
+
+.profile-modal-body input:focus,
+.profile-modal-body select:focus {
+  border-color: #0080ca;
+  box-shadow: 0 0 5px rgba(0, 128, 202, 0.35);
+  outline: none;
+}
+
+.profile-modal-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 14px;
+}
+
+.profile-modal-footer {
+  margin-top: 8px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.profile-primary-btn,
+.profile-secondary-btn {
+  border-radius: 999px;
+  padding: 8px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: 0.18s;
+}
+
+.profile-primary-btn {
+  background: #0163a8;
+  color: #ffffff;
+}
+
+.profile-primary-btn:hover {
+  background: #004d83;
+}
+
+.profile-secondary-btn {
+  background: #edf2f7;
+  color: #274664;
+}
+
+.profile-secondary-btn:hover {
+  background: #d6e1ee;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 1200px) {
+  .profile-container {
+    width: 95%;
+  }
+}
+
+@media (max-width: 992px) {
+  .profile-page {
+    padding-left: 16px;
+    padding-right: 8px;
+  }
+
+  .profile-container {
+    width: 100%;
+    padding: 22px 18px;
+  }
+
+  .profile-top-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-bottom-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .profile-bottom-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-save-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-container {
+    padding: 18px 14px;
+  }
+
+  .profile-name {
+    font-size: 20px;
+  }
+
+  .profile-modal {
+    background: #ffffff;
+    width: 700px; /* ⬅ increased so 2-column fits correctly */
+    max-width: 95%;
+    border-radius: 14px;
+    padding: 18px 20px 28px;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+  }
+
+  .profile-modal-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.profile-photo {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.upload-btn {
+  background: #0a64bc;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  margin-top: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.help-box {
+  margin-top: 10px;
+  background: #e6f2ff;
+  padding: 7px 14px;
+  border-radius: 20px;
+  font-weight: bold;
+  color: #004a99;
+}
+
+/* MEDIA SECTION */
+.media-section {
+  margin-top: 35px;
+}
+.media-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 30px; /* 👈 moves button away from the corner */
+  padding-left: 10px;
+  margin-top: 15px;
+}
+.media-section {
+  margin-top: 35px;
+  padding: 15px 25px; /* 👈 adds spacing like upper cards */
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.media-btn {
+  background: #0163a8; /* 🔵 BLUE */
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.media-btn:hover {
+  background: #004c7a;
+}
+
+.media-grid p {
+  text-align: center;
+  font-size: 15px;
+  color: #545454;
+  margin-top: 10px;
+  white-space: nowrap; /* ⬅ stops wrapping */
+}
+
+.media-box {
+  width: 100%;
+  height: 140px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+/* MODAL */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #00000080;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+/* Make modal body 2-column */
+/* 2-column modal layout FIXED */
+.modal-body {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px 22px;
+  margin-top: 15px;
+}
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+/* Prevent modal from being transparent */
+
+/* Background blur behind modal (not modal itself) */
+.modal-backdrop {
+  background: rgba(0, 0, 0, 0.45); /* keep dark overlay */
+}
+
+/* each field keeps label + input together */
+.modal-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* input UI unchanged (same color & style) */
+.modal-field input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1.5px solid #c7d5e6;
+  background: #f9fcff;
+  font-size: 14px;
+}
+
+/* Save button spans full width across both columns */
+.save-modal-btn {
+  grid-column: span 2;
+  width: 100%;
+}
+
+/* Make SAVE button full width across 2 columns */
+.save-modal-btn {
+  grid-column: span 2;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-field input {
+  background: white;
+  border: 1.6px solid #b8cee6;
+  font-size: 14px;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.modal-field input:focus {
+  border-color: #0377c8;
+  box-shadow: 0 0 6px rgba(3, 119, 200, 0.4);
+}
+
+.save-modal-btn {
+  background: #0163a8;
+  font-size: 16px;
+  border-radius: 8px;
+  padding: 12px;
+  margin-top: 10px;
+}
+.modal-header h3 {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+/* HEADER & CLOSE BUTTON FIX */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+  padding-bottom: 5px;
+}
+
+/* FIXED Close Button */
+.modal-header button,
+.profile-modal-close {
+  background: #ff4b4b;
+  color: #fff;
+  border: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  line-height: 28px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.25s;
+  margin-top: -4px; /* ⬅ centered perfectly */
+  margin-right: -8px; /* ⬅ moves closer to top-right corner */
+}
+
+/* Hover animation clean */
+.modal-header button:hover {
+  background: #d60000;
+  transform: scale(1.14) rotate(90deg);
+  box-shadow: 0 4px 10px rgba(255, 0, 0, 0.35);
+}
+
+.modal-field {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.save-modal-btn {
+  background: #0a64bc;
+  color: #fff;
+  padding: 10px;
+  border-radius: 6px;
+  width: 100%;
+  cursor: pointer;
+}
+.profile-summary-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* ⬅ CENTER EVERYTHING */
+}
+
+.upload-btn {
+  background: #0163a8;
+  margin-top: 12px;
+  display: inline-block;
+  text-align: center;
+  width: auto;
+}
+.help-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #e7f3ff, #d5ecff);
+  font-weight: 700;
+  font-size: 14px;
+  color: #0057b7;
+  padding: 8px 16px;
+  border-radius: 40px;
+  width: max-content;
+  margin-top: 12px;
+  margin-left: 8px;
+  border: 1px solid #b9dbff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  transition: 0.2s;
+}
+.help-box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+}
+
+/* Modal box UI */
+.modal-box,
+.profile-modal-box {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 28px 30px;
+  width: 700px !important;
+  max-width: 92%;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.25);
+  animation: modalPop 0.28s ease-out;
+}
+
+/* Close (X) button -> Red & Hover effect */
+.modal-header button,
+.profile-modal-close {
+  background: #ff4b4b;
+  color: #fff;
+  border: none;
+  font-size: 16px;
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.modal-header button:hover,
+.profile-modal-close:hover {
+  background: #d60000;
+  transform: rotate(90deg) scale(1.05);
+}
+
+/* 2-column modal layout cleaner */
+.modal-body {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px 26px;
+  margin-top: 15px;
+}
+
+/* field focus UI polished */
+.modal-field input {
+  border: 1.7px solid #c8d8ee;
+  background: #f9fbff;
+  transition: 0.2s;
+}
+
+.modal-field input:focus {
+  border-color: #2f80ed;
+  box-shadow: 0 0 6px rgba(47, 128, 237, 0.35);
+}
+
+/* Save button improved */
+.save-modal-btn {
+  grid-column: span 2;
+  background: #0066cc;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  transition: 0.25s ease;
+  border: 2px solid transparent;
+}
+
+.save-modal-btn:hover {
+  background: #004fa3;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.18);
+}
+
+/* popup animation */
+@keyframes modalPop {
+  from {
+    opacity: 0;
+    transform: translateY(-12px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+/* Make Upload Media section same size as main profile container */
+.media-section {
+  width: 1160px; /* same as .profile-container */
+  margin: 25px auto 0; /* centers perfectly */
+  border-radius: 14px; /* same smooth curve */
+  padding: 20px 28px;
+  background: #ffffff;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e3e9f1;
+}
+
+/* Ensure the upper profile container is also centered */
+.profile-container {
+  margin: 12px auto 20px; /* center alignment to match below */
+}
+/* === Reduce Congestion & Add Breathing Space === */
+
+/* Increase space between upper + lower grid */
+.profile-bottom-grid {
+  gap: 28px; /* more room between cards */
+  margin-top: 25px;
+}
+
+/* Card internal spacing increased */
+.profile-card {
+  padding: 24px 26px; /* more comfortable layout */
+}
+
+/* Card Titles Bigger & More Bold */
+.profile-card-header h3 {
+  font-size: 20px; /* increased from 17px */
+  font-weight: 700;
+  color: #023a69;
+  letter-spacing: 0.3px;
+}
+
+/* Subtitle under profile picture spacing fix */
+.profile-summary-card h3 {
+  margin-top: 8px;
+  font-size: 24px; /* slightly bigger */
+}
+
+.profile-tagline {
+  margin-bottom: 14px;
+  font-size: 15px; /* improved readability */
+  color: #54738e;
+}
+
+/* Space between Quick-Edit form fields increased */
+.profile-grid-2 {
+  gap: 20px 26px;
+}
+
+/* Buttons spacing fix */
+.profile-save-btn {
+  margin-top: 14px;
+}
+
+/* Improve Summary Card Visual Weight */
+.profile-summary-row {
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+
+/* "Helped Student" badge bigger & clearer */
+.help-box {
+  font-size: 15px;
+  padding: 10px 20px;
+  margin-top: 14px;
+}
+
+/* Upload media box breathing space */
+.media-section {
+  padding: 30px 30px; /* not too tight */
+  margin-top: 40px;
+}
+/* =========================================================
+   GLASS EFFECT FOR ALL PROFILE CARDS
+   ========================================================= */
+/* ================================================
+   GLASS DESIGN WITHOUT CHANGING YOUR FONT STYLE
+   ================================================ */
+.profile-card,
+.media-section,
+.profile-summary-card,
+.profile-container {
+  background: rgba(255, 255, 255, 0.45); /* smooth glass */
+  backdrop-filter: blur(12px) saturate(140%);
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
+  border: 1.4px solid rgba(255, 255, 255, 0.28);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
+  transition: 0.35s ease;
+}
+
+/* Hover – clean depth (no font/size change) */
+.profile-card:hover,
+.media-section:hover,
+.profile-summary-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
+  border-color: rgba(255, 255, 255, 0.45);
+}
+
+/* Keep headings SAME FONT but slightly spaced for premium feel */
+.profile-card-header h3 {
+  font-size: 18px; /* SAME as before */
+  font-weight: 700; /* SAME as before */
+  color: #053b63;
+  margin-bottom: 3px;
+  letter-spacing: 0.3px;
+}
+
+/* Bottom card spacing (no text change) */
+.profile-bottom-grid {
+  gap: 26px;
+  margin-top: 28px;
+}
+
+/* Input fields also glass, same font */
+.input-with-icon,
+.modal-field input {
+  background: rgba(255, 255, 255, 0.55);
+  border: 1.5px solid rgba(200, 200, 200, 0.4);
+  backdrop-filter: blur(10px);
+}
+
+/* Focus effect — clean blue */
+.input-with-icon:focus-within,
+.modal-field input:focus {
+  border-color: #0a7ce0;
+  box-shadow: 0 0 8px rgba(0, 140, 255, 0.4);
+}
+
+/* Buttons unchanged — only floating effect */
+.profile-save-btn,
+.save-modal-btn {
+  box-shadow: 0 8px 22px rgba(0, 110, 200, 0.45);
+}
+
+.profile-save-btn:hover,
+.save-modal-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(0, 140, 255, 0.55);
+}
+/* FIX Quick Edit heading — color + proper spacing + align */
+.profile-section-header h2 {
+  font-size: 22px; /* bigger and clear */
+  font-weight: 700;
+  color: #053b63 !important; /* restore blue — force override */
+  margin: 0 0 6px 0; /* push it down properly */
+}
+
+/* Subtitle correction for alignment under title */
+.profile-section-header span {
+  font-size: 14px;
+  color: #6c8298;
+  margin-bottom: 16px;
+  display: block;
+}
+
+/* Add spacing inside Quick Edit card so nothing touches top */
+.profile-quick-edit {
+  padding-top: 12px;
+}
+
+/* Push inputs slightly downward for clean layout */
+.profile-grid-2 {
+  margin-top: 10px;
+}
+/* ==================== FIX DOCUMENT ROW LAYOUT ==================== */
+.document-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+/* Inputs equal sized & no overflow */
+.document-row input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #cfd9e5;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+/* Remove button on right and aligned properly */
+.document-remove-btn {
+  color: red;
+  font-size: 13px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.document-remove-btn:hover {
+  text-decoration: underline;
+}
+
+/* Title aligned properly */
+.modal-body h4 {
+  margin-top: 15px;
+  font-size: 16px;
+  font-weight: 600;
+}
+/*=========== FIX ADDITIONAL DOCUMENT ROW ===========*/
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Make rows proper aligned */
+/*========= FIX DOCUMENT ROW UI — COLORS UNCHANGED =========*/
+.document-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr auto;
+  gap: 10px;
+  align-items: center;
+  width: 100%;
+}
+
+.document-row input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1.4px solid #c7d5e6;
+  font-size: 14px;
+}
+
+.document-remove-btn {
+  color: #e60000;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* KEEP BUTTON STYLES SAME AS BEFORE */
+.save-modal-btn {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  border-radius: 8px;
+  font-size: 17px;
+  font-weight: 600;
+  border: none;
+  margin-top: 10px;
+  background: #004aad; /* ORIGINAL BLUE */
+  color: white;
+}
+
+.add-doc-btn {
+  width: 100%;
+  padding: 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 17px;
+  border: none;
+  margin: 10px 0;
+  background: #0a6eff; /* SAME OG BUTTON BLUE */
+  color: white;
+}
+
+/* Fix layout on mobile */
+@media (max-width: 600px) {
+  .document-row {
+    grid-template-columns: 1fr;
+  }
+}
+.modal-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px 25px; /* spacing between rows + columns */
+  margin-bottom: 22px;
+}
+
+.modal-grid-2 .modal-field {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-grid-2 input {
+  width: 100%;
+  height: 45px;
+  border-radius: 6px;
+  border: 1px solid #dce3eb;
+  padding: 10px;
+  outline: none;
+  font-size: 15px;
+}
+
+/* Mobile responsive */
+@media (max-width: 700px) {
+  .modal-grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
+.doc-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.doc-table th {
+  background: #eaf4ff;
+  padding: 10px;
+  text-align: left;
+  font-weight: 600;
+  border-radius: 6px 6px 0 0;
+}
+
+.doc-table td {
+  padding: 10px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.doc-table tr:hover {
+  background: #f6fbff;
+}
+.profile-quick-edit {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 260px; /* Adjust height if needed */
+}
+
+.quick-edit-footer {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.profile-save-btn {
+  padding: 12px 35px;
+  font-size: 15px;
+  background: #005bbb;
+  color: white;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.profile-save-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 5px 15px rgba(0, 102, 255, 0.4);
+}
+/* ========================= GLOBAL ========================= */
+.profile-page {
+  padding: 30px;
+  font-family: system-ui;
+  background: #f6f9ff;
+}
+
+.scheme-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #053b75;
+  margin-bottom: 20px;
+}
+
+/* CARD BASE STYLE */
+.profile-card {
+  background: white;
+  padding: 22px;
+  border-radius: 14px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  transition: 0.25s;
+}
+
+.profile-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.07);
+}
+
+/* ========================= TOP GRID ========================= */
+.profile-container {
+  margin-top: 15px;
+}
+
+.profile-top-grid {
+  display: grid;
+  grid-template-columns: 370px 1fr;
+  gap: 20px;
+}
+
+/* ========================= PROFILE LEFT CARD ========================= */
+.profile-avatar {
+  height: 110px;
+  width: 110px;
+  margin: auto;
+  border-radius: 50%;
+  background: #e8f1ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.upload-btn {
+  display: block;
+  margin: 10px auto;
+  padding: 6px 14px;
+  border-radius: 6px;
+  background: #0a66c2;
+  color: white;
+  font-size: 13px;
+  cursor: pointer;
+  text-align: center;
+  width: max-content;
+}
+
+.profile-name {
+  text-align: center;
+  font-size: 22px;
+  margin-top: 5px;
+}
+
+.profile-tagline {
+  text-align: center;
+  color: #4e6077;
+  margin-bottom: 10px;
+}
+
+.profile-summary-row {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin: 4px 0;
+}
+
+.help-box {
+  margin-top: 12px;
+  text-align: center;
+  background: #e2f4ff;
+  padding: 6px;
+  border-radius: 8px;
+}
+
+/* ========================= QUICK EDIT ========================= */
+.profile-quick-edit h2 {
+  color: #0b3b7e;
+  font-weight: 700;
+}
+
+.profile-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.input-with-icon {
+  border: 1px solid #d9e7ff;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+}
+
+.input-with-icon input {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 15px;
+}
+
+.profile-save-btn {
+  width: 100%;
+  margin-top: 28px;
+  background: #004fa3;
+  color: white;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 17px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 18px rgba(0, 123, 255, 0.35);
+}
+
+/* ========================= DETAILS GRID ========================= */
+.profile-bottom-grid {
+  margin-top: 25px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.profile-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profile-icon-btn {
+  border: 1px solid #0b4aa2;
+  color: #0b4aa2;
+  font-size: 14px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  background: white;
+}
+
+/* ========================= DOCUMENT TABLE ========================= */
+.doc-table {
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.doc-table th {
+  background: #e9f2ff;
+  padding: 10px;
+  font-size: 15px;
+  text-align: left;
+}
+
+.doc-table td {
+  padding: 8px 10px;
+  font-size: 14.5px;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+/* ========================= MODALS ========================= */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal-box {
+  width: 550px;
+  background: white;
+  padding: 25px;
+  border-radius: 14px;
+  max-height: 92vh;
+  overflow-y: auto;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+/* 2 column layout inside modal */
+.modal-grid-2 {
+  margin-top: 15px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.modal-field label {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.modal-field input {
+  width: 100%;
+  padding: 9px;
+  border-radius: 8px;
+  border: 1px solid #cfe0ff;
+  margin-top: 5px;
+}
+
+.save-modal-btn {
+  width: 100%;
+  margin-top: 20px;
+  background: #004fa3;
+  color: white;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 17px;
+  border: none;
+}
+
+/* ========================= MOBILE RESPONSIVE FIX ⭐======================= */
+
+/* BELOW 1100PX → 2 DETAILS CARDS PER ROW */
+@media (max-width: 1100px) {
+  .profile-bottom-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* BELOW 900PX → FULL STACK */
+@media (max-width: 900px) {
+  .profile-top-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-bottom-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-box {
+    width: 90%;
+  }
+}
+
+/* BELOW 600PX → inputs full width */
+@media (max-width: 600px) {
+  .profile-grid-2,
+  .modal-grid-2 {
+    grid-template-columns: 1fr; /* stack vertically */
+  }
+
+  .profile-save-btn {
+    font-size: 16px;
+    padding: 13px;
+  }
+
+  .modal-box {
+    width: 95% !important;
+  }
+}
+
+/* BELOW 450PX → text shrink smoothly */
+@media (max-width: 450px) {
+  .scheme-title {
+    font-size: 22px;
+  }
+  .profile-name {
+    font-size: 19px;
+  }
+  .profile-tagline {
+    font-size: 13px;
+  }
+
+  .doc-table td,
+  .doc-table th {
+    font-size: 12.5px;
+    padding: 6px;
+  }
+}
+/* ======== MOBILE / TABLET RESPONSIVE FIX ======== */
+
+/* Up to tablet: let cards stretch, stack nicely */
+@media (max-width: 992px) {
+  .profile-page {
+    padding: 16px 10px 32px;
+  }
+
+  /* Let these containers use full screen instead of 1160px */
+  .profile-container,
+  .media-section {
+    width: 100% !important;
+    margin: 12px 0 20px 0 !important;
+    border-radius: 0;
+  }
+
+  /* Stack summary + quick edit */
+  .profile-top-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px;
+  }
+
+  /* 2 cards per row max */
+  .profile-bottom-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 16px;
+  }
+
+  .profile-card {
+    padding: 18px 14px;
+  }
+}
+
+/* Small phones: single column everywhere */
+@media (max-width: 600px) {
+  .scheme-title {
+    font-size: 22px;
+    margin-left: 4px;
+  }
+
+  .profile-grid-2 {
+    grid-template-columns: 1fr !important;
+    gap: 12px;
+  }
+
+  .profile-bottom-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .profile-save-btn {
+    width: 100%;
+    font-size: 15px;
+    padding: 11px;
+  }
+
+  .modal-box {
+    width: 95% !important;
+    max-height: 90vh;
+  }
+
+  .doc-table th,
+  .doc-table td {
+    font-size: 12.5px;
+    padding: 6px;
+  }
+}
+
+/* REMOVE the big light-blue container completely */
+.profile-page,
+.content-area,
+.page-body,
+.page-content,
+.layout-body {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+  padding: 0 !important;
+}
+.profile-completion-banner {
+  padding: 16px 24px;
+  margin-bottom: 24px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.profile-completion-banner.complete {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+}
+
+.profile-completion-banner.incomplete {
+  background: linear-gradient(135deg, #c31606, #e74109);
+  color: white;
+}
+
+.profile-completion-banner .status-icon {
+  font-size: 24px;
+}
+
+.required-label {
+  color: #1f2937;
+  font-weight: 600;
+}
+
+.required-asterisk {
+  color: #ef4444;
+  margin-left: 4px;
+}
+
+.error-input {
+  border-color: #ef4444 !important;
+  background-color: #fef2f2;
+}
+
+.error-text {
+  color: #ef4444;
+  font-size: 12px;
+  margin-top: 4px;
+  display: block;
+}
+
+.create-scheme-section {
+  text-align: center;
+  padding: 32px 20px;
+  margin: 40px 0;
+}
+
+.create-scheme-btn {
+  padding: 16px 32px;
+  font-size: 18px;
+  font-weight: 700;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.create-scheme-btn.enabled {
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  color: white;
+  box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
+}
+
+.create-scheme-btn.enabled:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 35px rgba(59, 130, 246, 0.5);
+}
+
+.create-scheme-btn.disabled {
+  background: #9ca3af;
+  color: #6b7280;
+  cursor: not-allowed;
+}
+
+.profile-save-btn.disabled {
+  background: #9ca3af !important;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+.error-input {
+  border: 1px solid #e53935 !important;
+  background: #fff5f5;
+}
+
+.error-text {
+  color: #e53935;
+  font-size: 12px;
+  margin-top: 4px;
+  display: block;
+}
+.success-input {
+  border: 1px solid #2e7d32 !important;
+  background: #f1fff3;
+}
+
+.success-icon {
+  color: #2e7d32;
+  margin-left: 6px;
+  font-size: 16px;
+}

@@ -1,0 +1,551 @@
+/* ROOT THEME */
+:root {
+  --primary: #0a66ff;
+  --primary-light: #e8f0ff;
+  --text-dark: #0b1a2e;
+  --text-light: #5a6a85;
+  --bg-light: #f5f8fd;
+  --white: #ffffff;
+  --radius: 16px;
+  --shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  --shadow-soft: 0 4px 14px rgba(0, 0, 0, 0.05);
+}
+
+/* HIDE SCROLLBAR */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.guidelines-root {
+  padding: 26px 32px;
+  background: transparent!important;   /* pure white */
+  min-height: 100vh;
+  overflow-y: auto;
+}
+
+
+/* ---------- PAGE TITLE ---------- */
+.page-title {
+  font-size: 34px;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 6px;
+}
+
+.page-sub {
+  color: var(--text-light);
+  font-size: 16px;
+  margin-bottom: 22px;
+}
+
+/* ---------- CATEGORY TABS ---------- */
+.category-tabs {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+
+.category-btn {
+  padding: 10px 22px;
+  font-size: 15px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  background: var(--white);
+  color: var(--text-dark);
+  box-shadow: var(--shadow-soft);
+  transition: 0.25s ease;
+  font-weight: 600;
+}
+
+.category-btn:hover {
+  background: var(--primary-light);
+  transform: translateY(-3px);
+}
+
+.category-btn.active {
+  background: var(--primary);
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 14px rgba(10, 102, 255, 0.35);
+}
+
+/* ---------- DOCUMENT GRID ---------- */
+.document-grid {
+  display: grid;
+  gap: 22px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  margin-bottom: 45px;
+}
+
+.doc-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 20px;
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+  cursor: pointer;
+  transition: 0.28s ease;
+  border: 1px solid #eef1f6;
+}
+
+.doc-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow);
+}
+
+.doc-icon {
+  font-size: 32px;
+  color: var(--primary);
+  background: var(--primary-light);
+  padding: 10px;
+  border-radius: 12px;
+}
+
+.doc-info h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 0;
+}
+
+.doc-info p {
+  margin: 4px 0 0;
+  color: var(--text-light);
+  font-size: 14px;
+}
+
+.pdf-badge {
+  margin-left: auto;
+  background: #ff4747;
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-weight: 700;
+  color: white;
+  font-size: 13px;
+  box-shadow: 0 4px 10px rgba(255, 71, 71, 0.3);
+}
+
+/* ---------- IMPORTANT NOTES ---------- */
+.notes-box {
+  background: var(--white);
+  padding: 26px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+  margin-bottom: 50px;
+}
+
+.notes-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.notes-header h3 {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.notes-icon {
+  font-size: 24px;
+  color: var(--primary);
+}
+
+.notes-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.notes-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  font-size: 15px;
+  color: var(--text-dark);
+}
+
+.notes-list li svg {
+  font-size: 18px;
+  color: #ff6b00;
+}
+
+/* ------------------------------------------------------ */
+/* ⭐ MOBILE RESPONSIVE FIXES (ONLY APPLY BELOW 768px)    */
+/* ------------------------------------------------------ */
+@media (max-width: 768px) {
+
+  /* ROOT FIX */
+  .guidelines-root {
+    padding: 18px 20px;
+  }
+
+  /* TITLES */
+  .page-title {
+    font-size: 26px;
+  }
+
+  .page-sub {
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+
+  /* CATEGORY TABS — make scrollable */
+  .category-tabs {
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-bottom: 6px;
+    gap: 10px;
+  }
+
+  .category-btn {
+    font-size: 13px;
+    padding: 8px 16px;
+  }
+
+  /* DOCUMENT GRID — single column on mobile */
+  .document-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px;
+  }
+
+  .doc-card {
+    padding: 14px 16px;
+    border-radius: 14px;
+  }
+
+  .doc-icon {
+    font-size: 26px;
+    padding: 8px;
+  }
+
+  .doc-info h3 {
+    font-size: 16px;
+  }
+
+  .doc-info p {
+    font-size: 13px;
+  }
+
+  .pdf-badge {
+    padding: 6px 10px;
+    font-size: 11px;
+  }
+
+  /* FAQ */
+  .section-title {
+    font-size: 22px;
+  }
+
+  .faq-list {
+    padding: 20px;
+  }
+
+  .faq-question {
+    font-size: 15px;
+  }
+
+  .faq-answer {
+    font-size: 14px;
+    margin-left: 2px;
+  }
+
+  /* NOTES */
+  .notes-box {
+    padding: 20px;
+    border-radius: 14px;
+  }
+
+  .notes-header h3 {
+    font-size: 18px;
+  }
+
+  .notes-list li {
+    font-size: 14px;
+  }
+
+  .modal-card h2 {
+    font-size: 20px;
+  }
+
+  .modal-card h4 {
+    font-size: 15px;
+  }
+
+  .modal-info-box {
+    font-size: 13px;
+  }
+
+  .modal-buttons {
+    flex-direction: column;
+  }
+
+  .open-pdf-btn,
+  .close-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.open-pdf-btn,
+.close-bottom-btn {
+  width: auto;          /* not full width */
+}
+
+/* keep your existing red style for close-bottom-btn */
+.close-bottom-btn {
+  background: #ff4d4f;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 12px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: 0.25s ease;
+  text-align: center;
+  font-size: 15px;
+  box-shadow: 0 4px 10px rgba(255, 0, 0, 0.25);
+}
+
+.close-bottom-btn:hover {
+  background: #d93638;
+  transform: scale(1.03);
+}
+
+.modal-card {
+  width: 680px;
+  max-height: 88vh;
+  background: #ffffff;
+  border-radius: 10px;
+  border: 1px solid #dcdfe6;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.15);
+
+  display: flex;
+  flex-direction: column;
+}
+
+/* Make content scrollable */
+.guide-modal-content {
+  padding: 32px 36px;
+  overflow-y: auto;
+}
+
+/* Fixed button section */
+.modal-buttons {
+  padding: 16px 36px;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: flex-end;
+  gap: 14px;
+  background: #ffffff;
+}
+
+.modal-overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ========================= */
+/* MODAL OVERLAY */
+/* ========================= */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  background: rgba(0, 0, 0, 0.55);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 9999;
+}
+
+
+/* ========================= */
+/* MODAL CARD */
+/* ========================= */
+
+.modal-card {
+  width: 680px;
+  max-width: 90vw;
+  max-height: 88vh;
+
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #dcdfe6;
+
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.18);
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+}
+
+
+/* ========================= */
+/* MODAL CONTENT */
+/* ========================= */
+
+.modal-content {
+  padding: 28px 34px;
+  overflow-y: auto;
+}
+
+
+/* TITLE */
+
+.modal-card h2 {
+  font-size: 26px;
+  font-weight: 700;
+  color: #1f2937;
+  border-bottom: 2px solid #0a66ff;
+  padding-bottom: 10px;
+  margin-bottom: 22px;
+}
+
+
+/* SECTION TITLE */
+
+.modal-card h4 {
+  font-size: 17px;
+  font-weight: 600;
+  margin-top: 26px;
+  margin-bottom: 10px;
+  color: #111827;
+}
+
+
+/* ========================= */
+/* LIST */
+/* ========================= */
+
+.modal-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.modal-card ul li {
+  display: flex;
+  gap: 10px;
+  font-size: 14.5px;
+  color: #374151;
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+.modal-card ul li svg {
+  color: #0a66ff;
+  margin-top: 3px;
+}
+
+
+/* ========================= */
+/* INFO BOX */
+/* ========================= */
+
+.modal-info-box {
+  background: #f1f5ff;
+  border-left: 4px solid #0a66ff;
+  padding: 12px 14px;
+  border-radius: 6px;
+  margin-top: 18px;
+  font-size: 14px;
+}
+
+
+/* ========================= */
+/* BUTTON SECTION */
+/* ========================= */
+
+.modal-buttons {
+  padding: 16px 34px;
+  border-top: 1px solid #e5e7eb;
+
+  display: flex;
+  justify-content: flex-end;
+  gap: 14px;
+
+  background: white;
+}
+
+
+/* CLOSE BUTTON */
+
+.close-bottom-btn {
+  background: #ff4d4f;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.close-bottom-btn:hover {
+  background: #d93638;
+}
+
+
+/* OPEN PDF BUTTON */
+
+.open-pdf-btn {
+  background: #0a66ff;
+  color: white;
+  padding: 10px 22px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 14px;
+  transition: 0.25s;
+}
+
+.open-pdf-btn:hover {
+  background: #084fc7;
+}
+
+
+/* ========================= */
+/* MOBILE */
+/* ========================= */
+
+@media (max-width: 768px) {
+
+  .modal-card {
+    width: 95%;
+    max-height: 90vh;
+  }
+
+  .modal-content {
+    padding: 20px;
+  }
+
+  .modal-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .open-pdf-btn,
+  .close-bottom-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+}
+
+.video-box{
+  margin-top:12px;
+  border-radius:10px;
+  overflow:hidden;
+}

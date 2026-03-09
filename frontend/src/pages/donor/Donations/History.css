@@ -1,0 +1,95 @@
+/* History Page CSS */
+
+.scheme-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: #003d67;
+  margin-bottom: 18px;
+  border-bottom: 3px solid #0163a8;
+  padding-bottom: 5px;
+  display: inline-block;
+}
+
+.scheme-form-container label {
+  font-weight: 600;
+  color: #004c7a;
+  margin-bottom: 4px;
+  display: block;
+}
+
+.donations-page {
+  padding: 24px;
+}
+
+.donation-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 16px;
+  box-shadow: 0 6px 18px rgba(2, 19, 34, 0.06);
+  margin-bottom: 12px;
+}
+
+.donations-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(2, 19, 34, 0.04);
+}
+
+.donations-table thead {
+  background: #f6fbff;
+}
+
+.donations-table th,
+.donations-table td {
+  padding: 14px 18px;
+  text-align: left;
+  border-bottom: 1px solid #eef3f8;
+  color: #0f1724;
+  font-size: 14px;
+}
+
+.donations-table tbody tr:hover {
+  background: #fbfdff;
+}
+
+/* Cancel / rejected status */
+.status-badge {
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 13px;
+  display: inline-block;
+}
+
+.status-cancel {
+  background: #fff1f2;
+  color: #d0303f;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .desktop-only { display: none; }
+  .mobile-only { display: block; }
+}
+
+@media (min-width: 641px) {
+  .desktop-only { display: block; }
+  .mobile-only { display: none; }
+}
+
+/* Buttons */
+.actions-row { display:flex; gap:8px; align-items:center; }
+
+.btn {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(2,19,34,0.06);
+  background: white;
+  cursor: pointer;
+}
+
+.btn.primary { background: #0163a8; color: white; border: none; }
+.btn.ghost { background: transparent; color: #0163a8; border: 1px solid #e6f0fb; }

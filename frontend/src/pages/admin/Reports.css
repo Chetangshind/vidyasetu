@@ -1,0 +1,151 @@
+
+
+/* ===== TITLE ===== */
+.reports-title {
+  font-size: 30px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 24px;
+  letter-spacing: 0.3px;
+}
+
+/* ===== OVERVIEW CARDS ===== */
+.overview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 22px;
+  margin-bottom: 45px;
+}
+
+.overview-card {
+  position: relative;
+  padding: 20px;
+  border-radius: 18px;
+  color: white;
+  background: linear-gradient(135deg, #4f46e5, #6366f1);
+  box-shadow:
+    0 18px 40px rgba(79, 70, 229, 0.35),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.15);
+  overflow: hidden;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+/* Glow effect */
+.overview-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top right, rgba(71, 151, 197, 0.541), transparent 45%);
+  opacity: 0.6;
+}
+
+.overview-card:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    0 25px 55px rgba(79, 70, 229, 0.45);
+}
+
+.overview-card h3 {
+  font-size: 14px;
+  font-weight: 500;
+  opacity: 0.85;
+}
+
+.overview-card p {
+  font-size: 28px;
+  font-weight: 800;
+  margin-top: 10px;
+}
+
+/* ===== SECTION TITLES ===== */
+.section {
+  margin-bottom: 55px;
+}
+
+.section h2 {
+  font-size: 23px;
+  font-weight: 700;
+  margin-bottom: 18px;
+  color: #020617;
+  position: relative;
+}
+
+.section h2::after {
+  content: "";
+  width: 42px;
+  height: 4px;
+  background: linear-gradient(90deg, #6366f1, #22c55e);
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  border-radius: 6px;
+}
+
+/* ===== CHART LAYOUT ===== */
+.chart-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 28px;
+}
+
+/* ===== CHART CARDS ===== */
+.chart-box {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 22px;
+  box-shadow:
+    0 20px 45px rgba(15, 23, 42, 0.12),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.chart-box:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 28px 60px rgba(15, 23, 42, 0.18);
+}
+
+.chart-box h4 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 14px;
+  color: #1e293b;
+}
+
+.chart-box.full {
+  width: 100%;
+}
+
+.chart-box.small {
+  max-width: 440px;
+}
+
+/* ===== LEGENDS & TOOLTIP POLISH ===== */
+.recharts-tooltip-wrapper {
+  font-size: 13px;
+}
+
+.recharts-default-tooltip {
+  background: linear-gradient(135deg, #1e293b, #334155) !important;
+  border-radius: 10px !important;
+  color: #f8fafc !important;
+  border: none !important;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.4) !important;
+}
+
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .chart-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .reports-title {
+    font-size: 26px;
+  }
+
+  .overview-card p {
+    font-size: 24px;
+  }
+}

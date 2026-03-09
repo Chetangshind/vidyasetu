@@ -1,0 +1,281 @@
+/* ================= PAGE ================= */
+
+.active-title {
+  font-size: 30px;
+  font-weight: 700;
+  color: #003d67;
+  margin: 0 0 6px 20px;
+}
+
+.active-underline {
+  width: 250px;
+  height: 3px;
+  background: #0163a8;
+  border-radius: 6px;
+  margin: 0 0 25px 20px;
+}
+
+.empty-text {
+  text-align: center;
+  margin-top: 40px;
+  opacity: 0.6;
+}
+
+/* ================= LIST ================= */
+
+.schemes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.scheme-card {
+  display: grid;
+  grid-template-columns: 60px 1fr auto;
+  align-items: center;
+  padding: 20px 30px;
+  border-radius: 16px;
+  background: #e6eaf1;
+}
+
+/* ================= INFO ================= */
+
+.scheme-icon {
+  width: 50px;
+  height: 50px; /* fixed height */
+  background: #e6f0ff;
+  color: #0a4ea3;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+}
+
+.scheme-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.scheme-info h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.scheme-info p {
+  margin: 4px 0 8px;
+  color: #4a5b70;
+  font-size: 14px;
+}
+
+.scheme-stats {
+  display: flex;
+  gap: 20px;
+  font-size: 14px;
+}
+
+.amount {
+  font-weight: 700;
+  color: #16a34a;
+}
+
+/* ================= BUTTONS ================= */
+.card-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  height: 100%; /* 👈 NEW: Full grid cell height */
+  padding: 0 8px; /* 👈 Adjusted: Horizontal only */
+}
+
+/* COMMON BUTTON STYLE */
+.action-btn {
+  min-width: 95px;
+  height: 38px;
+  border-radius: 12px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+/* View */
+.view-btn {
+  background: #3970af;
+  color: white;
+}
+
+.view-btn:hover {
+  background: #2f5f94;
+  transform: translateY(-2px);
+}
+
+/* Edit */
+.edit-btn {
+  background: #1aa448;
+  color: #003b22;
+}
+
+.edit-btn:hover {
+  background: #027d27;
+  transform: translateY(-2px);
+}
+
+/* Cancel */
+.active-cancel-btn {
+  background: #ec3a46;
+  color: #d71414;
+}
+
+.active-cancel-btn:hover {
+  background: #e31212;
+  transform: translateY(-2px);
+}
+
+/* ================= PREMIUM MODAL ================= */
+
+.cancel-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(4px);
+  z-index: 999;
+}
+
+.cancel-modal-box {
+  background: white;
+  width: 420px;
+  padding: 35px;
+  border-radius: 18px;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+.modal-icon {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.cancel-actions {
+  margin-top: 30px;
+  display: flex;
+  gap: 15px;
+}
+
+.cancel-confirm {
+  flex: 1;
+  background: linear-gradient(135deg, #e53935, #c62828);
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.cancel-confirm:hover {
+  transform: translateY(-2px);
+}
+
+.cancel-close {
+  flex: 1;
+  background: #e0e0e0;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* ================= ANIMATION ================= */
+
+.fade-in {
+  animation: fadeIn 0.25s ease forwards;
+}
+
+.scale-in {
+  animation: scaleIn 0.25s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@media (max-width:768px){
+
+/* Title */
+.active-title{
+  font-size:24px;
+  margin-left:12px;
+}
+
+.active-underline{
+  width:fit-content;
+  min-width:140px;
+  margin-left:12px;
+}
+
+/* Card */
+.scheme-card{
+  grid-template-columns:50px 1fr;
+  padding:16px;
+  gap:10px;
+}
+
+/* Info */
+.scheme-info h3{
+  font-size:16px;
+  white-space:normal;   /* allow wrapping */
+}
+
+.scheme-info p{
+  font-size:13px;
+}
+
+.scheme-stats{
+  gap:10px;
+  font-size:13px;
+}
+
+/* Buttons */
+.card-actions{
+  grid-column:1 / -1;
+  display:flex;
+  flex-direction:column;   /* stack buttons */
+  gap:10px;
+  margin-top:12px;
+}
+
+/* Button size */
+.action-btn{
+  width:100%;
+  min-width:unset;
+  height:36px;
+  font-size:14px;
+}
+
+}

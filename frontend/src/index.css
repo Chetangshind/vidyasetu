@@ -1,0 +1,112 @@
+/* GLOBAL FONT */
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  font-family: "Plus Jakarta Sans", sans-serif;
+  letter-spacing: 0.2px;
+}
+
+body {
+  background: #ffffff;
+}
+
+/* ============= SIDEBAR SCROLL (ALL MODULES CAN USE) ============= */
+
+.sidebar-scroll::-webkit-scrollbar {
+  width: 0px !important;
+}
+
+.sidebar-scroll {
+  scrollbar-width: none !important;      /* Firefox */
+  -ms-overflow-style: none !important;   /* IE/Edge */
+}
+
+/* ============= OPTIONAL: HIDE PAGE SCROLLBAR, USE LAYOUT SCROLL ============= */
+
+html,
+body {
+  height: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+
+.dashboard-scroll {
+  height: 100%;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+
+.dashboard-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* ============= EXTRA: HIDE SCROLLBAR FOR COMMON CONTENT WRAPPERS ============= */
+
+.student-dashboard-content,
+.dashboard-content,
+.content-wrapper,
+.main-area,
+.main-content,
+.right-content,
+#content,
+#content-area,
+#main {
+  overflow-y: scroll !important;
+  scrollbar-width: none !important;
+}
+
+.student-dashboard-content::-webkit-scrollbar,
+.dashboard-content::-webkit-scrollbar,
+.content-wrapper::-webkit-scrollbar,
+.main-area::-webkit-scrollbar,
+.main-content::-webkit-scrollbar,
+.right-content::-webkit-scrollbar,
+#content::-webkit-scrollbar,
+#content-area::-webkit-scrollbar,
+#main::-webkit-scrollbar {
+  display: none !important;
+}
+
+/* FINAL: REMOVE SCROLLBAR FROM ANY ELEMENT (CONTENT STILL SCROLLS) */
+
+* {
+  scrollbar-width: none !important; /* Firefox */
+}
+
+*::-webkit-scrollbar {
+  display: none !important; /* Chrome/Safari */
+}
+
+/* ===================== FINAL PRINT HEIGHT FIX ===================== */
+@media print {
+
+  /* Break out of dashboard layout */
+  .print-root {
+    position: static !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    display: block !important;
+  }
+
+  /* Kill flex & viewport traps */
+  body,
+  #root,
+  .App,
+  .student-layout,
+  .dashboard-layout,
+  .main-content,
+  .content-wrapper {
+    height: auto !important;
+    min-height: unset !important;
+    max-height: none !important;
+    overflow: visible !important;
+    display: block !important;
+  }
+
+}

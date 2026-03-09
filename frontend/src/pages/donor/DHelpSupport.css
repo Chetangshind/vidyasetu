@@ -1,0 +1,273 @@
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* MAIN CONTAINER */
+
+.hs-main {
+  width: 100%;
+  max-width: 1200px;
+  background: #ffffff;
+  border: 1px solid #dcdcdc;
+  padding: 24px;
+}
+
+/* HEADER */
+
+.hs-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.hs-page-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #003366;
+  border-bottom: 3px solid #003366;
+  padding-bottom: 6px;
+}
+
+/* HEADER ACTIONS */
+
+.header-actions {
+  display: flex;
+  gap: 10px;
+}
+
+/* SEARCH */
+
+.search-wrap {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 38px;
+  border: 1px solid #bfc9d1;
+  padding: 0 10px;
+}
+
+.search-wrap input {
+  border: none;
+  outline: none;
+  font-size: 13px;
+  width: 200px;
+}
+
+/* BUTTONS */
+
+.btn {
+  height: 38px;
+  padding: 0 14px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.btn.primary {
+  background: #003366;
+  color: #fff;
+  border: none;
+}
+
+.btn.ghost {
+  background: #fff;
+  border: 1px solid #003366;
+  color: #003366;
+}
+
+/* GRID */
+
+.hs-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 26px;
+}
+
+/* FAQ */
+
+.faq-item {
+  border: 1px solid #d0d7de;
+  margin-bottom: 10px;
+}
+
+.faq-q {
+  width: 100%;
+  background: #f6f6f6;
+  border: none;
+  padding: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.faq-a {
+  padding: 12px;
+  font-size: 13px;
+  background: #ffffff;
+}
+
+/* CONTACT SUPPORT */
+
+.ticket-column {
+  border: 1px solid #d0d7de;
+  background: #fafafa;
+  padding: 16px;
+}
+
+/* FORM */
+
+.ticket-form input,
+.ticket-form textarea {
+  width: 100%;
+  padding: 6px 8px;
+  font-size: 13px;
+  border: 1px solid #9fa8b0;
+  margin-bottom: 10px;
+}
+
+.ticket-form textarea {
+  height: 100px;
+}
+
+/* FORM ERRORS */
+
+.error {
+  font-size: 12px;
+  color: #c00000;
+  margin-top: -6px;
+  margin-bottom: 8px;
+}
+
+/* SUCCESS MESSAGE */
+
+.hs-success {
+  font-size: 13px;
+  color: green;
+  margin-top: 6px;
+}
+
+/* MESSAGE DETAILS */
+
+.ticket-details {
+  margin-top: 14px;
+  padding: 10px;
+  border: 1px solid #d0d7de;
+  background: #ffffff;
+}
+
+.message-box {
+  background: #f6f6f6;
+  padding: 8px;
+  font-size: 13px;
+  margin-top: 6px;
+}
+
+/* ADMIN REPLY */
+
+.admin-reply-box {
+  margin-top: 14px;
+  padding: 10px;
+  background: #e6f2ff;
+  border-left: 4px solid #003366;
+  border-radius: 4px;
+}
+
+.reply-message {
+  margin-top: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #003366;
+}
+
+/* MUTED TEXT */
+
+.muted {
+  font-size: 13px;
+  color: #666;
+}
+
+/* CONTACT INFO */
+
+.contact-short {
+  margin-top: 16px;
+  font-size: 13px;
+  border-top: 1px solid #ccc;
+  padding-top: 10px;
+}
+
+/* ============================= */
+/* FULL WIDTH REQUEST TABLE */
+/* ============================= */
+
+.requests-section {
+  margin-top: 30px;
+  border-top: 1px solid #dcdcdc;
+  padding-top: 16px;
+}
+
+.requests-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #003366;
+  border-bottom: 2px solid #003366;
+  padding-bottom: 4px;
+  margin-bottom: 12px;
+  width: fit-content;
+}
+
+/* TABLE */
+
+.requests-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #f7f7f7;
+}
+
+.requests-table td {
+  padding: 12px;
+  border: 1px solid #e2e2e2;
+  font-size: 14px;
+}
+
+.requests-table tr {
+  cursor: pointer;
+}
+
+.requests-table tr:hover {
+  background: #eef4fb;
+}
+
+.req-subject {
+  font-weight: 600;
+}
+
+/* STATUS BADGES */
+
+.status {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.status.pending {
+  background: #fde7c8;
+  color: #c26a00;
+}
+
+.status.resolved {
+  background: #dff3e6;
+  color: #1e7d43;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+  .hs-grid {
+    grid-template-columns: 1fr;
+  }
+}

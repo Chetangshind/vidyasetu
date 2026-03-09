@@ -1,0 +1,33 @@
+/* HIDE SCROLLBAR */
+#student-sidebar::-webkit-scrollbar {
+  display: none;
+}
+
+#student-sidebar {
+  scrollbar-width: none;
+}
+
+/* MOBILE SIDEBAR BEHAVIOUR */
+@media (max-width: 768px) {
+  #student-sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    transform: translateX(-100%);
+    transition: 0.35s;
+    z-index: 2000;
+  }
+  #student-sidebar.open {
+    transform: translateX(0);
+  }
+  .mobile-close-btn {
+    display: block !important;
+  }
+}
+
+/* DOUBLE MEDIA QUERY — KEEPING EXACT SAME */
+@media (max-width: 768px) {
+  .mobile-close-btn {
+    display: block !important;
+  }
+}

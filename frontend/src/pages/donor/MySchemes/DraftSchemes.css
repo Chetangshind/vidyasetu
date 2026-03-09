@@ -1,0 +1,189 @@
+/* DraftSchemes.css - styles for DraftSchemes.jsx (uses draft-* and btn-* class names) */
+
+.draft-page {
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  font-family: Inter, system-ui, Arial;
+}
+
+.draft-title {
+  margin: 0 0 8px 0;
+  color: #003d67;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.draft-subtext {
+  margin: 0 0 16px 0;
+  color: #6b7f8f;
+  font-size: 14px;
+}
+
+/* container card */
+.draft-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* each row */
+.draft-card {
+  display: flex;
+  gap: 14px;
+  padding: 14px;
+  border-radius: 10px;
+  background: #fbfdff;
+  border: 1px solid rgba(15,65,95,0.03);
+  box-shadow: 0 4px 12px rgba(10,40,60,0.03);
+  align-items: flex-start;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.draft-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 22px rgba(10,40,60,0.06);
+}
+
+/* left numeric badge */
+.draft-number {
+  width: 56px;
+  min-width: 56px;
+  height: 56px;
+  border-radius: 10px;
+  background: linear-gradient(180deg, #e8f7fb 0%, #d8eef7 100%);
+  color: #0b6b89;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  box-shadow: 0 6px 8px rgba(10,50,70,0.03);
+}
+
+/* main info */
+.draft-info { flex: 1; min-width: 0; }
+
+.draft-info h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: #0b4f6b;
+}
+
+.draft-info p {
+  margin: 6px 0 8px 0;
+  font-size: 14px;
+  color: #6b7f8f;
+}
+
+/* meta line (target, id) */
+.target, .draft-id {
+  display: inline-block;
+  margin-right: 16px;
+  font-size: 13px;
+  color: #0c5967;
+  font-weight: 600;
+}
+
+/* actions on the right */
+.draft-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+/* Buttons - consistent sizes */
+.btn-edit, .btn-delete, .btn-publish {
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  min-width: 54px;
+  text-align: center;
+  background: #fff;
+}
+
+/* specific colors */
+.btn-edit {
+  background: #f0f8ff;
+  color: #0a64bc;
+  border-color: rgba(10,100,188,0.08);
+}
+.btn-edit:hover { background: #e6f3ff; }
+
+.btn-delete {
+  background: #fff0f0;
+  color: #c53737;
+  border-color: rgba(197,55,55,0.08);
+}
+.btn-delete:hover { background: #ffe8e8; }
+
+.btn-publish {
+  background: #e8fff1;
+  color: #0b8a4a;
+  border-color: rgba(11,138,74,0.08);
+}
+.btn-publish:hover { background: #dff7e8; }
+
+/* focus states for keyboard users */
+.btn-edit:focus, .btn-delete:focus, .btn-publish:focus {
+  outline: 3px solid rgba(10,100,188,0.12);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+/* description & small meta area */
+.ds-desc, .draft-info .ds-desc { /* fallback if DS classes used somewhere */
+  margin-top: 8px;
+  color: #6b7f8f;
+  font-size: 14px;
+}
+
+.ds-meta, .draft-info .ds-meta {
+  margin-top: 10px;
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  font-size: 13px;
+  color: #0c5967;
+}
+
+.ds-id, .draft-id {
+  color: #6b7f8f;
+  font-weight: 600;
+}
+
+/* empty state */
+.draft-empty {
+  padding: 18px;
+  color: #6b7f8f;
+  text-align: center;
+  background: #fff;
+  border-radius: 8px;
+}
+
+/* --- edit form placeholders (if you show inline edit later) --- */
+.draft-edit-form { display:flex; flex-direction:column; gap:10px; }
+.draft-row { display:flex; flex-direction:column; gap:6px; }
+.draft-row-inline { flex-direction:row; align-items:flex-end; gap:12px; }
+.draft-label { font-size:13px; color:#6b7f8f; }
+.draft-input, .draft-textarea {
+  padding:8px 10px; border-radius:8px; border:1px solid #d7e3ea; font-size:14px;
+}
+.draft-textarea { min-height:56px; resize:vertical; }
+
+/* small buttons (form) */
+.draft-btn { padding:8px 10px; border-radius:8px; font-weight:700; cursor:pointer; border:0; }
+.draft-primary { background:#0a64bc; color:#fff; }
+.draft-ghost { background:transparent; border:1px solid rgba(0,0,0,0.06); color:#0a64bc; }
+
+/* responsive */
+@media (max-width: 720px) {
+  .draft-card { flex-direction: column; align-items: stretch; }
+  .draft-number { width: 40px; height: 40px; font-size: 14px; border-radius: 8px; }
+  .draft-actions { justify-content: flex-start; gap: 8px; margin-top: 8px; }
+  .target, .draft-id { display: block; margin-top: 6px; color: #6b7f8f; font-weight: 600; }
+}
