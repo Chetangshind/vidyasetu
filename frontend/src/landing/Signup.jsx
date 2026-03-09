@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./Auth.css";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import API from "../../api";
 
 export default function Signup() {
   const location = useLocation();
@@ -22,7 +23,7 @@ export default function Signup() {
   setError("");
 
   try {
-    const res = await fetch(`${API}/api/auth/signup", {
+    const res = await fetch(`${API}/api/auth/signup`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name, email, password, role }),

@@ -15,7 +15,7 @@ import {
   FaBars,
   FaTimes
 } from "react-icons/fa";
-
+import API from "../../api";
 
 export default function Navbar() {
   const [activeSection, setActiveSection] = useState("home");
