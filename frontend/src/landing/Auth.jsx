@@ -4,6 +4,8 @@ import "./Auth.css";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import CaptchaBox from "./CaptchaBox";
 
+const API = import.meta.env.VITE_API_URL;
+
 // --- LOGIN COMPONENT (LOGIC PRESERVED) ---
 function LoginForm({ role, setRole, isSignUp, toggleForm }) {
   const navigate = useNavigate();

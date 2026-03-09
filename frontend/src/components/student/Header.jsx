@@ -2,7 +2,8 @@ import { useState, useEffect, useRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { FiBell, FiHelpCircle, FiLogOut } from "react-icons/fi";
 
-const API_BASE = `${API}/api";
+const API = import.meta.env.VITE_API_URL;
+const API_BASE = `${API}/api`;
 
 export default function Header({ openSidebar }) {
   const navigate = useNavigate();

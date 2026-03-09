@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 
+const API = import.meta.env.VITE_API_URL;
+
 export default function CaptchaBox({
   captchaText,
   setCaptchaText,
@@ -8,7 +10,7 @@ export default function CaptchaBox({
   const [captchaImg, setCaptchaImg] = useState(null);
 
   const loadCaptcha = async () => {
-    const res = await fetch(`${API}/api/captcha");
+    const res = await fetch(`${API}/api/captcha`);
     const data = await res.json();
 
     setCaptchaImg(data.image);
