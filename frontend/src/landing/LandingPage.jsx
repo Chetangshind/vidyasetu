@@ -45,10 +45,6 @@ import {
   FaCheckCircle
 } from "react-icons/fa";
 
-import chetan from "../assets/team/chetan.jpeg";
-import darshani from "../assets/team/darshani.jpeg";
-import siddhi from "../assets/team/siddhi.jpeg";
-import almira from "../assets/team/almira.jpeg";
 import anjum from "../assets/team/anjum.jpeg";
 import team1 from "../assets/team/team1.jpeg";
 import team2 from "../assets/team/team2.jpeg";
@@ -435,51 +431,7 @@ const ngoRow3 = [ngo15, ngo16, ngo17, ngo18, ngo19, ngo20, ngo21];
   </div>
 
 </div>
-{/* ================= OUR TEAM ================= */}
 
-<div className="team-section fade-up">
-
-<h3>Meet Our Team</h3>
-
-<div className="team-grid">
-
-  {/* GUIDE */}
-
-  <div className="team-card guide">
-    <img src={anjum} alt="Anjum" />
-    <h4>Mr. Anjum Mujawar</h4>
-    <p>Project Guide</p>
-  </div>
-
-  {/* STUDENTS */}
-
-  <div className="team-card">
-    <img src={chetan} alt="Chetan Shinde" />
-    <h4>Chetan Shinde</h4>
-    <p>Student Developer</p>
-  </div>
-
-  <div className="team-card">
-    <img src={almira} alt="Almira" />
-    <h4>Almira Karjikar</h4>
-    <p>Student Developer</p>
-  </div>
-
-  <div className="team-card">
-    <img src={darshani} alt="Darshani" />
-    <h4>Darshani Shinde</h4>
-    <p>Student Developer</p>
-  </div>
-
-  <div className="team-card">
-    <img src={siddhi} alt="Siddhi" />
-    <h4>Siddhi Lawand</h4>
-    <p>Student Developer</p>
-  </div>
-
-</div>
-
-</div>
 
     {/* MAP AT BOTTOM */}
     <div className="about-map">
