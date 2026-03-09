@@ -20,7 +20,7 @@ export default function ActiveSchemes() {
       const token = localStorage.getItem("token");
 
       const res = await axios.get(
-        "http://localhost:5050/api/schemes/my?status=active",
+        "http://${API}/api/schemes/my?status=active",
         {
           headers: { Authorization: `Bearer ${token}` },
         },
@@ -46,7 +46,7 @@ export default function ActiveSchemes() {
       const token = localStorage.getItem("token");
 
       await axios.put(
-        `http://localhost:5050/api/schemes/${selectedSchemeId}/cancel`,
+        `http://${API}/api/schemes/${selectedSchemeId}/cancel`,
         {},
         {
           headers: { Authorization: `Bearer ${token}` },

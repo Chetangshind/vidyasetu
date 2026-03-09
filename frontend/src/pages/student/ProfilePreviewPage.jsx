@@ -205,7 +205,7 @@ const uploadedDocs = buildUploadedDocs(profile);
                     <button
                       className="view-doc-btn"
                       onClick={() =>
-                        window.open(`http://localhost:5050/uploads/${doc.file}`, "_blank")
+                        window.open(`http://${API}/uploads/${doc.file}`, "_blank")
                       }
                     >
                       <FaEye /> View

@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./Donors.css";
 import { useLocation } from "react-router-dom";
+import API from "../../api";
 
 export default function Donors() {
   const navigate = useNavigate();
@@ -54,8 +55,8 @@ useEffect(() => {
 
   const fetchData = async () => {
     const [donorRes, schemeRes] = await Promise.all([
-      axios.get("http://localhost:5050/api/admin/donors"),
-      axios.get("http://localhost:5050/api/admin/schemes"),
+axios.get(`${API}/api/admin/donors`),
+axios.get(`${API}/api/admin/schemes`),
     ]);
     setDonors(donorRes.data);
     setSchemes(schemeRes.data);

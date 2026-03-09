@@ -19,7 +19,7 @@ const [filterPincode, setFilterPincode] = useState("");
   useEffect(() => {
     const fetchPendingApplications = async () => {
       try {
-    const res = await fetch("http://localhost:5050/api/donor/applications/pending", {
+    const res = await fetch("http://${API}/api/donor/applications/pending", {
   headers: {
     Authorization: "Bearer " + localStorage.getItem("token"),
   },
@@ -41,7 +41,7 @@ const [filterPincode, setFilterPincode] = useState("");
   const approveApplication = async (id) => {
     try {
       await fetch(
-        `http://localhost:5050/api/applications/${id}/status`,
+        `http://${API}/api/applications/${id}/status`,
         {
           method: "PATCH",
           headers: {
@@ -74,7 +74,7 @@ const [filterPincode, setFilterPincode] = useState("");
         rejectReason === "Other" ? otherReason : rejectReason;
 
       await fetch(
-        `http://localhost:5050/api/applications/${selectedAppId}/status`,
+        `http://${API}/api/applications/${selectedAppId}/status`,
         {
           method: "PATCH",
           headers: {

@@ -126,7 +126,7 @@ const steps = [
 
       if (!token) return;
 
-      const res = await fetch("http://localhost:5050/api/student/profile", {
+      const res = await fetch("http://${API}/api/student/profile", {
         headers: {
           Authorization: "Bearer " + token,
         },
@@ -179,7 +179,7 @@ const steps = [
       return;
     }
 
-    const res = await fetch("http://localhost:5050/api/student/profile/save", {
+    const res = await fetch("http://${API}/api/student/profile/save", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -583,7 +583,7 @@ function PersonalInfo({ initialData, onDataChange }) {
       formData.append("otherDocFile", docForm.file);
 
       const res = await fetch(
-        "http://localhost:5050/api/student/profile/save-section",
+        "http://${API}/api/student/profile/save-section",
         {
           method: "PATCH",
           headers: {
@@ -657,7 +657,7 @@ function PersonalInfo({ initialData, onDataChange }) {
     }
 
     const res = await fetch(
-      "http://localhost:5050/api/student/profile/save-section",
+      "http://${API}/api/student/profile/save-section",
       {
         method: "PATCH",
         headers: {
@@ -1040,7 +1040,7 @@ return (
                     form.incomeCertificateFile
                       ? openFile(form.incomeCertificateFile)
                       : window.open(
-                          `http://localhost:5050/uploads/${form.incomeCertificate}`,
+                          `http://${API}/uploads/${form.incomeCertificate}`,
                           "_blank"
                         )
                   }
@@ -1129,7 +1129,7 @@ return (
                     form.domicileCertificateFile
                       ? openFile(form.domicileCertificateFile)
                       : window.open(
-                          `http://localhost:5050/uploads/${form.domicileCertificate}`,
+                          `http://${API}/uploads/${form.domicileCertificate}`,
                           "_blank"
                         )
                   }
@@ -1261,7 +1261,7 @@ return (
                       className="view-doc-btn"
                       onClick={() =>
                         window.open(
-                          `http://localhost:5050/uploads/${d.file}`,
+                          `http://${API}/uploads/${d.file}`,
                           "_blank"
                         )
                       }
@@ -1428,7 +1428,7 @@ if (form.paymentMode === "upi") {
     const token = localStorage.getItem("token");
 
     const res = await fetch(
-      "http://localhost:5050/api/student/profile/save-section",
+      "http://${API}/api/student/profile/save-section",
       {
         method: "PATCH",
         headers: {
@@ -1671,7 +1671,7 @@ function AddressInfo({ initialData, onDataChange }) {
     };
 
     const res = await fetch(
-      "http://localhost:5050/api/student/profile/save-section",
+      "http://${API}/api/student/profile/save-section",
       {
         method: "PATCH",
         headers: {
@@ -1940,7 +1940,7 @@ function OtherInfo({ initialData, onDataChange }) {
     const token = localStorage.getItem("token");
 
     const res = await fetch(
-      "http://localhost:5050/api/student/profile/save-section",
+      "http://${API}/api/student/profile/save-section",
       {
         method: "PATCH",
         headers: {
@@ -2474,7 +2474,7 @@ const [course, setCourse] = useState({
     }
 
     const res = await fetch(
-      "http://localhost:5050/api/student/profile/save-section",
+      "http://${API}/api/student/profile/save-section",
       {
         method: "PATCH",
         headers: {
@@ -2715,7 +2715,7 @@ const [course, setCourse] = useState({
                       course.lastYearMarksheet
                         ? openFile(course.lastYearMarksheet) // NEW upload
                         : window.open(
-                            `http://localhost:5050/uploads/${course.marksheet}`,
+                            `http://${API}/uploads/${course.marksheet}`,
                             "_blank"
                           ) // SAVED file
                   }
@@ -3360,7 +3360,7 @@ function QualificationInfo({ initialData, onDataChange }) {
     const token = localStorage.getItem("token");
 
     const res = await fetch(
-      "http://localhost:5050/api/student/profile/save-section",
+      "http://${API}/api/student/profile/save-section",
       {
         method: "PATCH",
         headers: {
@@ -3748,7 +3748,7 @@ function QualificationInfo({ initialData, onDataChange }) {
                           "_blank"
                         )
                       : window.open(
-                          `http://localhost:5050/uploads/${form.marksheet}`,
+                          `http://${API}/uploads/${form.marksheet}`,
                           "_blank"
                         )
                   }
@@ -3839,7 +3839,7 @@ function QualificationInfo({ initialData, onDataChange }) {
                             "_blank"
                           )
                         : window.open(
-                            `http://localhost:5050/uploads/${form.gapCertificate}`,
+                            `http://${API}/uploads/${form.gapCertificate}`,
                             "_blank"
                           )
                     }
@@ -3965,7 +3965,7 @@ useEffect(() => {
     const token = localStorage.getItem("token");
 
     const res = await fetch(
-      "http://localhost:5050/api/student/profile/save-section",
+      "http://${API}/api/student/profile/save-section",
       {
         method: "PATCH",
         headers: {

@@ -71,7 +71,7 @@ export default function DHelpSupport() {
   async function fetchMyQueries(email) {
     try {
       const res = await axios.get(
-        `http://localhost:5050/api/help/my-queries/${email}`
+        `http://${API}/api/help/my-queries/${email}`
       );
       setTickets(res.data);
     } catch (error) {
@@ -114,7 +114,7 @@ export default function DHelpSupport() {
     if (!validateForm()) return;
 
     try {
-      await axios.post("http://localhost:5050/api/help/send", {
+      await axios.post("http://${API}/api/help/send", {
         name: form.name,
         email: loggedInEmail,
         role: "donor",

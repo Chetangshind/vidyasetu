@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import "./AdminView.css";
+import API from "../../api";
 
 export default function AdminViewDonorProfile() {
   const { id } = useParams();
@@ -16,9 +17,9 @@ export default function AdminViewDonorProfile() {
   }, []);
 
   const fetchDonor = async () => {
-    const res = await axios.get(
-      `http://localhost:5050/api/admin/donors/${id}`
-    );
+   const res = await axios.get(
+  `${API}/api/admin/donors/${id}`
+);
     setDonor(res.data);
   };
 
@@ -35,8 +36,8 @@ export default function AdminViewDonorProfile() {
       if (selectedAction === "review") {
         if (!window.confirm("Move donor to Under Review?")) return;
 
-        await axios.patch(
-          `http://localhost:5050/api/admin/donors/${id}/review`,
+       await axios.patch(
+  `${API}/api/admin/donors/${id}/review`,
           { reason }
         );
       }
@@ -59,8 +60,8 @@ export default function AdminViewDonorProfile() {
           if (!window.confirm("Issue warning to this donor?")) return;
         }
 
-        await axios.patch(
-          `http://localhost:5050/api/admin/donors/${id}/warn`,
+  await axios.patch(
+  `${API}/api/admin/donors/${id}/warn`,
           { reason }
         );
       }
@@ -69,8 +70,8 @@ export default function AdminViewDonorProfile() {
       if (selectedAction === "suspend") {
         if (!window.confirm("Suspend this donor account?")) return;
 
-        await axios.patch(
-          `http://localhost:5050/api/admin/donors/${id}/suspend`,
+await axios.patch(
+  `${API}/api/admin/donors/${id}/suspend`,
           { reason }
         );
       }
@@ -79,8 +80,8 @@ export default function AdminViewDonorProfile() {
       if (selectedAction === "restore") {
         if (!window.confirm("Restore donor to Active?")) return;
 
-        await axios.patch(
-          `http://localhost:5050/api/admin/donors/${id}/active`,
+      await axios.patch(
+  `${API}/api/admin/donors/${id}/active`,
           { reason }
         );
       }

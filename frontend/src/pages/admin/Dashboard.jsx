@@ -26,8 +26,9 @@ import {
   FiLock,
   FiBarChart2,
 } from "react-icons/fi";
+import API from "../../api";
 
-const API_BASE = "http://localhost:5050";
+const API_BASE = API;
 
 const timeAgo = (d) => {
   const s = Math.floor((Date.now() - new Date(d)) / 1000);

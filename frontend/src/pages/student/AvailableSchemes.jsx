@@ -147,7 +147,7 @@ export default function AvailableSchemes() {
     async function fetchProfileForEligibility() {
       try {
         const token = localStorage.getItem("token");
-        const res = await fetch("http://localhost:5050/api/student/profile", {
+        const res = await fetch("http://${API}/api/student/profile", {
           headers: { Authorization: `Bearer ${token}` },
         });
         const data = await res.json();
@@ -197,7 +197,7 @@ export default function AvailableSchemes() {
       const token = localStorage.getItem("token");
 
       const res = await fetch(
-        "http://localhost:5050/api/ai/all-with-ai",
+        "http://${API}/api/ai/all-with-ai",
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -223,7 +223,7 @@ export default function AvailableSchemes() {
 useEffect(() => {
   async function fetchGovSchemes() {
     try {
-      const res = await fetch("http://localhost:5050/api/gov-schemes");
+      const res = await fetch("http://${API}/api/gov-schemes");
       const data = await res.json();
       setGovSchemes(data || []);
     } catch (err) {
@@ -241,7 +241,7 @@ useEffect(() => {
     async function fetchApplied() {
       try {
         const token = localStorage.getItem("token");
-        const res = await fetch("http://localhost:5050/api/applications/my", {
+        const res = await fetch("http://${API}/api/applications/my", {
           headers: { Authorization: `Bearer ${token}` },
         });
         if (!res.ok) return;
@@ -432,7 +432,7 @@ onClick={() => navigate(`/student/view-scheme/${s._id}`)}
 
           // Fetch full profile before confirm
           const res = await fetch(
-            "http://localhost:5050/api/student/profile",
+            "http://${API}/api/student/profile",
             {
               headers: { Authorization: `Bearer ${token}` },
             }
@@ -506,7 +506,7 @@ onClick={() => navigate(`/student/view-scheme/${s._id}`)}
                       setApplying(true);
                       const token = localStorage.getItem("token");
                       const res = await fetch(
-                        "http://localhost:5050/api/applications/apply",
+                        "http://${API}/api/applications/apply",
                         {
                           method: "POST",
                           headers: {

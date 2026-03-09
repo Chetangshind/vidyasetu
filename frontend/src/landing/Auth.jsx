@@ -42,7 +42,7 @@ function LoginForm({ role, setRole, isSignUp, toggleForm }) {
   const handleGoogleResponse = async (response) => {
     if (role === "admin") return;
     try {
-      const res = await fetch("http://localhost:5050/api/auth/google-login", {
+      const res = await fetch("http://${API}/api/auth/google-login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ credential: response.credential, role }),
@@ -62,7 +62,7 @@ function LoginForm({ role, setRole, isSignUp, toggleForm }) {
     setError("");
     if (!captchaText.trim()) { setError("Required Captcha."); return; }
     try {
-      const res = await fetch("http://localhost:5050/api/auth/login", {
+      const res = await fetch("http://${API}/api/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password, role, captchaText, captchaToken }),
@@ -114,7 +114,7 @@ function SignupForm({ role, setRole, toggleForm }) {
 const handleSignup = async () => {
   setError("");
   try {
-    const res = await fetch("http://localhost:5050/api/auth/signup", {
+    const res = await fetch("http://${API}/api/auth/signup", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name, email, password, role }),

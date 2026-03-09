@@ -16,7 +16,7 @@ export default function ClosedSchemes() {
       const token = localStorage.getItem("token");
 
       const res = await axios.get(
-        "http://localhost:5050/api/schemes/my?status=closed",
+        "http://${API}/api/schemes/my?status=closed",
         {
           headers: {
             Authorization: `Bearer ${token}`,

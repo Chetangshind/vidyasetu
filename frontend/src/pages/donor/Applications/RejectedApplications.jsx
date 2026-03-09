@@ -12,7 +12,7 @@ export default function RejectedApplications() {
     async function fetchRejectedApplications() {
       try {
         const res = await fetch(
-          "http://localhost:5050/api/applications/donor?status=rejected",
+          "http://${API}/api/applications/donor?status=rejected",
           {
             headers: {
               Authorization: "Bearer " + localStorage.getItem("token"),

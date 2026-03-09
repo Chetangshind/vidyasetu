@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./AdminSupportDesk.css";
+import API from "../../api";
 
 export default function AdminSupportDesk() {
   const [activeTab, setActiveTab] = useState("student");
@@ -15,7 +16,7 @@ useEffect(() => {
 
 const fetchTickets = async () => {
   try {
-    const res = await axios.get("http://localhost:5050/api/help/all");
+    const res = await axios.get(`${API}/api/help/all`);
     setTickets(res.data);
   } catch (err) {
     console.error("Error fetching tickets:", err);
@@ -40,7 +41,7 @@ const donorUnread = tickets.filter(
  const handleReplySubmit = async () => {
   try {
     await axios.put(
-  `http://localhost:5050/api/help/reply/${selectedTicket._id}`,
+  `${API}/api/help/reply/${selectedTicket._id}`,
       {
         reply: replyText,
         status: "Resolved"

@@ -8,7 +8,7 @@ export default function CaptchaBox({
   const [captchaImg, setCaptchaImg] = useState(null);
 
   const loadCaptcha = async () => {
-    const res = await fetch("http://localhost:5050/api/captcha");
+    const res = await fetch("http://${API}/api/captcha");
     const data = await res.json();
 
     setCaptchaImg(data.image);

@@ -20,7 +20,7 @@ export default function ApprovedApplications() {
 async function fetchApprovedApplications() {
   try {
     const res = await fetch(
-      "http://localhost:5050/api/applications/donor/approved",
+      "http://${API}/api/applications/donor/approved",
       {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("token"),
@@ -321,7 +321,7 @@ if (meetingType === "digital") {
   }
 
   try {
-    const res = await fetch("http://localhost:5050/api/meetings", {
+    const res = await fetch("http://${API}/api/meetings", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { FiBell, FiHelpCircle, FiLogOut } from "react-icons/fi";
 
-const API_BASE = "http://localhost:5050/api";
+const API_BASE = "http://${API}/api";
 
 export default function AdminHeader({ openSidebar }) {
   const navigate = useNavigate();

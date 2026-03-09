@@ -17,7 +17,7 @@ export default function MyAppliedSchemes() {
     async function fetchApplications(status, setter) {
       try {
         const res = await fetch(
-          `http://localhost:5050/api/applications/my?status=${status}`,
+          `http://${API}/api/applications/my?status=${status}`,
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -45,7 +45,7 @@ export default function MyAppliedSchemes() {
   async function fetchMeetings() {
   try {
     const res = await fetch(
-      "http://localhost:5050/api/meetings/student",
+      "http://${API}/api/meetings/student",
       {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,

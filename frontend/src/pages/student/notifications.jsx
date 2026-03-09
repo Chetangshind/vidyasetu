@@ -12,7 +12,7 @@ import {
 } from "react-icons/fa";
 import "./notifications.css";
 
-const API_BASE = "http://localhost:5050/api";
+const API_BASE = "http://${API}/api";
 
 // ── Icon + color per type ─────────────────────────────────────────────────────
 const TYPE_CONFIG = {

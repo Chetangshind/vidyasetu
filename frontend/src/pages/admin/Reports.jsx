@@ -15,8 +15,7 @@ import {
   ResponsiveContainer,
   Legend,
 } from "recharts";
-
-
+import API from "../../api";
 
 // COLORS
 const COLORS = ["#4f46e5", "#22c55e", "#f59e0b", "#ef4444", "#06b6d4"];
@@ -38,9 +37,7 @@ export default function ReportsAnalytics() {
 
   const fetchReports = async () => {
     try {
-      const res = await axios.get(
-        "http://localhost:5050/api/admin/reports"
-      );
+      const res = await axios.get(`${API}/api/admin/reports`);
 
       const data = res.data;
 

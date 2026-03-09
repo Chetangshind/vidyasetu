@@ -21,7 +21,7 @@ const handleSearch = async (tabValue = activeTab) => {
     const token = localStorage.getItem("token");
 
 const res = await axios.get(
-  `http://localhost:5050/api/applications/my?academicYear=${year}&status=${tabValue === "scrutiny" ? "applied" : tabValue}`,
+  `http://${API}/api/applications/my?academicYear=${year}&status=${tabValue === "scrutiny" ? "applied" : tabValue}`,
   {
     headers: {
       Authorization: `Bearer ${token}`,

@@ -28,7 +28,7 @@ export default function DonorViewForm() {
     const fetchApplication = async () => {
       try {
         const res = await fetch(
-          `http://localhost:5050/api/applications/${id}`,
+          `http://${API}/api/applications/${id}`,
           {
             headers: {
               Authorization: "Bearer " + localStorage.getItem("token"),
@@ -134,7 +134,7 @@ const uploadedDocs = buildUploadedDocs();
 
   /* ================= ACTIONS ================= */
   const approve = async () => {
-    await fetch(`http://localhost:5050/api/applications/${id}/status`, {
+    await fetch(`http://${API}/api/applications/${id}/status`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -149,7 +149,7 @@ const uploadedDocs = buildUploadedDocs();
     const finalReason =
       rejectReason === "Other" ? otherReason : rejectReason;
 
-    await fetch(`http://localhost:5050/api/applications/${id}/status`, {
+    await fetch(`http://${API}/api/applications/${id}/status`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -375,7 +375,7 @@ const uploadedDocs = buildUploadedDocs();
           className="view-doc-btn"
           onClick={() =>
             window.open(
-              `http://localhost:5050/uploads/${doc.file}`,
+              `http://${API}/uploads/${doc.file}`,
               "_blank"
             )
           }

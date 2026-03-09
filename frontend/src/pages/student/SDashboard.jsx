@@ -46,7 +46,7 @@ export default function SDashboard() {
     const token = localStorage.getItem("token");
     if (!token) return;
 
-    fetch("http://localhost:5050/api/student/profile", {
+    fetch("http://${API}/api/student/profile", {
       headers: { Authorization: "Bearer " + token },
     })
       .then((res) => res.json())
@@ -73,7 +73,7 @@ useEffect(() => {
   const fetchSummary = async () => {
     try {
       const res = await fetch(
-        "http://localhost:5050/api/student/dashboard-summary",
+        "http://${API}/api/student/dashboard-summary",
         {
           headers: { Authorization: "Bearer " + token },
         }

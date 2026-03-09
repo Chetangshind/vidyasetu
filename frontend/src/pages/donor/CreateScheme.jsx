@@ -664,7 +664,7 @@ export default function CreateScheme() {
       try {
         const token = localStorage.getItem("token");
         if (!token) return;
-        const res = await axios.get("http://localhost:5050/api/donor/profile", {
+        const res = await axios.get("http://${API}/api/donor/profile", {
           headers: { Authorization: `Bearer ${token}` },
         });
         if (res.data) {
@@ -744,14 +744,14 @@ export default function CreateScheme() {
       const headers = { Authorization: `Bearer ${token}` };
       if (editingId) {
         await axios.put(
-          `http://localhost:5050/api/schemes/${editingId}`,
+          `http://${API}/api/schemes/${editingId}`,
           buildPayload("active"),
           { headers },
         );
         alert("Scheme updated successfully");
       } else {
         await axios.post(
-          "http://localhost:5050/api/schemes",
+          "http://${API}/api/schemes",
           buildPayload("active"),
           { headers },
         );
@@ -779,7 +779,7 @@ export default function CreateScheme() {
     try {
       const token = localStorage.getItem("token");
       await axios.post(
-        "http://localhost:5050/api/schemes/draft",
+        "http://${API}/api/schemes/draft",
         buildPayload("draft"),
         {
           headers: { Authorization: `Bearer ${token}` },

@@ -293,7 +293,7 @@ export default function Profile() {
       try {
         const token = localStorage.getItem("token");
         if (!token) return;
-        const res = await axios.get("http://localhost:5050/api/donor/profile", {
+        const res = await axios.get("http://${API}/api/donor/profile", {
           headers: { Authorization: `Bearer ${token}` },
         });
         if (res.data) {
@@ -339,7 +339,7 @@ export default function Profile() {
         location: `${data.city || ""}, ${data.state || ""}, ${data.country || ""}`,
         profileComplete: checkProfileComplete(data),
       };
-      await axios.post("http://localhost:5050/api/donor/profile", payload, {
+      await axios.post("http://${API}/api/donor/profile", payload, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setProfile(data);

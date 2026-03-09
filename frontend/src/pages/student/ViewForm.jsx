@@ -40,13 +40,13 @@ useEffect(() => {
 
       // ✅ 1. If ID exists → it is application snapshot
       if (id) {
-        url = `http://localhost:5050/api/applications/${id}`;
+        url = `http://${API}/api/applications/${id}`;
         isApplicationView = true;
       }
 
       // ✅ 2. If no ID → normal student profile preview
       else {
-        url = "http://localhost:5050/api/student/profile";
+        url = "http://${API}/api/student/profile";
       }
 
       const res = await fetch(url, {
@@ -458,7 +458,7 @@ if (!profile)
                         className="view-doc-btn"
                         onClick={() =>
                           window.open(
-                            `http://localhost:5050/uploads/${doc.file}`,
+                            `http://${API}/uploads/${doc.file}`,
                             "_blank",
                           )
                         }

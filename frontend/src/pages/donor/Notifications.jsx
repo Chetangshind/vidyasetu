@@ -38,7 +38,7 @@ useEffect(() => {
     const donorId = user._id || user.id;
 
     await axios.patch(
-      `http://localhost:5050/api/donor-notifications/read-all/${donorId}`
+      `http://${API}/api/donor-notifications/read-all/${donorId}`
     );
 
     // 🔥 Tell header to refresh unread count
@@ -57,7 +57,7 @@ useEffect(() => {
       const donorId = user._id || user.id;
 
       const res = await axios.get(
-        `http://localhost:5050/api/donor-notifications/${donorId}`
+        `http://${API}/api/donor-notifications/${donorId}`
       );
 
       setNotifications(res.data);

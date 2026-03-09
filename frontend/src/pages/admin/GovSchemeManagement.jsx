@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import './GovSchemeManagement.css';
 import { FaChartBar, FaClock, FaLayerGroup } from "react-icons/fa";
+import API from "../../api";
 
 const GovSchemeManagement = () => {
   
@@ -22,7 +23,7 @@ const GovSchemeManagement = () => {
 
 const fetchSchemes = async () => {
   try {
-    const res = await axios.get("http://localhost:5050/api/gov-schemes");
+    const res = await axios.get(`${API}/api/gov-schemes`);
     setSchemes(res.data);
   } catch (error) {
     console.error("Error fetching schemes:", error);
@@ -79,7 +80,7 @@ const fetchSchemes = async () => {
  const handleDeleteClick = async (id) => {
   try {
     await axios.delete(
-      `http://localhost:5050/api/gov-schemes/${id}`
+      `${API}/api/gov-schemes/${id}`
     );
 
     fetchSchemes(); // refresh list from backend
@@ -101,13 +102,13 @@ const handleSaveScheme = async () => {
       if (editingId) {
         // UPDATE
         await axios.put(
-          `http://localhost:5050/api/gov-schemes/${editingId}`,
+          `${API}/api/gov-schemes/${editingId}`,
           formData
         );
       } else {
         // CREATE
         await axios.post(
-          "http://localhost:5050/api/gov-schemes",
+          `${API}/api/gov-schemes`,
           formData
         );
       }

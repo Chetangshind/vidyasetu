@@ -19,7 +19,7 @@ export default function ViewScheme() {
 
       const token = localStorage.getItem("token");
 
-      const res = await axios.get(`http://localhost:5050/api/schemes/${id}`, {
+      const res = await axios.get(`http://${API}/api/schemes/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 

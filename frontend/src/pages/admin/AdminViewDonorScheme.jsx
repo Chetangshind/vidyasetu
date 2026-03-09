@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import "./AdminView.css";
+import API from "../../api";
 
 const STATUS_CONFIG = {
   active: {
@@ -56,9 +57,9 @@ export default function AdminViewDonorScheme() {
   }, []);
 
   const fetchScheme = async () => {
-    const res = await axios.get(
-      `http://localhost:5050/api/admin/schemes/${id}`
-    );
+ const res = await axios.get(
+  `${API}/api/admin/schemes/${id}`
+);
     setScheme(res.data);
   };
 
@@ -74,9 +75,8 @@ export default function AdminViewDonorScheme() {
         }
 
         if (!window.confirm("Make this scheme Active?")) return;
-
-        await axios.patch(
-          `http://localhost:5050/api/admin/schemes/${id}/active`,
+await axios.patch(
+  `${API}/api/admin/schemes/${id}/active`,
           { reason }
         );
       }
@@ -90,8 +90,8 @@ export default function AdminViewDonorScheme() {
 
         if (!window.confirm("Move scheme to Under Review?")) return;
 
-        await axios.patch(
-          `http://localhost:5050/api/admin/schemes/${id}/review`,
+await axios.patch(
+  `${API}/api/admin/schemes/${id}/review`,
           { reason }
         );
       }
@@ -121,8 +121,8 @@ export default function AdminViewDonorScheme() {
           if (!window.confirm("Issue warning to this scheme?")) return;
         }
 
-        await axios.patch(
-          `http://localhost:5050/api/admin/schemes/${id}/warn`,
+await axios.patch(
+  `${API}/api/admin/schemes/${id}/warn`,
           { reason }
         );
       }
@@ -141,8 +141,8 @@ export default function AdminViewDonorScheme() {
         )
           return;
 
-        await axios.patch(
-          `http://localhost:5050/api/admin/schemes/${id}/close`,
+ await axios.patch(
+  `${API}/api/admin/schemes/${id}/close`,
           { reason }
         );
       }

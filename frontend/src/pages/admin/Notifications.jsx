@@ -10,8 +10,9 @@ import {
   FaBan,
   FaUndo,
 } from "react-icons/fa";
+import API from "../../api";
 
-const API_BASE = "http://localhost:5050/api";
+const API_BASE = `${API}/api`;
 
 function timeAgo(dateStr) {
   const diff = Date.now() - new Date(dateStr).getTime();

@@ -18,7 +18,7 @@ export default function DraftSchemes() {
       const token = localStorage.getItem("token");
 
       const res = await axios.get(
-        "http://localhost:5050/api/schemes/my?status=draft",
+        "http://${API}/api/schemes/my?status=draft",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -50,7 +50,7 @@ export default function DraftSchemes() {
       const token = localStorage.getItem("token");
 
       await axios.delete(
-        `http://localhost:5050/api/schemes/${id}`,
+        `http://${API}/api/schemes/${id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -72,7 +72,7 @@ export default function DraftSchemes() {
       const token = localStorage.getItem("token");
 
       await axios.put(
-        `http://localhost:5050/api/schemes/${draft._id}`,
+        `http://${API}/api/schemes/${draft._id}`,
         { status: "active" },
         {
           headers: {
