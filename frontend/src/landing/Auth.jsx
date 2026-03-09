@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./Auth.css";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import CaptchaBox from "./CaptchaBox";
+import API from "../../api";
 
 const API = import.meta.env.VITE_API_URL;
 

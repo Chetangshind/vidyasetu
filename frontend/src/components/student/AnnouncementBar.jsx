@@ -1,4 +1,5 @@
 import React from "react";
+import API from "../../api";
 
 export default function AnnouncementBar() {
   const messages = [

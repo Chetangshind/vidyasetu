@@ -14,6 +14,7 @@ import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/student/logo.png";
 import "./Sidebar.css"; // ⭐ Moved CSS
 import { FiSettings } from "react-icons/fi";
+import API from "../../api";
 
 const DARK_COLORS = {
   profile: "#89acd4ff",

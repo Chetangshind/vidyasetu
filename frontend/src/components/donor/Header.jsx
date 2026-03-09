@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { FiBell, FiHelpCircle, FiLogOut } from "react-icons/fi";
 import "./Header.css";
+import API from "../../api";
 
 const getInitials = (name = "") => {
   const parts = name.trim().split(" ");

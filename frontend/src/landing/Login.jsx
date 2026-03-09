@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./Auth.css";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import CaptchaBox from "./CaptchaBox";
+import API from "../../api";
 
 export default function Login() {
   const location = useLocation();
@@ -53,7 +54,7 @@ export default function Login() {
   const handleGoogleResponse = async (response) => {
     if (role === "admin") return;
     try {
-      const res = await fetch(`${API}/api/auth/google-login", {
+     const res = await fetch(`${API}/api/auth/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -87,7 +88,7 @@ export default function Login() {
     }
 
     try {
-      const res = await fetch(`${API}/api/auth/login", {
+    const res = await fetch(`${API}/api/auth/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

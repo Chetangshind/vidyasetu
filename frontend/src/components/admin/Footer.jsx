@@ -1,3 +1,4 @@
+import API from "../../api";
 export default function AdminFooter() {
   return (
     <div

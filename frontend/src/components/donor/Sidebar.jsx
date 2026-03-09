@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FiBarChart2 } from "react-icons/fi";
+import API from "../../api";
 
 import {
   FiUser,

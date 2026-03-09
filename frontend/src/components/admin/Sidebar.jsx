@@ -12,6 +12,7 @@ import {
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/admin/logo.png"; // ✅ use your admin logo
 import "./Sidebar.css";
+import API from "../../api";
 
 const Separator = () => (
   <div

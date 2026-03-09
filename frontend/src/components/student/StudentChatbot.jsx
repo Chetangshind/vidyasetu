@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import "./StudentChatbot.css";
 import { useNavigate } from "react-router-dom";
+import API from "../../api";
 
 export default function StudentChatbot() {
 
