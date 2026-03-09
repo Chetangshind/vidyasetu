@@ -294,7 +294,7 @@ export default function Profile() {
       try {
         const token = localStorage.getItem("token");
         if (!token) return;
-        const res = await axios.get(`${API}/api/donor/profile", {
+        const res = await axios.get(`${API}/api/donor/profile`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         if (res.data) {

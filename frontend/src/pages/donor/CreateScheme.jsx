@@ -665,7 +665,7 @@ export default function CreateScheme() {
       try {
         const token = localStorage.getItem("token");
         if (!token) return;
-        const res = await axios.get(`${API}/api/donor/profile", {
+        const res = await axios.get(`${API}/api/donor/profile`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         if (res.data) {
@@ -751,11 +751,11 @@ export default function CreateScheme() {
         );
         alert("Scheme updated successfully");
       } else {
-        await axios.post(
-          `${API}/api/schemes",
-          buildPayload("active"),
-          { headers },
-        );
+  await axios.post(
+  `${API}/api/schemes`,
+  buildPayload("active"),
+  { headers },
+);
         alert("Scheme created successfully");
       }
       navigate("/donor/my-schemes/active");
