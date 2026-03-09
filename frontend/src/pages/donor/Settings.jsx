@@ -9,6 +9,7 @@ import {
   FiEye,
   FiEyeOff,
 } from "react-icons/fi";
+import API from "../../api";
 
 import "../student/Settings.css";   // ⭐ reuse same CSS
 
@@ -41,7 +42,7 @@ const DonorSettings = () => {
 
       const user = JSON.parse(localStorage.getItem("user") || "{}");
 
-      const res = await fetch("http://${API}/api/auth/change-password", {
+      const res = await fetch(`${API}/api/auth/change-password`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -85,7 +86,7 @@ const DonorSettings = () => {
 
       const user = JSON.parse(localStorage.getItem("user") || "{}");
 
-      const res = await fetch("http://${API}/api/auth/delete-account", {
+      const res = await fetch(`${API}/api/auth/delete-account`, {
         method: "DELETE",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

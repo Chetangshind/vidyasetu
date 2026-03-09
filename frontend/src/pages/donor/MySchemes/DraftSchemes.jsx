@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./DraftSchemes.css";
+import API from "../../../api";
 
 export default function DraftSchemes() {
   const navigate = useNavigate();
@@ -18,7 +19,7 @@ export default function DraftSchemes() {
       const token = localStorage.getItem("token");
 
       const res = await axios.get(
-        "http://${API}/api/schemes/my?status=draft",
+        `${API}/api/schemes/my?status=draft`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -50,7 +51,7 @@ export default function DraftSchemes() {
       const token = localStorage.getItem("token");
 
       await axios.delete(
-        `http://${API}/api/schemes/${id}`,
+        `${API}/api/schemes/${id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -72,7 +73,7 @@ export default function DraftSchemes() {
       const token = localStorage.getItem("token");
 
       await axios.put(
-        `http://${API}/api/schemes/${draft._id}`,
+        `${API}/api/schemes/${draft._id}`,
         { status: "active" },
         {
           headers: {

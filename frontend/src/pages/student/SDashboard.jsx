@@ -8,6 +8,7 @@ import {
   FiFileText,
   FiUser,
 } from "react-icons/fi";
+import API from "../../api";
 
 export default function SDashboard() {
   const navigate = useNavigate();
@@ -42,28 +43,28 @@ export default function SDashboard() {
   const [recentActivity, setRecentActivity] = useState([]);
 
   /* ================= PROFILE FETCH ================= */
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (!token) return;
+useEffect(() => {
+  const token = localStorage.getItem("token");
+  if (!token) return;
 
-    fetch("http://${API}/api/student/profile", {
-      headers: { Authorization: "Bearer " + token },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.success && data.profile) {
-          const updated = sections.map((s) => ({
-            ...s,
-            percent:
-              data.profile[s.key] &&
-              Object.keys(data.profile[s.key]).length > 0
-                ? 100
-                : 0,
-          }));
-          setSections(updated);
-        }
-      });
-  }, []);
+  fetch(`${API}/api/student/profile`, {
+    headers: { Authorization: "Bearer " + token },
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      if (data.success && data.profile) {
+        const updated = sections.map((s) => ({
+          ...s,
+          percent:
+            data.profile[s.key] &&
+            Object.keys(data.profile[s.key]).length > 0
+              ? 100
+              : 0,
+        }));
+        setSections(updated);
+      }
+    });
+}, []);
 
 /* ================= SUMMARY FETCH ================= */
 useEffect(() => {
@@ -73,7 +74,7 @@ useEffect(() => {
   const fetchSummary = async () => {
     try {
       const res = await fetch(
-        "http://${API}/api/student/dashboard-summary",
+        `${API}/api/student/dashboard-summary`,
         {
           headers: { Authorization: "Bearer " + token },
         }
@@ -98,7 +99,7 @@ useEffect(() => {
   };
 
   fetchSummary();
-}, []);
+}, [sections]);
 
   const totalCompletion = Math.round(
     sections.reduce((a, b) => a + b.percent, 0) / sections.length

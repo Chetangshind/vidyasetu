@@ -33,13 +33,7 @@ import DonorSettings from "./pages/donor/Settings";
 import ApprovedApplications from "./pages/donor/Applications/ApprovedApplications.jsx";
 import PendingApplications from "./pages/donor/Applications/PendingApplications.jsx";
 import RejectedApplications from "./pages/donor/Applications/RejectedApplications.jsx";
-import SpecialRequests from "./pages/donor/Applications/SpecialRequests.jsx";
 import DonorViewForm from "./pages/donor/Applications/ViewForm.jsx";
-
-// Donations
-import DonationHistory from "./pages/donor/Donations/History.jsx";
-import DonationPending from "./pages/donor/Donations/Pending.jsx";
-import DonationReceipt from "./pages/donor/Donations/Receipt.jsx";
 
 // My Schemes
 import ActiveSchemes from "./pages/donor/MySchemes/ActiveSchemes.jsx";
@@ -115,14 +109,10 @@ export default function App() {
             path="applications/rejected"
             element={<RejectedApplications />}
           />
-          <Route path="applications/special" element={<SpecialRequests />} />
           <Route path="applications/view/:id" element={<DonorViewForm />} />
           <Route path="my-schemes/active" element={<ActiveSchemes />} />
           <Route path="my-schemes/draft" element={<DraftSchemes />} />
           <Route path="my-schemes/closed" element={<ClosedSchemes />} />
-          <Route path="donations/history" element={<DonationHistory />} />
-          <Route path="donations/pending" element={<DonationPending />} />
-          <Route path="donations/receipt" element={<DonationReceipt />} />
         </Route>
 
         {/* ================== AUTH PAGES ================== */}

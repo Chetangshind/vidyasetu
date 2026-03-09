@@ -9,8 +9,9 @@ import {
   FiClock,
   FiRefreshCw,
 } from "react-icons/fi";
+import API from "../../api";
 
-const API_BASE = import.meta.env.VITE_API_URL || "http://${API}/api";
+const API_BASE = `${API}/api`;
 
 export default function DDashboard() {
   const [stats, setStats] = useState(null);

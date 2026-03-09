@@ -42,7 +42,7 @@ const fetchUnreadCount = async () => {
     if (!donorId) return;
 
     const res = await fetch(
-      `http://${API}/api/donor-notifications/unread/count/${donorId}`
+      `${API}/api/donor-notifications/unread/count/${donorId}`
     );
 
     const data = await res.json();

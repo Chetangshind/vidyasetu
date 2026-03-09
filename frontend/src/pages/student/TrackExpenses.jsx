@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./TrackExpenses.css";
 import axios from "axios";
+import API from "../../api";
 
 export default function TrackExpenses() {
   const navigate = useNavigate();
@@ -21,7 +22,7 @@ const handleSearch = async (tabValue = activeTab) => {
     const token = localStorage.getItem("token");
 
 const res = await axios.get(
-  `http://${API}/api/applications/my?academicYear=${year}&status=${tabValue === "scrutiny" ? "applied" : tabValue}`,
+  `${API}/api/applications/my?academicYear=${encodeURIComponent(year)}&status=${tabValue === "scrutiny" ? "applied" : tabValue}`,
   {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -148,8 +149,8 @@ onClick={() => {
                       </td>
                     </tr>
                   ) : (
-                    applications.map((item, index) => (
-<tr key={index}>
+applications.map((item) => (
+<tr key={item._id}>
   <td className="table-link">{item._id}</td>
 
   <td>{item.schemeId?.schemeName || "-"}</td>

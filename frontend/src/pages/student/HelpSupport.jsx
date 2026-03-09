@@ -3,6 +3,7 @@ import axios from "axios";
 import React, { useEffect, useMemo, useState } from "react";
 import { FiSearch, FiChevronDown, FiChevronUp } from "react-icons/fi";
 import "./HelpSupport.css";
+import API from "../../api";
 
 const STUDENT_FAQS = [
   {
@@ -66,7 +67,7 @@ export default function HelpSupportStudent() {
   async function fetchMyQueries(email) {
     try {
       const res = await axios.get(
-        `http://${API}/api/help/my-queries/${email}`
+        `${API}/api/help/my-queries/${email}`
       );
       setTickets(res.data);
     } catch (error) {
@@ -107,7 +108,7 @@ export default function HelpSupportStudent() {
     if (!validateForm()) return;
 
     try {
-      await axios.post("http://${API}/api/help/send", {
+      await axios.post(`${API}/api/help/send`, {
         name: form.name,
         email: loggedInEmail,
         role: "student",

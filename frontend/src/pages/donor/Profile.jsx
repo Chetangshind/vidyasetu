@@ -13,6 +13,7 @@ import {
   FiBriefcase,
 } from "react-icons/fi";
 import "./Profile.css";
+import API from "../../api";
 
 // ====================== ORG TYPE OPTIONS ======================
 const ORG_TYPES = [
@@ -293,7 +294,7 @@ export default function Profile() {
       try {
         const token = localStorage.getItem("token");
         if (!token) return;
-        const res = await axios.get("http://${API}/api/donor/profile", {
+        const res = await axios.get(`${API}/api/donor/profile", {
           headers: { Authorization: `Bearer ${token}` },
         });
         if (res.data) {
@@ -339,7 +340,7 @@ export default function Profile() {
         location: `${data.city || ""}, ${data.state || ""}, ${data.country || ""}`,
         profileComplete: checkProfileComplete(data),
       };
-      await axios.post("http://${API}/api/donor/profile", payload, {
+      await axios.post(`${API}/api/donor/profile`, payload, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setProfile(data);

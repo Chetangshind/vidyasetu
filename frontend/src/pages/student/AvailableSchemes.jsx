@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { FiList, FiCheckCircle, FiAlertCircle, FiStar } from "react-icons/fi";
 import "./AvailableSchemes.css";
 import ApplyProfilePreview from "./ProfilePreviewPage";
+import API from "../../api";
 
 /* -------------------------
    Utility
@@ -147,7 +148,7 @@ export default function AvailableSchemes() {
     async function fetchProfileForEligibility() {
       try {
         const token = localStorage.getItem("token");
-        const res = await fetch("http://${API}/api/student/profile", {
+        const res = await fetch(`${API}/api/student/profile`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         const data = await res.json();
@@ -197,7 +198,7 @@ export default function AvailableSchemes() {
       const token = localStorage.getItem("token");
 
       const res = await fetch(
-        "http://${API}/api/ai/all-with-ai",
+        `${API}/api/ai/all-with-ai`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -223,7 +224,7 @@ export default function AvailableSchemes() {
 useEffect(() => {
   async function fetchGovSchemes() {
     try {
-      const res = await fetch("http://${API}/api/gov-schemes");
+      const res = await fetch(`${API}/api/gov-schemes`);
       const data = await res.json();
       setGovSchemes(data || []);
     } catch (err) {
@@ -241,7 +242,7 @@ useEffect(() => {
     async function fetchApplied() {
       try {
         const token = localStorage.getItem("token");
-        const res = await fetch("http://${API}/api/applications/my", {
+        const res = await fetch(`${API}/api/applications/my`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         if (!res.ok) return;
@@ -432,7 +433,7 @@ onClick={() => navigate(`/student/view-scheme/${s._id}`)}
 
           // Fetch full profile before confirm
           const res = await fetch(
-            "http://${API}/api/student/profile",
+            `${API}/api/student/profile`,
             {
               headers: { Authorization: `Bearer ${token}` },
             }
@@ -506,7 +507,7 @@ onClick={() => navigate(`/student/view-scheme/${s._id}`)}
                       setApplying(true);
                       const token = localStorage.getItem("token");
                       const res = await fetch(
-                        "http://${API}/api/applications/apply",
+                        `${API}/api/applications/apply`,
                         {
                           method: "POST",
                           headers: {

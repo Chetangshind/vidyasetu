@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 import { FaEye } from "react-icons/fa";
 import { useNavigate, useParams } from "react-router-dom";
 import "./ViewForm.css";
+import API from "../../../api";
 
 export default function DonorViewForm() {
   const normalize = (str = "") =>
@@ -28,7 +29,7 @@ export default function DonorViewForm() {
     const fetchApplication = async () => {
       try {
         const res = await fetch(
-          `http://${API}/api/applications/${id}`,
+          `${API}/api/applications/${id}`,
           {
             headers: {
               Authorization: "Bearer " + localStorage.getItem("token"),
@@ -134,7 +135,7 @@ const uploadedDocs = buildUploadedDocs();
 
   /* ================= ACTIONS ================= */
   const approve = async () => {
-    await fetch(`http://${API}/api/applications/${id}/status`, {
+    await fetch(`${API}/api/applications/${id}/status`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -149,7 +150,7 @@ const uploadedDocs = buildUploadedDocs();
     const finalReason =
       rejectReason === "Other" ? otherReason : rejectReason;
 
-    await fetch(`http://${API}/api/applications/${id}/status`, {
+    await fetch(`${API}/api/applications/${id}/status`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -375,7 +376,7 @@ const uploadedDocs = buildUploadedDocs();
           className="view-doc-btn"
           onClick={() =>
             window.open(
-              `http://${API}/uploads/${doc.file}`,
+              `${API}/uploads/${doc.file}`,
               "_blank"
             )
           }

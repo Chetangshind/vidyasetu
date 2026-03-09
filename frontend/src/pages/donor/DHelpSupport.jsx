@@ -3,6 +3,7 @@ import axios from "axios";
 import { jwtDecode } from "jwt-decode";
 import { FiSearch, FiChevronDown, FiChevronUp } from "react-icons/fi";
 import "./DHelpSupport.css";
+import API from "../../api";
 
 const DONOR_FAQS = [
   {
@@ -71,7 +72,7 @@ export default function DHelpSupport() {
   async function fetchMyQueries(email) {
     try {
       const res = await axios.get(
-        `http://${API}/api/help/my-queries/${email}`
+        `${API}/api/help/my-queries/${email}`
       );
       setTickets(res.data);
     } catch (error) {
@@ -114,7 +115,7 @@ export default function DHelpSupport() {
     if (!validateForm()) return;
 
     try {
-      await axios.post("http://${API}/api/help/send", {
+      await axios.post(`${API}/api/help/send`, {
         name: form.name,
         email: loggedInEmail,
         role: "donor",

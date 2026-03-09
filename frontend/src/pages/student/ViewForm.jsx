@@ -2,6 +2,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import React, { useRef, useState, useEffect } from "react";
 import { FaEye } from "react-icons/fa";
 import "./ViewForm.css";
+import API from "../../api";
 
 export default function ViewForm() {
   const printRef = useRef();
@@ -40,13 +41,13 @@ useEffect(() => {
 
       // ✅ 1. If ID exists → it is application snapshot
       if (id) {
-        url = `http://${API}/api/applications/${id}`;
+        url = `${API}/api/applications/${id}`;
         isApplicationView = true;
       }
 
       // ✅ 2. If no ID → normal student profile preview
       else {
-        url = "http://${API}/api/student/profile";
+        url = `${API}/api/student/profile`;
       }
 
       const res = await fetch(url, {
@@ -458,7 +459,7 @@ if (!profile)
                         className="view-doc-btn"
                         onClick={() =>
                           window.open(
-                            `http://${API}/uploads/${doc.file}`,
+                            `${API}/uploads/${doc.file}`,
                             "_blank",
                           )
                         }

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./MyAppliedSchemes.css";
+import API from "../../api";
 
 export default function MyAppliedSchemes() {
   const [activeTab, setActiveTab] = useState("scrutiny");
@@ -17,7 +18,7 @@ export default function MyAppliedSchemes() {
     async function fetchApplications(status, setter) {
       try {
         const res = await fetch(
-          `http://${API}/api/applications/my?status=${status}`,
+          `${API}/api/applications/my?status=${status}`,
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -45,7 +46,7 @@ export default function MyAppliedSchemes() {
   async function fetchMeetings() {
   try {
     const res = await fetch(
-      "http://${API}/api/meetings/student",
+      `${API}/api/meetings/student`,
       {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,

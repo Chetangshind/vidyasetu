@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./ClosedSchemes.css";
+import API from "../../../api";
 
 export default function ClosedSchemes() {
   const [schemes, setSchemes] = useState([]);
@@ -16,7 +17,7 @@ export default function ClosedSchemes() {
       const token = localStorage.getItem("token");
 
       const res = await axios.get(
-        "http://${API}/api/schemes/my?status=closed",
+        `${API}/api/schemes/my?status=closed`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

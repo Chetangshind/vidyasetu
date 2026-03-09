@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./RejectedApplications.css";
+import API from "../../../api";
 
 export default function RejectedApplications() {
   const [applications, setApplications] = useState([]);
@@ -12,7 +13,7 @@ export default function RejectedApplications() {
     async function fetchRejectedApplications() {
       try {
         const res = await fetch(
-          "http://${API}/api/applications/donor?status=rejected",
+          `${API}/api/applications/donor?status=rejected`,
           {
             headers: {
               Authorization: "Bearer " + localStorage.getItem("token"),

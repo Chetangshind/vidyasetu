@@ -9,6 +9,7 @@ import {
   FaSearch,
 } from "react-icons/fa";
 import "./Notifications.css";
+import API from "../../api";
 
 function timeAgo(date) {
   const seconds = Math.floor((new Date() - new Date(date)) / 1000);
@@ -38,7 +39,7 @@ useEffect(() => {
     const donorId = user._id || user.id;
 
     await axios.patch(
-      `http://${API}/api/donor-notifications/read-all/${donorId}`
+      `${API}/api/donor-notifications/read-all/${donorId}`
     );
 
     // 🔥 Tell header to refresh unread count
@@ -57,7 +58,7 @@ useEffect(() => {
       const donorId = user._id || user.id;
 
       const res = await axios.get(
-        `http://${API}/api/donor-notifications/${donorId}`
+        `${API}/api/donor-notifications/${donorId}`
       );
 
       setNotifications(res.data);

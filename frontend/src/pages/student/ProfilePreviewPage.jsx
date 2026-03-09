@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FaEye } from "react-icons/fa";
-import "./ViewForm";
+import "./ViewForm.css";
+import API from "../../api";
 
 export default function ApplyProfilePreview({ profile }) {
   const [showDocs, setShowDocs] = useState(false);
@@ -205,7 +206,7 @@ const uploadedDocs = buildUploadedDocs(profile);
                     <button
                       className="view-doc-btn"
                       onClick={() =>
-                        window.open(`http://${API}/uploads/${doc.file}`, "_blank")
+                        window.open(`${API}/uploads/${doc.file}`, "_blank")
                       }
                     >
                       <FaEye /> View

@@ -10,6 +10,7 @@ import {
   FiEyeOff,
 } from "react-icons/fi";
 import "./Settings.css";
+import API from "../../api";
 
 const Settings = () => {
   const [language, setLanguage] = useState("English");
@@ -33,7 +34,7 @@ const handlePasswordUpdate = async (e) => {
 
   try {
     const user = JSON.parse(localStorage.getItem("user") || "{}");
-    const res = await fetch("http://${API}/api/auth/change-password", {
+    const res = await fetch(`${API}/api/auth/delete-account`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -73,7 +74,7 @@ const handleDeleteAccount = async () => {
 
   try {
     const user = JSON.parse(localStorage.getItem("user") || "{}");
-    const res = await fetch("http://${API}/api/auth/delete-account", {
+    const res = await fetch(`${API}/api/auth/delete-account`, {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

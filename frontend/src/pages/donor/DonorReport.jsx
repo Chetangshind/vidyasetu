@@ -30,8 +30,9 @@ import {
   FaLightbulb
 } from 'react-icons/fa';
 import './DonorReport.css';
+import API from "../../api";
 
-const API_BASE = import.meta.env.VITE_API_URL || "http://${API}/api";
+const API_BASE = `${API}/api`;
 
 const DonorReport = () => {
   const [selectedScheme, setSelectedScheme] = useState("All Schemes");

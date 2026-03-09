@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./ActiveSchemes.css";
+import API from "../../../api";
 
 export default function ActiveSchemes() {
   const navigate = useNavigate();
@@ -20,7 +21,7 @@ export default function ActiveSchemes() {
       const token = localStorage.getItem("token");
 
       const res = await axios.get(
-        "http://${API}/api/schemes/my?status=active",
+        `${API}/api/schemes/my?status=active`,
         {
           headers: { Authorization: `Bearer ${token}` },
         },
@@ -46,7 +47,7 @@ export default function ActiveSchemes() {
       const token = localStorage.getItem("token");
 
       await axios.put(
-        `http://${API}/api/schemes/${selectedSchemeId}/cancel`,
+        `${API}/api/schemes/${selectedSchemeId}/cancel`,
         {},
         {
           headers: { Authorization: `Bearer ${token}` },

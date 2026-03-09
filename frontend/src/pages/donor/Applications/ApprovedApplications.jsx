@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./ApprovedApplications.css";
+import API from "../../../api";
 
 export default function ApprovedApplications() {
   const [applications, setApplications] = useState([]);
@@ -20,7 +21,7 @@ export default function ApprovedApplications() {
 async function fetchApprovedApplications() {
   try {
     const res = await fetch(
-      "http://${API}/api/applications/donor/approved",
+      `${API}/api/applications/donor/approved`,
       {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("token"),
@@ -321,7 +322,7 @@ if (meetingType === "digital") {
   }
 
   try {
-    const res = await fetch("http://${API}/api/meetings", {
+    const res = await fetch(`${API}/api/meetings`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

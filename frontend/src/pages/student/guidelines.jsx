@@ -8,6 +8,7 @@ import {
 } from "react-icons/fi";
 import "./guidelines.css";
 import ReactDOM from "react-dom";
+import API from "../../api";
 
 const categories = [
   { label: "All", value: "all" },
@@ -266,7 +267,7 @@ export default function Guidelines() {
 
           <h4>Step-by-Step Process</h4>
           <ul>
-            {modalData.steps.map((s, i) => (
+            {modalData.steps?.map((s, i) => (
               <li key={i}>
                 <FiCheckCircle /> {s}
               </li>
@@ -275,7 +276,7 @@ export default function Guidelines() {
 
           <h4>Required Documents</h4>
           <ul>
-            {modalData.docs.map((d, i) => (
+            {modalData.docs?.map((d, i) => (
               <li key={i}>
                 <FiBook /> {d}
               </li>
@@ -310,7 +311,7 @@ export default function Guidelines() {
 
           <h4>Common Mistakes to Avoid</h4>
           <ul>
-            {modalData.mistakes.map((m, i) => (
+            {modalData.mistakes?.map((m, i) => (
               <li key={i}>
                 <FiAlertTriangle /> {m}
               </li>

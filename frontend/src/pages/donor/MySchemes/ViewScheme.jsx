@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./ViewScheme.css";
+import API from "../../../api";
 
 export default function ViewScheme() {
   const { id } = useParams(); // ✅ get id from URL
@@ -19,7 +20,7 @@ export default function ViewScheme() {
 
       const token = localStorage.getItem("token");
 
-      const res = await axios.get(`http://${API}/api/schemes/${id}`, {
+      const res = await axios.get(`${API}/api/schemes/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 

@@ -11,8 +11,9 @@ import {
   FaUndo,
 } from "react-icons/fa";
 import "./notifications.css";
+import API from "../../api";
 
-const API_BASE = "http://${API}/api";
+const API_BASE = `${API}/api`;
 
 // ── Icon + color per type ─────────────────────────────────────────────────────
 const TYPE_CONFIG = {
@@ -108,7 +109,7 @@ function AdminActionCard({ notif, token, onResponded }) {
 
         {/* Body lines (split on \n) */}
         <div className="notif-body-lines">
-          {notif.body
+          {(notif.body || "")
             .split("\n")
             .map((line, i) => (line.trim() ? <p key={i}>{line}</p> : null))}
         </div>
@@ -162,7 +163,7 @@ function StudentCorrectedCard({ notif }) {
           <strong>{notif.title}</strong>
           <span>{timeAgo(notif.createdAt)}</span>
         </div>
-        <p>{notif.body}</p>
+        <p>{(notif.body || "")}</p>
         <div className="notif-student-badge">
           Sent by: <strong>{notif.senderName}</strong>
         </div>
@@ -182,7 +183,7 @@ function RegularCard({ notif }) {
           <strong>{notif.title}</strong>
           <span>{timeAgo(notif.createdAt)}</span>
         </div>
-        <p>{notif.body}</p>
+        <p>{(notif.body || "")}</p>
       </div>
     </div>
   );
