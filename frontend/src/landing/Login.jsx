@@ -54,7 +54,7 @@ export default function Login() {
   const handleGoogleResponse = async (response) => {
     if (role === "admin") return;
     try {
-     const res = await fetch(`${API}/api/auth/login`, {
+     const res = await fetch(`${API}/api/auth/google-login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -88,7 +88,7 @@ export default function Login() {
     }
 
     try {
-    const res = await fetch(`${API}/api/auth/login`, {
+    const res = await fetch(`${API}/api/auth/google-login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
