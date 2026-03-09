@@ -1,8 +1,8 @@
 import { useState, useEffect, useCallback } from "react";
 import "./Students.css";
 import { useNavigate } from "react-router-dom";
-const API_BASE = `${API}/api`;
 import API from "../../api";
+const API_BASE = `${API}/api`;
 
 const STATUS_CONFIG = {
   active: {
