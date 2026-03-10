@@ -18,8 +18,9 @@ export default function StudentChatbot() {
   const dragging = useRef(false)
   const offset = useRef({x:0,y:0})
 
-  const handleMouseDown = (e)=>{
-    dragging.current = true
+ const handleMouseDown = (e)=>{
+  e.preventDefault()
+  dragging.current = true
     offset.current = {
       x: e.clientX - position.x,
       y: e.clientY - position.y
@@ -135,13 +136,14 @@ if(q === "I have another issue / Talk to support"){
   ref={botRef}
   className="Veda-wrapper"
   onMouseDown={handleMouseDown}
-  style={{
-    left: position.x,
-    top: position.y,
-    position:"fixed",
-    zIndex:9999,
-    cursor:"grab"
-  }}
+style={{
+  left: position.x,
+  top: position.y,
+  position:"fixed",
+  zIndex:9999,
+  cursor:"grab",
+  userSelect:"none"
+}}
 >
        <div
   className="Veda-bot"
