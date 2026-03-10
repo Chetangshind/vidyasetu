@@ -1,9 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { FiBell, FiHelpCircle, FiLogOut } from "react-icons/fi";
-import API from "../../api";
 
-const API_BASE = `${API}/api`;
+const API_BASE = "http://localhost:5050/api";
 
 export default function Header({ openSidebar }) {
   const navigate = useNavigate();
@@ -54,32 +53,18 @@ export default function Header({ openSidebar }) {
     };
   }, [token]);
 
-  const headerMap = {
-  "/student/dashboard": "Student Dashboard",
-  "/student/profile": "Profile",
-  "/student/schemes": "Available Schemes",
-  "/student/applied": "Applied Schemes",
-  "/student/expenses": "Expenses Tracking",
-  "/student/guidelines": "Guidelines",
-  "/student/notifications": "Notifications",
-  "/student/help": "Help & Support",
+ const headerMap = {
+  "/student/profile":       { title: "Student Dashboard", subtitle: "Profile Details" },
+  "/student/schemes":       { title: "Student Dashboard", subtitle: "Available Schemes" },
+  "/student/applied":       { title: "Student Dashboard", subtitle: "Applied Schemes" },
+  "/student/expenses":      { title: "Student Dashboard", subtitle: "Expenses Tracking" },
+  "/student/guidelines":    { title: "Student Dashboard", subtitle: "Guidelines" },
+  "/student/notifications": { title: "Student Dashboard", subtitle: "Notifications" },
+  "/student/help":          { title: "Student Dashboard", subtitle: "Help & Support" },
 };
 
-const currentTitle =
-  headerMap[location.pathname] || "Student Dashboard";
-
-  const pageMap = {
-  "/student/dashboard": "Dashboard Overview",
-  "/student/profile": "Profile",
-  "/student/schemes": "Available Schemes",
-  "/student/applied": "Applied Schemes",
-  "/student/expenses": "Expenses Tracking",
-  "/student/guidelines": "Guidelines",
-  "/student/notifications": "Notifications",
-  "/student/help": "Help & Support",
-};
-
-const currentPage = pageMap[location.pathname] || "Dashboard Overview";
+ const currentHeader =
+  headerMap[location.pathname] || { title: "Student Dashboard", subtitle: "Dashboard Overview" };
 
   return (
     <div
@@ -108,19 +93,15 @@ const currentPage = pageMap[location.pathname] || "Dashboard Overview";
         </div>
 
         <div className="header-left" style={{ display: "flex", flexDirection: "column", color: "white" }}>
-<div className="header-title">
-<span className="desktop-title">Student Dashboard</span>
-<span className="mobile-title">Student Dashboard</span>
-  <div
-    style={{
-      fontSize: "13px",
-      color: "rgba(230,245,248,0.9)",
-      marginTop: "2px"
-    }}
-  >
-    {currentPage}
-  </div>
-</div>
+          <span style={{ fontSize: "21px", fontWeight: 800, letterSpacing: "0.3px" }}>
+            {currentHeader.title}
+          </span>
+          <span
+            key={currentHeader.subtitle}
+            style={{ fontSize: "13px", color: "rgba(230,245,248,0.9)", marginTop: 2, animation: "fadeSlide 0.35s ease" }}
+          >
+            {currentHeader.subtitle}
+          </span>
         </div>
       </div>
 
@@ -217,86 +198,55 @@ const currentPage = pageMap[location.pathname] || "Dashboard Overview";
       </div>
 
       <style>{`
-        @keyframes fadeSlide {
-          from { opacity: 0; transform: translateY(4px); }
-          to   { opacity: 0.85; transform: translateY(0); }
-        }
-        @media (max-width: 768px) {
-          .student-header { padding: 8px 12px !important; height: 58px !important; position: relative !important; }
-          .mobile-hamburger { display: block !important; }
-.header-left{
-  text-align:left !important;
-  width:auto !important;
-}
-          .header-right { margin-left: auto !important; display: flex !important; align-items: center !important; gap: 10px !important; }
-          .header-user { display: none !important; }
-        }
-
-.desktop-title{
-  display:inline;
-  color:#ffffff;
+@keyframes fadeSlide {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 0.85; transform: translateY(0); }
 }
 
-.mobile-title{
-  display:none;
-}
-@media (max-width:1024px){
+@media (max-width: 768px) {
 
-  .desktop-title{
-    font-size:16px;
+  .student-header {
+    padding: 8px 12px !important;
+    height: 58px !important;
   }
 
-  .header-title div{
-    font-size:12px;
+  .mobile-hamburger {
+    display: block !important;
   }
 
-}
-@media (max-width:768px){
-
-  .desktop-title{
-    display:none;
+  /* LEFT SECTION FIX */
+  .header-left {
+    text-align: left !important;
+    width: auto !important;
+    line-height: 1.05 !important;
   }
 
-  .mobile-title{
-    display:inline;
-    font-size:16px;
-    font-weight:800;
+  /* TITLE */
+  .header-left span:first-child {
+    font-size: 15px !important;
+    font-weight: 800 !important;
+    white-space: nowrap !important;
   }
 
-  .header-title{
-  color:white;
-}
-  
-.header-title{
-  display:flex;
-  flex-direction:column;
-  line-height:1.2;
-}
+  /* SUBTITLE */
+  .header-left span:last-child {
+    font-size: 13px !important;
+    margin-top: -2px !important;
+    opacity: 0.9 !important;
+    white-space: nowrap !important;
+  }
 
-.desktop-title{
-  font-size:18px;
-  font-weight:700;
-  white-space:nowrap;
-}
+  .header-right {
+    margin-left: auto !important;
+    gap: 10px !important;
+  }
 
-.header-title div{
-  font-size:13px;
-  opacity:0.9;
-  white-space:nowrap;
-}
-
-.header-left{
-  max-width:60%;
-  overflow:hidden;
-}
-
-.desktop-title,
-.header-title div{
-  text-overflow:ellipsis;
-  overflow:hidden;
+  .user-info {
+    display: none !important;
+  }
 }
 }
-      `}</style>
+`}</style>
     </div>
   );
 }
