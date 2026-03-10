@@ -9,6 +9,42 @@ export default function StudentChatbot() {
   const messagesEndRef = useRef(null)
   const navigate = useNavigate();
 
+  const botRef = useRef(null)
+
+  const [position,setPosition] = useState({
+    x: window.innerWidth - 120,
+    y: window.innerHeight - 120
+  })
+
+  const dragging = useRef(false)
+
+  const handleMouseDown = ()=>{
+    dragging.current = true
+  }
+
+  const handleMouseMove = (e)=>{
+    if(!dragging.current) return
+
+    setPosition({
+      x: e.clientX - 40,
+      y: e.clientY - 40
+    })
+  }
+
+  const handleMouseUp = ()=>{
+    dragging.current = false
+  }
+
+  useEffect(()=>{
+    window.addEventListener("mousemove",handleMouseMove)
+    window.addEventListener("mouseup",handleMouseUp)
+
+    return ()=>{
+      window.removeEventListener("mousemove",handleMouseMove)
+      window.removeEventListener("mouseup",handleMouseUp)
+    }
+  },[])
+
   const questions = [
     {
       q:"How do I apply for a scheme?",
@@ -31,8 +67,8 @@ export default function StudentChatbot() {
       a:"Go to the Guidelines page → Select the document → Watch the YouTube tutorial or open the PDF guide."
     },
     {
-  q:"Where can I see meetings scheduled for my application?",
-  a:"Go to My Applied Schemes → Open the Meetings tab. There you can see meeting details with address or link, date & time, and meeting status."
+      q:"Where can I see meetings scheduled for my application?",
+      a:"Go to My Applied Schemes → Open the Meetings tab."
     },
     {
       q:"Why was my application rejected?",
@@ -51,9 +87,9 @@ export default function StudentChatbot() {
       a:"Go to the Help or Support section in the dashboard to contact admin."
     },
     {
-  q:"I have another issue / Talk to support",
-  a:"If your issue is not resolved here, you can raise a query to our support team."
-}
+      q:"I have another issue / Talk to support",
+      a:"If your issue is not resolved here, you can raise a query to our support team."
+    }
   ]
 
   const [messages,setMessages] = useState([
@@ -63,7 +99,7 @@ export default function StudentChatbot() {
 const handleQuestionClick = (q,a)=>{
 
 if(q === "I have another issue / Talk to support"){
-  setOpen(false) // close chatbot
+  setOpen(false)
   navigate("/student/help-support")
   return
 }
@@ -91,8 +127,20 @@ if(q === "I have another issue / Talk to support"){
     <>
 
       {/* BOT ICON */}
-      <div className="Veda-wrapper">
-        <div className="Veda-bot" onClick={()=>setOpen(!open)}>
+      <div
+        ref={botRef}
+        className="Veda-wrapper"
+        style={{
+          left: position.x,
+          top: position.y,
+          position:"fixed"
+        }}
+      >
+        <div
+          className="Veda-bot"
+          onMouseDown={handleMouseDown}
+          onClick={()=>setOpen(!open)}
+        >
           <img src="/robo.png"/>
         </div>
       </div>
