@@ -54,18 +54,32 @@ export default function Header({ openSidebar }) {
     };
   }, [token]);
 
-const headerMap = {
-  "/student/profile":       { title: "Academic Year: 2024-25", mobileTitle: "AY 2024-25", subtitle: "Profile Details" },
-  "/student/schemes":       { title: "Academic Year: 2024-25", mobileTitle: "AY 2024-25", subtitle: "Available Schemes" },
-  "/student/applied":       { title: "Academic Year: 2024-25", mobileTitle: "AY 2024-25", subtitle: "Applied Schemes" },
-  "/student/expenses":      { title: "Academic Year: 2024-25", mobileTitle: "AY 2024-25", subtitle: "Expenses Tracking" },
-  "/student/guidelines":    { title: "Academic Year: 2024-25", mobileTitle: "AY 2024-25", subtitle: "Guidelines" },
-  "/student/notifications": { title: "Academic Year: 2024-25", mobileTitle: "AY 2024-25", subtitle: "Notifications" },
-  "/student/help":          { title: "Academic Year: 2024-25", mobileTitle: "AY 2024-25", subtitle: "Help & Support" },
+  const headerMap = {
+  "/student/dashboard": "Student Dashboard",
+  "/student/profile": "Profile",
+  "/student/schemes": "Available Schemes",
+  "/student/applied": "Applied Schemes",
+  "/student/expenses": "Expenses Tracking",
+  "/student/guidelines": "Guidelines",
+  "/student/notifications": "Notifications",
+  "/student/help": "Help & Support",
 };
 
-  const currentHeader =
-    headerMap[location.pathname] || { title: "Academic Year: 2024-25", subtitle: "Dashboard Overview" };
+const currentTitle =
+  headerMap[location.pathname] || "Student Dashboard";
+
+  const pageMap = {
+  "/student/dashboard": "Dashboard Overview",
+  "/student/profile": "Profile",
+  "/student/schemes": "Available Schemes",
+  "/student/applied": "Applied Schemes",
+  "/student/expenses": "Expenses Tracking",
+  "/student/guidelines": "Guidelines",
+  "/student/notifications": "Notifications",
+  "/student/help": "Help & Support",
+};
+
+const currentPage = pageMap[location.pathname] || "Dashboard Overview";
 
   return (
     <div
@@ -94,16 +108,19 @@ const headerMap = {
         </div>
 
         <div className="header-left" style={{ display: "flex", flexDirection: "column", color: "white" }}>
-<span className="header-title">
-  <span className="desktop-title">{currentHeader.title}</span>
-  <span className="mobile-title">{currentHeader.mobileTitle}</span>
-</span>
-          <span
-            key={currentHeader.subtitle}
-            style={{ fontSize: "13px", color: "rgba(230,245,248,0.9)", marginTop: 2, animation: "fadeSlide 0.35s ease" }}
-          >
-            {currentHeader.subtitle}
-          </span>
+<div className="header-title">
+<span className="desktop-title">Student Dashboard</span>
+<span className="mobile-title">Student Dashboard</span>
+  <div
+    style={{
+      fontSize: "13px",
+      color: "rgba(230,245,248,0.9)",
+      marginTop: "2px"
+    }}
+  >
+    {currentPage}
+  </div>
+</div>
         </div>
       </div>
 
@@ -223,7 +240,17 @@ const headerMap = {
 .mobile-title{
   display:none;
 }
+@media (max-width:1024px){
 
+  .desktop-title{
+    font-size:16px;
+  }
+
+  .header-title div{
+    font-size:12px;
+  }
+
+}
 @media (max-width:768px){
 
   .desktop-title{
@@ -240,6 +267,34 @@ const headerMap = {
   color:white;
 }
   
+.header-title{
+  display:flex;
+  flex-direction:column;
+  line-height:1.2;
+}
+
+.desktop-title{
+  font-size:18px;
+  font-weight:700;
+  white-space:nowrap;
+}
+
+.header-title div{
+  font-size:13px;
+  opacity:0.9;
+  white-space:nowrap;
+}
+
+.header-left{
+  max-width:60%;
+  overflow:hidden;
+}
+
+.desktop-title,
+.header-title div{
+  text-overflow:ellipsis;
+  overflow:hidden;
+}
 }
       `}</style>
     </div>
