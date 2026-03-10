@@ -12,7 +12,7 @@ export default function StudentChatbot() {
 
   const [position,setPosition] = useState({
   x: window.innerWidth - 180 - 20,
-  y: window.innerHeight - 200 - 20
+  y: window.innerHeight - 150
 })
 
   const dragging = useRef(false)
