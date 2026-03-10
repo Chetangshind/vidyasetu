@@ -26,7 +26,30 @@ export default function StudentChatbot() {
       y: e.clientY - position.y
     }
   }
+const handleTouchStart = (e)=>{
+  const touch = e.touches[0]
 
+  dragging.current = true
+  offset.current = {
+    x: touch.clientX - position.x,
+    y: touch.clientY - position.y
+  }
+}
+
+const handleTouchMove = (e)=>{
+  if(!dragging.current) return
+
+  const touch = e.touches[0]
+
+  setPosition({
+    x: touch.clientX - offset.current.x,
+    y: touch.clientY - offset.current.y
+  })
+}
+
+const handleTouchEnd = ()=>{
+  dragging.current=false
+}
   const handleMouseMove = (e)=>{
     if(!dragging.current) return
 
@@ -41,14 +64,23 @@ export default function StudentChatbot() {
   }
 
   useEffect(()=>{
-    window.addEventListener("mousemove",handleMouseMove)
-    window.addEventListener("mouseup",handleMouseUp)
 
-    return ()=>{
-      window.removeEventListener("mousemove",handleMouseMove)
-      window.removeEventListener("mouseup",handleMouseUp)
-    }
-  },[])
+  window.addEventListener("mousemove",handleMouseMove)
+  window.addEventListener("mouseup",handleMouseUp)
+
+  window.addEventListener("touchmove",handleTouchMove)
+  window.addEventListener("touchend",handleTouchEnd)
+
+  return ()=>{
+    window.removeEventListener("mousemove",handleMouseMove)
+    window.removeEventListener("mouseup",handleMouseUp)
+
+    window.removeEventListener("touchmove",handleTouchMove)
+    window.removeEventListener("touchend",handleTouchEnd)
+  }
+
+},[])
+ 
 
   const questions = [
     {
@@ -132,10 +164,11 @@ if(q === "I have another issue / Talk to support"){
     <>
 
       {/* BOT ICON */}
-   <div
+ <div
   ref={botRef}
   className="Veda-wrapper"
   onMouseDown={handleMouseDown}
+  onTouchStart={handleTouchStart}
 style={{
   left: position.x,
   top: position.y,
