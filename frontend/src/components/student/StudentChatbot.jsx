@@ -8,7 +8,6 @@ export default function StudentChatbot() {
   const [open,setOpen] = useState(false)
   const messagesEndRef = useRef(null)
   const navigate = useNavigate();
-
   const botRef = useRef(null)
 
   const [position,setPosition] = useState({
@@ -17,22 +16,27 @@ export default function StudentChatbot() {
   })
 
   const dragging = useRef(false)
+  const offset = useRef({x:0,y:0})
 
-  const handleMouseDown = ()=>{
+  const handleMouseDown = (e)=>{
     dragging.current = true
+    offset.current = {
+      x: e.clientX - position.x,
+      y: e.clientY - position.y
+    }
   }
 
   const handleMouseMove = (e)=>{
     if(!dragging.current) return
 
     setPosition({
-      x: e.clientX - 40,
-      y: e.clientY - 40
+      x: e.clientX - offset.current.x,
+      y: e.clientY - offset.current.y
     })
   }
 
   const handleMouseUp = ()=>{
-    dragging.current = false
+    dragging.current=false
   }
 
   useEffect(()=>{
@@ -127,20 +131,22 @@ if(q === "I have another issue / Talk to support"){
     <>
 
       {/* BOT ICON */}
-      <div
-        ref={botRef}
-        className="Veda-wrapper"
-        style={{
-          left: position.x,
-          top: position.y,
-          position:"fixed"
-        }}
-      >
-        <div
-          className="Veda-bot"
-          onMouseDown={handleMouseDown}
-          onClick={()=>setOpen(!open)}
-        >
+   <div
+  ref={botRef}
+  className="Veda-wrapper"
+  onMouseDown={handleMouseDown}
+  style={{
+    left: position.x,
+    top: position.y,
+    position:"fixed",
+    zIndex:9999,
+    cursor:"grab"
+  }}
+>
+       <div
+  className="Veda-bot"
+  onClick={()=>setOpen(!open)}
+>
           <img src="/robo.png"/>
         </div>
       </div>
