@@ -21,6 +21,7 @@ export default function Login() {
   const [captchaText, setCaptchaText] = useState("");
   const [captchaToken, setCaptchaToken] = useState("");
 
+  
   useEffect(() => {
   if (role === "admin") return; // 🚫 Stop Google for admin
 
@@ -50,6 +51,22 @@ export default function Login() {
     if (existingScript) document.body.removeChild(existingScript);
   };
 }, [role]);
+
+useEffect(() => {
+  document.title = "Login | VidyaSetu";
+
+  let meta = document.querySelector('meta[name="description"]');
+
+  if (!meta) {
+    meta = document.createElement("meta");
+    meta.name = "description";
+    document.head.appendChild(meta);
+  }
+
+  meta.content =
+    "Login to VidyaSetu to access scholarships, connect with NGOs and donors, and manage your education support dashboard.";
+
+}, []);
 
   const handleGoogleResponse = async (response) => {
     if (role === "admin") return;
