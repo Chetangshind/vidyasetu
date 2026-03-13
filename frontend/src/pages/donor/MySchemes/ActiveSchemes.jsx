@@ -27,7 +27,11 @@ export default function ActiveSchemes() {
         },
       );
 
-      setActiveSchemes(Array.isArray(res.data) ? res.data : []);
+      setActiveSchemes(
+  Array.isArray(res.data)
+    ? res.data.filter((s) => s.status === "active")
+    : []
+);
     } catch (error) {
       console.error("Error fetching active schemes:", error);
       setActiveSchemes([]);
@@ -54,9 +58,14 @@ export default function ActiveSchemes() {
         },
       );
 
-      setShowCancelModal(false);
-      setSelectedSchemeId(null);
-      fetchActiveSchemes();
+setActiveSchemes((prev) =>
+  prev.filter((s) => s._id !== selectedSchemeId)
+);
+
+setShowCancelModal(false);
+setSelectedSchemeId(null);
+
+fetchActiveSchemes();
     } catch (error) {
       console.error("Cancel failed:", error);
       alert("Cancel failed");
