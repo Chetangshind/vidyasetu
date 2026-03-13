@@ -89,7 +89,7 @@ export default function RejectedApplications() {
                           })
                         }
                       >
-                        View
+                        View Reason
                       </button>
                     </td>
                   </tr>
