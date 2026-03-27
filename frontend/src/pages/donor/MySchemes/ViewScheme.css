@@ -81,3 +81,37 @@
   background: #082f57;
 }
 
+/* STEP HEADER */
+.step-header {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.step-item {
+  padding: 8px 14px;
+  border-radius: 20px;
+  background: #eef4ff;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.step-item.active {
+  background: #0b3c6f;
+  color: white;
+}
+
+/* CONTENT */
+.step-content {
+  background: white;
+  padding: 16px;
+  border-radius: 12px;
+}
+
+/* ACTIONS */
+.step-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
