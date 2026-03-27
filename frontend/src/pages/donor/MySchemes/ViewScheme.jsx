@@ -85,7 +85,7 @@ export default function ViewScheme() {
     ← Back
   </button>
 
-</div>y
+</div>
     </div>
   );
 }
