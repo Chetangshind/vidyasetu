@@ -114,48 +114,21 @@ const filteredApplications = applications.filter((app) => {
 });
   return (
     <div className="pa-wrapper">
-     <div
-  style={{
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    marginBottom: "20px"
-  }}
->
-  <div>
-    <h2 className="pa-title" style={{ margin: 0 }}>
-      Pending Applications
-    </h2>
-    <div className="pa-title-underline" />
-  </div>
-
-  <div style={{ textAlign: "right" }}>
-    <label
-      style={{
-        display: "block",
-        marginBottom: "5px",
-        color: "#1e3a5f",
-        fontWeight: "600"
-      }}
-    >
-      Enter Pincode to select student
-    </label>
-
-    <input
-      type="text"
-      value={filterPincode}
-      onChange={(e) => setFilterPincode(e.target.value)}
-      style={{
-        padding: "6px 10px",
-        width: "180px",
-        borderRadius: "6px",
-        border: "1px solid #ccc"
-      }}
-    />
-  </div>
-</div>
-
+      <h2 className="pa-title">Pending Applications</h2>
+<div className="pa-title-underline" />
       <div className="pa-card">
+        <div className="pa-filter">
+  <label className="pa-filter-label">
+    Enter Pincode to select student
+  </label>
+
+  <input
+    type="text"
+    value={filterPincode}
+    onChange={(e) => setFilterPincode(e.target.value)}
+    className="pa-filter-input"
+  />
+</div>
         <div className="pa-scroll-area">
           <table className="pa-table">
             <thead>
