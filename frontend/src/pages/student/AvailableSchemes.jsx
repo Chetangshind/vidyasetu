@@ -313,26 +313,12 @@ useEffect(() => {
 }, [enriched, activeTab]);
 
   if (loading || !student) {
-  return (
-    <div className="vs-warning-box">
-      <div className="vs-warning-icon">⚠️</div>
-
-      <div className="vs-warning-content">
-        <h3>Profile Required</h3>
-        <p>
-          Please complete your profile details to unlock and view available schemes.
-        </p>
-
-        <button
-          className="vs-warning-btn"
-          onClick={() => navigate("/student/profile")}
-        >
-          Complete Profile
-        </button>
+    return (
+      <div className="vs-loading">
+        Please fill in your profile details to view available schemes.
       </div>
-    </div>
-  );
-}
+    );
+  }
 
   return (
     <div className="vs-schemes-root tidy">

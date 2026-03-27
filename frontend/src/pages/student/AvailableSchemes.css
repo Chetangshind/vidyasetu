@@ -730,6 +730,79 @@
   border-top: 1px solid #e2e8f0;
 }
 
+/* ==========================================
+   APPLY PREVIEW — VIEWFORM EXACT LOOK
+========================================== */
+
+/* Modal backdrop stays same */
+.vs-modal-backdrop {
+  background: rgba(0, 0, 0, 0.45);
+}
+
+/* 🔥 Make modal look like ViewForm PAGE */
+.vs-modal-xl {
+  width: 95vw;
+  max-width: 1200px;
+  height: 92vh;
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 0;                     /* IMPORTANT */
+  overflow: hidden;               /* parent hidden */
+  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Scroll only CONTENT (like page scroll) */
+.vs-modal-xl .msbte-container {
+  padding: 24px 30px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+/* Same title style as ViewForm */
+.vs-modal-xl .msbte-title {
+  font-size: 22px;
+  color: #003366;
+  border-bottom: 2px solid #003366;
+  padding-bottom: 6px;
+  margin-bottom: 16px;
+}
+
+/* Section titles exactly like ViewForm */
+.vs-modal-xl .msbte-section-title {
+  margin-top: 26px;
+  font-size: 18px;
+  color: #003366;
+}
+
+/* Section box */
+.vs-modal-xl .msbte-box {
+  border: 1px solid #d9f2ec;
+  background: #ffffff;
+  padding: 16px;
+  margin-top: 10px;
+}
+
+/* Row layout identical */
+.vs-modal-xl .msbte-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px dotted #ddd;
+}
+
+.vs-modal-xl .msbte-row span {
+  color: #0358ac;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.vs-modal-xl .msbte-row strong {
+  font-size: 14px;
+  font-weight: 500;
+}
+
 /* ================= FIXED FOOTER ACTIONS ================= */
 
 .vs-modal-actions {
@@ -987,298 +1060,4 @@ table td {
     min-width:720px;
   }
 
-}
-
-/* ===== PREMIUM WARNING CARD ===== */
-.vs-warning-box {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-
-  background: #ffffff;
-  border-radius: 16px;
-  padding: 24px 28px;
-
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-  border-left: 6px solid #3313d2;
-
-  max-width: 650px;
-  margin: 60px auto;
-
-  animation: fadeIn 0.3s ease;
-}
-
-/* ICON */
-.vs-warning-icon {
-  font-size: 38px;
-  background: #fff7ed;
-  color: #f59e0b;
-
-  width: 65px;
-  height: 65px;
-  border-radius: 50%;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  flex-shrink: 0;
-}
-
-/* CONTENT */
-.vs-warning-content h3 {
-  margin: 0;
-  font-size: 20px;
-  color: #1e293b;
-}
-
-.vs-warning-content p {
-  margin: 6px 0 14px;
-  color: #64748b;
-  font-size: 14.5px;
-  line-height: 1.5;
-}
-
-/* BUTTON */
-.vs-warning-btn {
-  background: #0b3c6f;
-  color: white;
-
-  border: none;
-  padding: 10px 18px;
-  border-radius: 8px;
-
-  font-size: 14px;
-  font-weight: 600;
-
-  cursor: pointer;
-  transition: 0.25s;
-}
-
-.vs-warning-btn:hover {
-  background: #082f57;
-  transform: translateY(-1px);
-}
-
-/* ANIMATION */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* ===== TABLE WRAPPER ===== */
-.vs-card {
-  padding: 20px 24px;
-}
-
-/* ===== TABLE ===== */
-.vs-table {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0 14px; /* 🔥 ROW GAP */
-}
-
-/* HEADER */
-.vs-table th {
-  padding: 16px 10px;
-  font-size: 14px;
-  font-weight: 700;
-  color: #003d67;
-  text-align: center;
-}
-
-/* ROW CARD STYLE */
-.vs-table tbody tr {
-  background: #ffffff;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
-  border-radius: 12px;
-}
-
-/* CELLS */
-.vs-table td {
-  padding: 18px 12px;
-  font-size: 14.5px;
-  text-align: center;
-}
-
-/* ROUND CORNERS FOR ROW */
-.vs-table tbody tr td:first-child {
-  border-radius: 12px 0 0 12px;
-}
-
-.vs-table tbody tr td:last-child {
-  border-radius: 0 12px 12px 0;
-}
-
-/* REMOVE OLD BORDER */
-.vs-table td {
-  border-bottom: none;
-}
-
-/* HOVER EFFECT */
-.vs-table tbody tr:hover {
-  transform: translateY(-2px);
-  transition: 0.2s ease;
-}
-
-/* STATUS BADGE */
-.status {
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-weight: 600;
-  font-size: 13px;
-  display: inline-block;
-}
-
-/* COLORS */
-.status.eligible {
-  background: #e6f4ea;
-  color: #2e7d32;
-}
-
-.status.partially {
-  background: #fff4e5;
-  color: #b26a00;
-}
-
-.status.closed {
-  background: #fdecea;
-  color: #d32f2f;
-}
-
-/* ACTION BUTTON AREA */
-.action-set {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-}
-
-/* APPLY BUTTON */
-.vs-btn.primary {
-  padding: 8px 18px;
-  border-radius: 20px;
-}
-
-/* VIEW BUTTON */
-.vs-btn.outline {
-  padding: 6px 14px;
-  border-radius: 20px;
-}
-
-/* ===== MODAL CONTAINER ===== */
-.vs-modal-xl {
-  width: 95vw;
-  max-width: 1100px;
-  height: 90vh;
-  background: #f8fafc;
-  border-radius: 14px;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-}
-
-/* ===== CLEAN HEADER ===== */
-.modal-clean-header {
-  background: #ffffff;
-  padding: 20px 26px;
-  border-bottom: 1px solid #e2e8f0;
-}
-
-.modal-clean-header h2 {
-  margin: 0;
-  font-size: 22px;
-  color: #003d67;
-}
-
-.modal-clean-header p {
-  margin: 4px 0 0;
-  font-size: 13px;
-  color: #64748b;
-}
-
-/* ===== SCROLL AREA ===== */
-.vs-modal-xl .msbte-container {
-  padding: 24px 30px;
-  overflow-y: auto;
-}
-
-/* ===== SECTION TITLE ===== */
-.section-title {
-  font-size: 15px;
-  font-weight: 700;
-  color: #0b3c6f;
-  margin-bottom: 10px;
-  margin-top: 18px;
-}
-
-/* ===== SECTION CARD ===== */
-.msbte-box {
-  background: #ffffff;
-  border-radius: 12px;
-  padding: 16px 18px;
-  margin-bottom: 18px;
-  border: 1px solid #e6ecf3;
-}
-
-/* ===== ROW ===== */
-.msbte-row {
-  display: flex;
-  justify-content: space-between;
-  padding: 10px 0;
-  border-bottom: 1px solid #f1f5f9;
-}
-
-.msbte-row:last-child {
-  border-bottom: none;
-}
-
-/* LABEL */
-.msbte-row span {
-  color: #0b3c6f;
-  font-weight: 600;
-}
-
-/* VALUE */
-.msbte-row strong {
-  color: #334155;
-  font-weight: 500;
-}
-
-/* ===== REMOVE OLD BLUE ===== */
-.msbte-title {
-  display: none;
-}
-
-/* ===== BUTTON AREA ===== */
-.vs-modal-actions {
-  background: #ffffff;
-  border-top: 1px solid #e2e8f0;
-  padding: 16px;
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-}
-
-/* CANCEL */
-.vs-btn.outline {
-  background: #f1f5f9;
-  color: #334155;
-  border: none;
-}
-
-/* APPLY */
-.vs-btn.primary {
-  background: #0b3c6f;
-  padding: 10px 22px;
-  border-radius: 10px;
-}
-
-.vs-btn.primary:hover {
-  background: #082f57;
 }
