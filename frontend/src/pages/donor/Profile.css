@@ -1174,7 +1174,7 @@
   background: #f6f9ff;
 }
 
-.scheme-title {
+.P-scheme-title {
   font-size: 28px;
   font-weight: 700;
   color: #053b75;
@@ -1447,7 +1447,7 @@
 
 /* BELOW 450PX → text shrink smoothly */
 @media (max-width: 450px) {
-  .scheme-title {
+  .P-scheme-title {
     font-size: 22px;
   }
   .profile-name {
@@ -1498,7 +1498,7 @@
 
 /* Small phones: single column everywhere */
 @media (max-width: 600px) {
-  .scheme-title {
+  .P-scheme-title {
     font-size: 22px;
     margin-left: 4px;
   }

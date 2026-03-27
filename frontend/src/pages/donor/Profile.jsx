@@ -465,7 +465,7 @@ export default function Profile() {
   // ====================== RENDER ======================
   return (
     <div className="profile-page">
-      <h2 className="scheme-title">Donor Portal</h2>
+      <h2 className="P-scheme-title">Donor Portal</h2>
 
       <div
         className={`profile-completion-banner ${isProfileComplete ? "complete" : "incomplete"}`}
