@@ -46,7 +46,7 @@
   gap: 1rem;
 }
 
-.refresh-btn {
+.d-refresh-btn {
   background: white;
   color: var(--primary);
   border: 1px solid var(--primary);

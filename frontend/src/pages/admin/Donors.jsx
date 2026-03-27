@@ -63,7 +63,11 @@ axios.get(`${API}/api/admin/schemes`),
     setSchemes(schemeRes.data);
   };
 
-  const handleRefresh = () => fetchData();
+  const handleRefresh = async () => {
+  setLoading(true);
+  await fetchData();
+  setLoading(false);
+};
 
   const sourceData = entityType === "donor" ? donors : schemes;
 
@@ -205,9 +209,16 @@ axios.get(`${API}/api/admin/schemes`),
             )}
           </div>
 
-          <button className="refresh-btn" onClick={handleRefresh}>
-            ⟳ Refresh
-          </button>
+<button
+  className="refresh-btn"
+  onClick={handleRefresh}
+  disabled={loading}
+>
+  <span className={`refresh-icon ${loading ? "spin" : ""}`}>
+    ↻
+  </span>
+  <span>Refresh</span>
+</button>
         </div>
       </div>
 

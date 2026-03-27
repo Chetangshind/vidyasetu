@@ -136,7 +136,7 @@ const DonorReport = () => {
           <p>Track the performance and impact of your scholarship schemes</p>
         </div>
         <div className="header-actions">
-          <button className="refresh-btn" onClick={handleRefresh} title="Refresh Data">
+          <button className="d-refresh-btn" onClick={handleRefresh} title="Refresh Data">
             <FaSync />
           </button>
           <button className="download-btn" onClick={handleDownload}>
