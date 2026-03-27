@@ -1061,3 +1061,86 @@ table td {
   }
 
 }
+
+/* ===== PREMIUM WARNING CARD ===== */
+.vs-warning-box {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 24px 28px;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border-left: 6px solid #f59e0b;
+
+  max-width: 650px;
+  margin: 60px auto;
+
+  animation: fadeIn 0.3s ease;
+}
+
+/* ICON */
+.vs-warning-icon {
+  font-size: 38px;
+  background: #fff7ed;
+  color: #f59e0b;
+
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+}
+
+/* CONTENT */
+.vs-warning-content h3 {
+  margin: 0;
+  font-size: 20px;
+  color: #1e293b;
+}
+
+.vs-warning-content p {
+  margin: 6px 0 14px;
+  color: #64748b;
+  font-size: 14.5px;
+  line-height: 1.5;
+}
+
+/* BUTTON */
+.vs-warning-btn {
+  background: #0b3c6f;
+  color: white;
+
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.vs-warning-btn:hover {
+  background: #082f57;
+  transform: translateY(-1px);
+}
+
+/* ANIMATION */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
