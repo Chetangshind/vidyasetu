@@ -14,7 +14,7 @@
   color: #003d67;
   margin-bottom: 18px;
   /* NEW: Add the underline effect */
-  border-bottom: 3px solid #01a80f; 
+  border-bottom: 3px solid #0163a8; 
   padding-bottom: 5px;
   display: inline-block; /* Essential to make the border only cover the text width */
 }
