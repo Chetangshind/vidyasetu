@@ -501,14 +501,8 @@ onClick={() => navigate(`/student/view-scheme/${s._id}`)}
 
         {showConfirm && fullProfile && (
           <div className="vs-modal-backdrop">
-          <div className="vs-modal vs-modal-xl">
-
-  <div className="modal-clean-header">
-    <div>
-      <h2>Confirm Application</h2>
-      <p>Review your details before submitting</p>
-    </div>
-  </div>
+            <div className="vs-modal vs-modal-xl">
+              <h2>Confirm Application</h2>
               <ApplyProfilePreview profile={fullProfile} />
 
               <div className="vs-modal-actions">

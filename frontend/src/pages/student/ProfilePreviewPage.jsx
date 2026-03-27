@@ -4,8 +4,7 @@ import "./ViewForm.css";
 import API from "../../api";
 
 export default function ApplyProfilePreview({ profile }) {
-  const [showDocs, setShowDocs] = useState(false);
-  const [activeStep, setActiveStep] = useState(0);
+  const [showDocs, setShowDocs] = useState(false);z
   if (!profile) return null;
 
   const p = profile.personal || {};
@@ -103,103 +102,124 @@ const buildUploadedDocs = (profile) => {
 
 const uploadedDocs = buildUploadedDocs(profile);
 
-const steps = [
-  { title: "Personal", content: (
-    <Section title="Personal Information">
-      <Row label="Aadhaar" value={p.aadhaar} />
-      <Row label="Full Name" value={p.name} />
-      <Row label="Email" value={p.email} />
-      <Row label="Mobile" value={p.mobile} />
-      <Row label="Gender" value={p.gender} />
-      <Row label="Age" value={p.age} />
-      <Row label="Family Income" value={p.familyIncome ? `₹${p.familyIncome}` : "—"} />
-    </Section>
-  )},
+  return (
+    <div className="msbte-container">
+      <h2 className="msbte-title">Profile Preview</h2>
 
-  { title: "Address", content: (
-    <Section title="Address Information">
-      <Row label="Permanent Address" value={perm.address} />
-      <Row label="State" value={perm.state} />
-      <Row label="District" value={perm.district} />
-      <Row label="Taluka" value={perm.taluka} />
-      <Row label="Village" value={perm.village} />
-      <Row label="Pincode" value={perm.pincode} />
-    </Section>
-  )},
+      {/* PERSONAL */}
+      <Section title="Personal Information">
+        <Row label="Aadhaar" value={p.aadhaar} />
+        <Row label="Full Name" value={p.name} />
+        <Row label="Email" value={p.email} />
+        <Row label="Mobile" value={p.mobile} />
+        <Row label="Gender" value={p.gender} />
+        <Row label="Age" value={p.age} />
+        <Row label="Family Income" value={p.familyIncome ? `₹${p.familyIncome}` : "—"} />
+      </Section>
 
-  { title: "Other", content: (
-    <Section title="Other Information">
-      <Row label="Father Name" value={other.fatherName} />
-      <Row label="Mother Name" value={other.motherName} />
-    </Section>
-  )},
+      {/* ADDRESS */}
+      <Section title="Address Information">
+        <Row label="Permanent Address" value={perm.address} />
+        <Row label="State" value={perm.state} />
+        <Row label="District" value={perm.district} />
+        <Row label="Taluka" value={perm.taluka} />
+        <Row label="Village" value={perm.village} />
+        <Row label="Pincode" value={perm.pincode} />
+        <Row label="Correspondence Same As Permanent" value={a.same ? "Yes" : "No"} />
 
-  { title: "Course", content: (
-    <Section title="Course Info">
-      <Row label="Course" value={course.standard} />
-      <Row label="College" value={course.collegeName} />
-    </Section>
-  )},
+        {!a.same && (
+          <>
+            <Row label="Correspondence Address" value={corr.address} />
+            <Row label="State" value={corr.state} />
+            <Row label="District" value={corr.district} />
+            <Row label="Taluka" value={corr.taluka} />
+            <Row label="Village" value={corr.village} />
+            <Row label="Pincode" value={corr.pincode} />
+          </>
+        )}
+      </Section>
 
-  { title: "Documents", content: (
-    <Section title="Uploaded Documents">
-      <button className="secondary-btn" onClick={() => setShowDocs(s => !s)}>
-        <FaEye /> View Documents
-      </button>
+      {/* OTHER */}
+      <Section title="Other Information">
+        <Row label="Father Name" value={other.fatherName} />
+        <Row label="Father Occupation" value={other.fatherOccupation} />
+        <Row label="Mother Name" value={other.motherName} />
+        <Row label="Mother Occupation" value={other.motherOccupation} />
+      </Section>
 
-      {showDocs && (
-        <div className="docs-box active">
-          {uploadedDocs.map((doc, i) => (
-            <div key={i}>{doc.name}</div>
-          ))}
+      {/* CURRENT COURSE */}
+      <Section title="Current Course Information">
+        <Row label="Course" value={course.standard} />
+        <Row label="Institute Name" value={course.collegeName} />
+        <Row label="Institute State" value={course.instituteState} />
+        <Row label="Stream" value={course.stream} />
+        <Row label="Year of Study" value={course.yearOfStudy} />
+      </Section>
+
+      {/* PAST QUALIFICATION */}
+      <Section title="Past Qualification">
+        <Row label="Qualification Level" value={q.qualificationLevel} />
+        <Row label="Board / University" value={q.boardUniversity} />
+        <Row label="Institute Name" value={q.collegeName} />
+        <Row label="Passing Year" value={q.passingYear} />
+        <Row label="Percentage" value={q.percentage ? `${q.percentage}%` : "—"} />
+      </Section>
+
+      {/* COLLEGE BANK */}
+      <Section title="College Bank Details">
+        <Row label="College Name" value={bank.collegeName} />
+        <Row label="Account Number" value={bank.collegeBankAccount} />
+        <Row label="IFSC Code" value={bank.collegeIFSC} />
+        <Row label="Branch" value={bank.collegeBranch} />
+        <Row label="Payment Mode" value={bank.paymentMode} />
+      </Section>
+
+      {/* HOSTEL */}
+      <Section title="Hostel Details">
+        <Row label="Hostel Type" value={hostel.hostelType} />
+        <Row label="Hostel Name" value={hostel.hostelName} />
+        <Row label="State" value={hostel.state} />
+        <Row label="District" value={hostel.district} />
+        <Row label="Address" value={hostel.address} />
+        <Row label="Mess Available" value={hostel.messAvailable} />
+      </Section>
+
+      {/* DOCUMENTS */}
+      <Section title="Uploaded Documents">
+        <button className="secondary-btn" onClick={() => setShowDocs(s => !s)}>
+          <FaEye /> View Uploaded Documents
+        </button>
+
+        <div className={`docs-box ${showDocs ? "active" : ""}`}>
+          <table className="msbte-table">
+            <thead>
+              <tr>
+                <th>Document</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {uploadedDocs.map((doc, i) => (
+                <tr key={i}>
+                  <td>{doc.name}</td>
+                  <td>
+                    <button
+                      className="view-doc-btn"
+                      onClick={() =>
+                        window.open(`${API}/uploads/${doc.file}`, "_blank")
+                      }
+                    >
+                      <FaEye /> View
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
-      )}
-    </Section>
-  )}
-];
-
-return (
-  <div className="msbte-container">
-
-    {/* 🔥 STEP HEADER */}
-    <div className="step-header">
-      {steps.map((step, index) => (
-        <div
-          key={index}
-          className={`step-item ${activeStep === index ? "active" : ""}`}
-          onClick={() => setActiveStep(index)}
-        >
-          {step.title}
-        </div>
-      ))}
+      </Section>
     </div>
-
-    {/* 🔥 STEP CONTENT */}
-    <div className="step-content">
-      {steps[activeStep].content}
-    </div>
-
-    {/* 🔥 STEP NAVIGATION */}
-    <div className="step-actions">
-      <button
-        disabled={activeStep === 0}
-        onClick={() => setActiveStep((s) => s - 1)}
-        className="vs-btn outline"
-      >
-        Back
-      </button>
-
-      <button
-        disabled={activeStep === steps.length - 1}
-        onClick={() => setActiveStep((s) => s + 1)}
-        className="vs-btn primary"
-      >
-        Next
-      </button>
-    </div>
-
-  </div>
-);
+  );
 }
 
 /* HELPERS */
