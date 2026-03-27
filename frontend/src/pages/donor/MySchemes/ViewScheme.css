@@ -97,7 +97,7 @@
   font-weight: 600;
 }
 
-.step-item.active {
+.v-step-item.active {
   background: #0b3c6f;
   color: white;
 }
