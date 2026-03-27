@@ -6,15 +6,16 @@
   margin-bottom: 4px;
   margin-left: 20px;
   display: inline-block;
+  position: relative;
 }
 
-/* Underline */
+/* Underline (auto fit to text) */
 .pa-title-underline {
-  width: 325px;
+  width: 100%;
+  max-width: fit-content;
   height: 3px;
-  background: #0163a8;
+  background: linear-gradient(90deg, #0163a8, #4da3ff);
   border-radius: 6px;
-  margin-bottom: 20px;
   margin-left: 20px;
 }
 
@@ -117,4 +118,58 @@
 /* ===== ACTION BUTTON CENTER FIX ===== */
 .scheme-table td:last-child {
   text-align: center;
+}
+
+/* Pincode input (top right) */
+input[type="text"] {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid #d6dbe1;
+  outline: none;
+  transition: all 0.25s ease;
+  font-size: 14px;
+  width: 180px;
+  background: #f9fbfd;
+}
+
+/* Focus effect */
+input[type="text"]:focus {
+  border-color: #0163a8;
+  box-shadow: 0 0 0 3px rgba(1, 99, 168, 0.15);
+  background: white;
+}
+
+/* Placeholder styling */
+input[type="text"]::placeholder {
+  color: #9aa7b2;
+}
+
+/* Container of pincode (top right alignment) */
+.pincode-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  padding-right: 20px;
+}
+
+/* Label text */
+.pincode-container span {
+  font-weight: 600;
+  color: #2b4355;
+}
+
+/* Card upgrade */
+.pa-card {
+  background: white;
+  padding: 28px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  margin-bottom: 30px;
+  transition: 0.3s;
+}
+
+.pa-card:hover {
+  transform: translateY(-2px);
 }
