@@ -215,6 +215,7 @@
 
 .profile-header-info p {
   font-size: 15px;
+  margin-top: 10px;
   color: #64748b;
 }
 
@@ -415,3 +416,172 @@
   margin-top: 15px;
 }
 
+/* ===== MAIN CONTAINER ===== */
+.scheme-container {
+  background: #f4f7fb;
+  padding: 30px;
+}
+
+/* ===== CARD ===== */
+.scheme-card {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 30px 40px;
+  box-shadow:
+    0 20px 50px rgba(0,0,0,0.06),
+    0 4px 12px rgba(0,0,0,0.04);
+  border: 1px solid #eef2f7;
+  transition: all 0.3s ease;
+}
+
+.scheme-card:hover {
+  transform: translateY(-4px);
+}
+
+/* ===== TOP HEADER ===== */
+.scheme-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+
+/* Avatar */
+.scheme-avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  font-size: 34px;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(135deg, #2563eb, #60a5fa);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 15px 40px rgba(37,99,235,0.4);
+}
+
+/* Title section */
+.scheme-title-box {
+  flex: 1;
+  margin-left: 20px;
+}
+
+.scheme-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.scheme-amount {
+  font-size: 20px;
+  font-weight: 600;
+  color: #16a34a;
+}
+
+/* Status badge */
+.scheme-status {
+  padding: 8px 18px;
+  border-radius: 40px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.scheme-status.active {
+  background: #e6f7ee;
+  color: #16a34a;
+}
+
+/* ===== DESCRIPTION BOX ===== */
+.scheme-description {
+  background: #f8fafc;
+  padding: 18px;
+  border-radius: 16px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #475569;
+  border-left: 5px solid #2563eb;
+  margin-bottom: 25px;
+}
+
+/* ===== GRID DETAILS ===== */
+.scheme-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+/* Each info box */
+.scheme-item {
+  background: #f9fbff;
+  padding: 16px 18px;
+  border-radius: 14px;
+  border: 1px solid #eef2f7;
+  transition: 0.2s ease;
+}
+
+.scheme-item:hover {
+  background: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+/* Label */
+.scheme-label {
+  font-size: 13px;
+  color: #64748b;
+  margin-bottom: 6px;
+}
+
+/* Value */
+.scheme-value {
+  font-size: 16px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+/* Highlight important fields */
+.scheme-value.highlight {
+  color: #2563eb;
+}
+
+/* ===== DEADLINE TAG ===== */
+.deadline {
+  background: #fff4e5;
+  color: #c97a00;
+  padding: 6px 12px;
+  border-radius: 10px;
+  font-size: 13px;
+  display: inline-block;
+}
+
+/* ===== DOCUMENT TAGS ===== */
+.doc-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.doc-tag {
+  background: #eef4ff;
+  color: #1d4ed8;
+  padding: 6px 12px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* ===== CONDITIONS BOX ===== */
+.scheme-conditions {
+  margin-top: 25px;
+  background: #fefce8;
+  border-left: 5px solid #facc15;
+  padding: 18px;
+  border-radius: 14px;
+}
+
+.scheme-conditions p {
+  font-size: 14px;
+  color: #444;
+  line-height: 1.6;
+}

@@ -181,61 +181,79 @@ await axios.patch(
     </div>
   </div>
 
-  {/* 🔥 FULL DETAILS SEQUENTIAL */}
+{/* 🚀 NEW MODERN UI */}
 
-  <div className="profile-row">
-    <span>Description</span>
-    <span>{scheme.description}</span>
+<div className="scheme-description">
+  {scheme.description}
+</div>
+
+<div className="scheme-grid">
+
+  <div className="scheme-item">
+    <div className="scheme-label">Scholarship Amount</div>
+    <div className="scheme-value highlight">
+      ₹ {scheme.scholarshipAmount}
+    </div>
   </div>
 
-  <div className="profile-row">
-    <span>Scholarship Amount</span>
-    <span>₹ {scheme.scholarshipAmount}</span>
+  <div className="scheme-item">
+    <div className="scheme-label">Income Limit</div>
+    <div className="scheme-value">
+      ₹ {scheme.incomeLimit}
+    </div>
   </div>
 
-  <div className="profile-row">
-    <span>Income Limit</span>
-    <span>{scheme.incomeLimit}</span>
+  <div className="scheme-item">
+    <div className="scheme-label">Education Level</div>
+    <div className="scheme-value">
+      {scheme.educationLevel}
+    </div>
   </div>
 
-  <div className="profile-row">
-    <span>Education Level</span>
-    <span>{scheme.educationLevel}</span>
+  <div className="scheme-item">
+    <div className="scheme-label">Age Limit</div>
+    <div className="scheme-value">
+      {scheme.ageLimit}
+    </div>
   </div>
 
-  <div className="profile-row">
-    <span>Age Limit</span>
-    <span>{scheme.ageLimit}</span>
+  <div className="scheme-item">
+    <div className="scheme-label">Category</div>
+    <div className="scheme-value highlight">
+      {scheme.category}
+    </div>
   </div>
 
-  <div className="profile-row">
-    <span>Category</span>
-    <span>{scheme.category}</span>
+  <div className="scheme-item">
+    <div className="scheme-label">Gender</div>
+    <div className="scheme-value">
+      {scheme.gender || "No Preference"}
+    </div>
   </div>
 
-  <div className="profile-row">
-    <span>Gender Preference</span>
-    <span>{scheme.gender || "No Preference"}</span>
+  <div className="scheme-item">
+    <div className="scheme-label">Deadline</div>
+    <div className="deadline">
+      {new Date(scheme.deadline).toDateString()}
+    </div>
   </div>
 
-  <div className="profile-row">
-    <span>Deadline</span>
-    <span>{scheme.deadline}</span>
-  </div>
-
-  <div className="profile-row">
-    <span>Documents Required</span>
-    <span>
+  <div className="scheme-item">
+    <div className="scheme-label">Documents</div>
+    <div className="doc-tags">
       {scheme.documents?.length
-        ? scheme.documents.join(", ")
+        ? scheme.documents.map((doc, i) => (
+            <span key={i} className="doc-tag">{doc}</span>
+          ))
         : "None"}
-    </span>
+    </div>
   </div>
 
-  <div className="profile-row">
-    <span>Additional Conditions</span>
-    <span>{scheme.extraConditions || "None"}</span>
-  </div>
+</div>
+
+<div className="scheme-conditions">
+  <p>{scheme.extraConditions || "No additional conditions"}</p>
+</div>
 </div>
 
       <h3 className="section-title">Choose Action</h3>
