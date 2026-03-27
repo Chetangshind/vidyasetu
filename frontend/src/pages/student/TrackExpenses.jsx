@@ -44,7 +44,7 @@ const res = await axios.get(
     <div className="section">
 
       {/* PAGE HEADER */}
-      <div className="page-header">
+      <div className="tk-page-header">
         <h2>Applied Scheme History</h2>
       </div>
 

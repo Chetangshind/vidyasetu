@@ -40,68 +40,52 @@ export default function ViewScheme() {
       <h2 className="view-title">Scheme Preview</h2>
       <div className="view-underline"></div>
 
-      <div className="view-card">
-        <div className="view-row">
-          <span>Scheme Name</span>
-          <span>{scheme.schemeName}</span>
-        </div>
+    <div className="view-card">
 
-        <div className="view-row">
-          <span>Description</span>
-          <span>{scheme.description}</span>
-        </div>
+  <div className="view-grid">
+    <div className="label">Scheme Name</div>
+    <div className="value">{scheme.schemeName}</div>
 
-        <div className="view-row">
-          <span>Scholarship Amount</span>
-          <span>₹{scheme.scholarshipAmount}</span>
-        </div>
+    <div className="label">Description</div>
+    <div className="value full">{scheme.description}</div>
 
-        <div className="view-row">
-          <span>Income Limit</span>
-          <span>{scheme.incomeLimit}</span>
-        </div>
+    <div className="label">Scholarship Amount</div>
+    <div className="value">₹{scheme.scholarshipAmount}</div>
 
-        <div className="view-row">
-          <span>Education Level</span>
-          <span>{scheme.educationLevel}</span>
-        </div>
+    <div className="label">Income Limit</div>
+    <div className="value">{scheme.incomeLimit}</div>
 
-        <div className="view-row">
-          <span>Age Limit</span>
-          <span>{scheme.ageLimit}</span>
-        </div>
+    <div className="label">Education Level</div>
+    <div className="value highlight">{scheme.educationLevel}</div>
 
-        <div className="view-row">
-          <span>Category</span>
-          <span>{scheme.category}</span>
-        </div>
+    <div className="label">Age Limit</div>
+    <div className="value">{scheme.ageLimit}</div>
 
-        <div className="view-row">
-          <span>Gender Preference</span>
-          <span>{scheme.gender || "No Preference"}</span>
-        </div>
+    <div className="label">Category</div>
+    <div className="value">{scheme.category}</div>
 
-        <div className="view-row">
-          <span>Deadline</span>
-          <span>{scheme.deadline}</span>
-        </div>
+    <div className="label">Gender Preference</div>
+    <div className="value">{scheme.gender || "No Preference"}</div>
 
-        <div className="view-row">
-          <span>Documents Required</span>
-          <span>
-            {scheme.documents?.length ? scheme.documents.join(", ") : "None"}
-          </span>
-        </div>
+    <div className="label">Deadline</div>
+    <div className="value">{scheme.deadline}</div>
 
-        <div className="view-row">
-          <span>Additional Conditions</span>
-          <span>{scheme.extraConditions || "None"}</span>
-        </div>
+    <div className="label">Documents Required</div>
+    <div className="value full">
+      {scheme.documents?.length ? scheme.documents.join(", ") : "None"}
+    </div>
 
-        <button className="back-btn" onClick={() => navigate(-1)}>
-          Back
-        </button>
-      </div>
+    <div className="label">Additional Conditions</div>
+    <div className="value full">
+      {scheme.extraConditions || "None"}
+    </div>
+  </div>
+
+  <button className="back-btn" onClick={() => navigate(-1)}>
+    ← Back
+  </button>
+
+</div>
     </div>
   );
 }

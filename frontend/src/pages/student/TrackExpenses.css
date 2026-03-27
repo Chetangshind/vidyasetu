@@ -1,11 +1,11 @@
 
 
 /* ===== HEADER ===== */
-.page-header {
+.tk-page-header {
   margin-bottom: 25px;
 }
 
-.page-header h2 {
+.tk-page-header h2 {
   font-size: 30px;
   font-weight: 700;
   color: #003d67;
@@ -15,7 +15,7 @@
 }
 
 /* ✅ FULL underline exactly under text (no gradient) */
-.page-header h2::after {
+.tk-page-header h2::after {
   content: "";
   position: absolute;
   left: 0;
