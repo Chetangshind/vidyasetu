@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import './GovSchemeManagement.css';
-import { FaChartBar, FaClock, FaLayerGroup } from "react-icons/fa";
+import { FaChartBar, FaClock, FaLayerGroup, FaSyncAlt } from "react-icons/fa";
 import API from "../../api";
 
 const GovSchemeManagement = () => {
@@ -131,61 +131,66 @@ const handleSaveScheme = async () => {
     <div className="gov-scheme-container">
       <div className="scheme-header">
         <div className="header-content">
-          <h1 className="management-heading">  Government Scheme Management</h1>
+          <h1 className="management-heading">
+  Government Scheme Management
+</h1>
+<div className="header-underline"></div>
           <p className="header-subtitle">Add, Update and Manage Official Government Scheme Links</p>
         </div>
-        <button className="btn-add-scheme" onClick={handleAddClick}>
-          + Add Scheme
-        </button>
+        <div className="header-actions">
+          <button className="btn-refresh" onClick={fetchSchemes}>
+            <FaSyncAlt className="refresh-icon" /> Refresh
+          </button>
+          <button className="btn-add-scheme" onClick={handleAddClick}>
+            + Add Scheme
+          </button>
+        </div>
       </div>
 
-      {/* 3 Cards Layout Same As Before */}
-   <div className="stats-section">
-  <div 
-  className="stat-card"
-  onClick={() => setActiveFilter("all")}
-  style={{ cursor: "pointer" }}
->
-    <div className="stat-top-line"></div>
+      {/* Compact Stats Layout */}
+      <div className="stats-section">
+        <div 
+          className="stat-card"
+          onClick={() => setActiveFilter("all")}
+          style={{ cursor: "pointer" }}
+        >
+          <div className="stat-icon-wrapper">
+            <FaChartBar />
+          </div>
+          <div className="stat-content">
+            <div className="stat-number">{totalSchemes}</div>
+            <div className="stat-label">Total Schemes</div>
+          </div>
+        </div>
 
-    <div className="stat-icon-large">
-      <FaChartBar />
-    </div>
+        <div 
+          className="stat-card"
+          onClick={() => setActiveFilter("today")}
+          style={{ cursor: "pointer" }}
+        >
+          <div className="stat-icon-wrapper">
+            <FaClock />
+          </div>
+          <div className="stat-content">
+            <div className="stat-number">{recentlyAdded}</div>
+            <div className="stat-label">Recently Added</div>
+          </div>
+        </div>
 
-    <div className="stat-number-large">{totalSchemes}</div>
-    <div className="stat-label-large">Total Schemes</div>
-  </div>
-
-  <div 
-  className="stat-card"
-  onClick={() => setActiveFilter("today")}
-  style={{ cursor: "pointer" }}
->
-    <div className="stat-top-line"></div>
-
-    <div className="stat-icon-large">
-      <FaClock />
-    </div>
-
-    <div className="stat-number-large">{recentlyAdded}</div>
-    <div className="stat-label-large">Recently Added</div>
-  </div>
-
-  <div 
-  className="stat-card"
-  onClick={() => setActiveFilter("other")}
-  style={{ cursor: "pointer" }}
->
-    <div className="stat-top-line"></div>
-
-    <div className="stat-icon-large">
-      <FaLayerGroup />
-    </div>
-
-    <div className="stat-number-large">{otherSchemes}</div>
-    <div className="stat-label-large">Other Schemes</div>
-  </div>
-</div>
+        <div 
+          className="stat-card"
+          onClick={() => setActiveFilter("other")}
+          style={{ cursor: "pointer" }}
+        >
+          <div className="stat-icon-wrapper">
+            <FaLayerGroup />
+          </div>
+          <div className="stat-content">
+            <div className="stat-number">{otherSchemes}</div>
+            <div className="stat-label">Other Schemes</div>
+          </div>
+        </div>
+      </div>
       <div className="table-section">
         <table className="schemes-table">
           <thead>

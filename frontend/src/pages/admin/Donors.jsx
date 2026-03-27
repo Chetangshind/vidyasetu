@@ -10,6 +10,7 @@ export default function Donors() {
 
   const [donors, setDonors] = useState([]);
   const [schemes, setSchemes] = useState([]);
+  const [loading, setLoading] = useState(false);
   const [entityType, setEntityType] = useState("donor");
   const [statusFilter, setStatusFilter] = useState("All");
   const [search, setSearch] = useState("");

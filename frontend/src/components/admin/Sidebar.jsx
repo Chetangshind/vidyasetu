@@ -201,38 +201,52 @@ export default function AdminSidebar({ sidebarOpen, setSidebarOpen }) {
       {menuItem(<FiMessageCircle />, "Support Desk", "support", "/admin/support")}
       {menuItem(<FiSettings />, "Settings", "settings", "/admin/settings")}
 
-      <div
-        onClick={() => {
-          localStorage.clear();
-          navigate("/login");
-        }}
-        style={{
-          position: "relative",
-          width: "100%",
-          padding: "11px 18px",
-          borderRadius: "10px",
-          display: "flex",
-          alignItems: "center",
-          gap: "14px",
-          cursor: "pointer",
-          fontWeight: 600,
-          transition: "0.22s",
-          color: "#E8F1F7",
-        }}
-      >
-        <span
-          className="icon"
-          style={{
-            fontSize: "20px",
-            transition: "0.22s",
-            color: "#C8D4DF",
-          }}
-        >
-          <FiLogOut />
-        </span>
+<div
+  onClick={() => {
+    localStorage.clear();
+    navigate("/login");
+  }}
+  style={{
+    position: "relative",
+    width: "100%",
+    padding: "11px 18px",
+    borderRadius: "10px",
+    display: "flex",
+    alignItems: "center",
+    gap: "14px",
+    cursor: "pointer",
+    fontWeight: 600,
+    transition: "0.22s",
+    color: "#E8F1F7",
+  }}
+  onMouseEnter={(e) => {
+    e.currentTarget.style.background = "rgba(255,255,255,0.08)";
+    e.currentTarget.style.transform = "translateX(6px)";
+    const ic = e.currentTarget.querySelector(".icon");
+    ic.style.color = "#79B8FF";
+    ic.style.transform = "scale(1.12)";
+  }}
+  onMouseLeave={(e) => {
+    e.currentTarget.style.background = "transparent";
+    e.currentTarget.style.transform = "translateX(0)";
+    const ic = e.currentTarget.querySelector(".icon");
+    ic.style.color = "#C8D4DF";
+    ic.style.transform = "scale(1)";
+  }}
+>
+  <span
+    className="icon"
+    style={{
+      fontSize: "20px",
+      transition: "0.22s",
+      color: "#C8D4DF",
+    }}
+  >
+    <FiLogOut />
+  </span>
 
-        <span style={{ flex: 1 }}>Logout</span>
-      </div>
+  <span style={{ flex: 1 }}>Logout</span>
+</div>
 
       <Separator />
     </div>
