@@ -4,7 +4,7 @@ import "./ViewForm.css";
 import API from "../../api";
 
 export default function ApplyProfilePreview({ profile }) {
-  const [showDocs, setShowDocs] = useState(false);z
+  const [showDocs, setShowDocs] = useState(false);
   if (!profile) return null;
 
   const p = profile.personal || {};
