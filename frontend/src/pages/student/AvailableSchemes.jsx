@@ -207,7 +207,12 @@ export default function AvailableSchemes() {
       const data = await res.json();
       console.log("AI API Response:", data); // 👈 ADD THIS
 
-      setSchemes(data.schemes || []);
+      if (!data || !Array.isArray(data.schemes)) {
+  console.error("Invalid API response", data);
+  setSchemes([]);
+} else {
+  setSchemes(data.schemes);
+}
     } catch (err) {
       console.error(err);
     } finally {
@@ -389,7 +394,7 @@ useEffect(() => {
               </thead>
 
               <tbody>
-                {filtered.map((s) => (
+                {Array.isArray(filtered) && filtered.map((s) => (
                   <tr key={s._id}>
                     <td>{s.schemeName}</td>
                     <td>₹{s.amount}</td>
