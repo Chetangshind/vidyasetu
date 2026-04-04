@@ -125,6 +125,8 @@ app.use("/api/ai", require("./routes/aiRoutes"));
 // ---------------- VEDA CHAT ROUTE ----------------
 const chatRoutes = require("./routes/chatRoutes");
 app.use("/api/chat", chatRoutes);
+app.use("/api/donor-chat", require("./routes/donorChat"));
+console.log("✅ donorChat route registered"); // add this
 
 // ---------------- AUTO EXPIRE SCHEMES ----------------
 const { autoExpireSchemes } = require("./controllers/schemeController");

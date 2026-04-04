@@ -231,7 +231,10 @@ export default function StudentChatbot() {
     }
 
     const userMessage = { role: "user", content: userContent };
-    const newHistory = [...currentHistory, userMessage];
+    const newHistory = [
+  ...currentHistory.filter(m => m.role === "user"),
+  userMessage
+];
     const displayText = text && text.trim() ? text.trim() : null;
 
     setMessages((prev) => [...prev, { sender: "user", text: displayText, image: image ? image.base64 : null }]);
