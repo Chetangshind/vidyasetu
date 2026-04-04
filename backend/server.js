@@ -15,6 +15,14 @@ require("./models/Scheme");
 console.log("📦 Starting server.js...");
 
 const app = express();
+const allowedOrigins = [
+  "http://localhost:5173",
+  "http://localhost:3000",
+  "http://127.0.0.1:5173",
+  "https://vidyasetu-pi.vercel.app",
+  "https://vidyasetu-k9b6.onrender.com"
+];
+
 app.use(cors({
   origin: true,
   credentials: true,
@@ -144,7 +152,7 @@ app.get("/api/admin/debug", async (req, res) => {
 // ---------------- KEEP ALIVE ----------------
 const https = require("https");
 setInterval(() => {
-  https.get("https://vidyasetu-backend.onrender.com/", (res) => {
+  https.get("https://vidyasetu-k9b6.onrender.com/", (res) => {
     console.log("🔄 Keep-alive ping:", res.statusCode);
   }).on("error", (err) => {
     console.log("⚠️ Keep-alive error:", err.message);
