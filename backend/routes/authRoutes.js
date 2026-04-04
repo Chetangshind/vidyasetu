@@ -14,17 +14,26 @@ const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 router.post("/google-login", async (req, res) => {
   try {
     const { credential, role } = req.body;
+    console.log("🟡 Google login attempt for role:", role);
 
     if (!credential || !role) {
+      console.log("❌ Missing credential or role");
       return res.status(400).json({ msg: "Missing data" });
+    }
+
+    const clientId = process.env.GOOGLE_CLIENT_ID;
+    if (!clientId) {
+      console.error("❌ GOOGLE_CLIENT_ID is not defined in backend .env");
+      return res.status(500).json({ msg: "Server misconfiguration: Google Client ID missing" });
     }
 
     const ticket = await client.verifyIdToken({
       idToken: credential,
-      audience: process.env.GOOGLE_CLIENT_ID,
+      audience: clientId,
     });
     const payload = ticket.getPayload();
     const { email, name } = payload;
+    console.log("✅ Google token verified for email:", email);
 
     const collectionName = `${role}.users`;
     const collection = mongoose.connection.collection(collectionName);
@@ -32,39 +41,47 @@ router.post("/google-login", async (req, res) => {
     let user = await collection.findOne({ email });
 
     if (!user) {
+      console.log("🟡 Creating new user for:", email);
       const insertResult = await collection.insertOne({
         name,
         email,
         role,
-        status: "active",
+        status: role === "donor" ? "Active" : "active",
         warnings: 0,
         suspendedUntil: null,
         createdAt: new Date(),
       });
-      user = { _id: insertResult.insertedId, name, email, role, status: "active" };
+      user = { _id: insertResult.insertedId, name, email, role, status: role === "donor" ? "Active" : "active" };
 
       if (role === "donor") {
-        await DonorProfile.create({
-          userId: user._id,
-          email,
-          fullName: name,
-          organization: "Self / Independent",
-          documents: [],
-          status: "Active",
-          warningCount: 0,
-        });
+        try {
+          await DonorProfile.create({
+            userId: user._id,
+            email,
+            fullName: name,
+            organization: "Self / Independent",
+            documents: [],
+            status: "Active",
+            warningCount: 0,
+          });
+        } catch (profileErr) {
+          console.error("⚠️ DonorProfile creation failed during Google login:", profileErr.message);
+        }
       }
     }
 
-    if (user.status === "blacklisted") {
+    // Standardized status check (case insensitive)
+    const status = user.status ? user.status.toLowerCase() : "active";
+
+    if (status === "blacklisted") {
       return res.status(403).json({ msg: "Your account has been permanently banned." });
     }
 
-    if (user.status === "suspended") {
+    if (status === "suspended") {
       if (user.suspendedUntil && new Date() > new Date(user.suspendedUntil)) {
         await collection.updateOne(
           { _id: user._id },
-          { $set: { status: "active", suspendedUntil: null, warnings: 0 } }
+          { $set: { status: role === "donor" ? "Active" : "active", suspendedUntil: null, warnings: 0 } }
         );
       } else {
         return res.status(403).json({ msg: "Your account is suspended." });
@@ -77,6 +94,7 @@ router.post("/google-login", async (req, res) => {
       { expiresIn: "1d" }
     );
 
+    console.log("✅ Google login successful for:", email);
     return res.json({
       msg: "Login successful",
       token,
@@ -85,7 +103,7 @@ router.post("/google-login", async (req, res) => {
     });
   } catch (err) {
     console.error("❌ Google Login error:", err);
-    return res.status(500).json({ msg: "Google login failed" });
+    return res.status(500).json({ msg: "Google login failed: " + (err.message || "Internal server error") });
   }
 });
 

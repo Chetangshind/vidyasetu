@@ -91,8 +91,9 @@ useEffect(() => {
       if (data.role === "student") navigate("/student/dashboard");
       else if (data.role === "donor") navigate("/donor/dashboard");
       else navigate("/admin/dashboard");
-    } catch {
-      setError("Server error during Google login");
+    } catch (err) {
+      console.error("Google Login Error:", err);
+      setError("Server error during Google login. Please try again later.");
     }
   };
 
@@ -105,7 +106,7 @@ useEffect(() => {
     }
 
     try {
-    const res = await fetch(`${API}/api/auth/google-login`, {
+    const res = await fetch(`${API}/api/auth/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
