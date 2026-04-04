@@ -57,6 +57,7 @@ You help donors with:
 - Viewing schemes: My Schemes page shows all Active, Draft, and Closed schemes
 - Managing applications: Applications page shows Pending, Approved, and Rejected student applications
 - Reviewing students: Click on any application to view the student's profile and documents
+- Pending application: pincode filter for filtering students near donor pincode area
 - Approving or rejecting applications: Open the application → review details → Approve or Reject
 - Meetings: Applications → Approved section shows all scheduled meetings with date, time, and student details
 - Editing schemes: My Schemes → click on a scheme → Edit option to update details or close the scheme
