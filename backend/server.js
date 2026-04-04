@@ -155,6 +155,16 @@ app.get("/api/admin/debug", async (req, res) => {
   }
 });
 
+// ---------------- KEEP ALIVE ----------------
+const https = require("https");
+setInterval(() => {
+  https.get("https://vidyasetu-backend.onrender.com/", (res) => {
+    console.log("🔄 Keep-alive ping:", res.statusCode);
+  }).on("error", (err) => {
+    console.log("⚠️ Keep-alive error:", err.message);
+  });
+}, 1000 * 60 * 10); // ping every 10 minutes
+
 // ---------------- SERVER ----------------
 const PORT = process.env.PORT || 5050;
 app.listen(PORT, () => {
