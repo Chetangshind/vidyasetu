@@ -188,7 +188,7 @@ export default function StudentChatbot() {
     reader.onload = (ev) => {
       const img = new Image();
       img.onload = () => {
-        const MAX = 800;
+        const MAX = 600;
         let w = img.width, h = img.height;
         if (w > MAX || h > MAX) {
           if (w > h) { h = Math.round((h * MAX) / w); w = MAX; }
@@ -197,7 +197,7 @@ export default function StudentChatbot() {
         const canvas = document.createElement("canvas");
         canvas.width = w; canvas.height = h;
         canvas.getContext("2d").drawImage(img, 0, 0, w, h);
-        const compressed = canvas.toDataURL("image/jpeg", 0.7);
+        const compressed = canvas.toDataURL("image/jpeg", 0.5);
         setPendingImage({ base64: compressed, name: file.name, type: "image/jpeg" });
       };
       img.src = ev.target.result;
