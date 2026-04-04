@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect, useCallback } from "react";
+import API from "../../api";
 import "./StudentChatbot.css";
 
 // Parses **bold**, *italic*, and - bullet points into React elements
@@ -240,7 +241,7 @@ export default function StudentChatbot() {
     setMessages((prev) => [...prev, { sender: "bot", loading: true }]);
 
     try {
-      const res = await fetch("https://vidyasetu-backend.onrender.com/api/chat", {
+   const res = await fetch(`${API}/api/chat`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ messages: newHistory }),
