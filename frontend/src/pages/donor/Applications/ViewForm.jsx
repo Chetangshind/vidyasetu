@@ -78,9 +78,7 @@ export default function DonorViewForm() {
   : [];
   const scheme = application.schemeId || {};
 
-/* ================= DOCUMENT BUILDER ================= */
-
-const buildUploadedDocs = () => {
+  const buildUploadedDocs = () => {
   const docs = [];
 
   if (p.incomeCertificate)
@@ -164,7 +162,7 @@ const uploadedDocs = buildUploadedDocs();
 
     navigate(-1);
   };
-
+  
   /* ================= JSX ================= */
   return (
     <>
@@ -374,7 +372,18 @@ const uploadedDocs = buildUploadedDocs();
       {doc.file ? (
         <button
           className="view-doc-btn"
-          onClick={() => window.open(doc.file, "_blank")}
+          onClick={() => {
+  if (!doc.file) return;
+
+  // If Cloudinary URL
+  if (doc.file.startsWith("http")) {
+    window.open(doc.file, "_blank");
+  } 
+  // If old local file (fallback)
+  else {
+    window.open(`${API}/uploads/${doc.file}`, "_blank");
+  }
+}}
         >
           <FaEye /> View
         </button>
