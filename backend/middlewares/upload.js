@@ -12,10 +12,11 @@ cloudinary.config({
 const storage = new CloudinaryStorage({
   cloudinary,
   params: {
-    folder: "vidyasetu",
-    allowed_formats: ["jpg", "jpeg", "png", "pdf"],
-    resource_type: "auto", // handles both images & PDFs
-  },
+  folder: "vidyasetu",
+  allowed_formats: ["jpg", "jpeg", "png", "pdf"],
+  resource_type: "auto",
+  use_filename: true,       
+  unique_filename: false,   
 });
 
 module.exports = multer({ storage });

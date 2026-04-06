@@ -17,11 +17,11 @@ import {
   FaEye,
 } from "react-icons/fa";
 
-// Helper to show short filename instead of full Cloudinary URL
 const getDisplayName = (url) => {
   if (!url) return "No file chosen";
-  if (typeof url === "string" && url.startsWith("https://")) {
-    return url.split("/").pop().split("?")[0];
+  if (typeof url === "string" && url.startsWith("https://res.cloudinary.com")) {
+    const parts = url.split("/").pop().split("?")[0];
+    return parts; 
   }
   return url;
 };
