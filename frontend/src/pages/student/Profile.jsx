@@ -1039,10 +1039,7 @@ return (
                   onClick={() =>
                     form.incomeCertificateFile
                       ? openFile(form.incomeCertificateFile)
-                      : window.open(
-                          `${API}/uploads/${form.incomeCertificate}`,
-                          "_blank"
-                        )
+                      : window.open(form.incomeCertificate, "_blank")
                   }
                 >
                   <FaEye /> View
@@ -1128,10 +1125,7 @@ return (
                   onClick={() =>
                     form.domicileCertificateFile
                       ? openFile(form.domicileCertificateFile)
-                      : window.open(
-                          `${API}/uploads/${form.domicileCertificate}`,
-                          "_blank"
-                        )
+                      : window.open(form.domicileCertificate, "_blank")
                   }
                 >
                   <FaEye /> View
@@ -1260,10 +1254,7 @@ return (
                     <button
                       className="view-doc-btn"
                       onClick={() =>
-                        window.open(
-                          `${API}/uploads/${d.file}`,
-                          "_blank"
-                        )
+                        window.open(d.file, "_blank")
                       }
                     >
                       <FaEye /> View
@@ -2714,10 +2705,7 @@ const [course, setCourse] = useState({
                     () =>
                       course.lastYearMarksheet
                         ? openFile(course.lastYearMarksheet) // NEW upload
-                        : window.open(
-                            `${API}/uploads/${course.marksheet}`,
-                            "_blank"
-                          ) // SAVED file
+                        : window.open(course.marksheet, "_blank")
                   }
                 >
                   <FaEye className="view-icon" /> View
@@ -3747,10 +3735,7 @@ function QualificationInfo({ initialData, onDataChange }) {
                           URL.createObjectURL(form.marksheet),
                           "_blank"
                         )
-                      : window.open(
-                          `${API}/uploads/${form.marksheet}`,
-                          "_blank"
-                        )
+                      : window.open(form.marksheet, "_blank")
                   }
                 >
                   <FaEye /> View
@@ -3838,10 +3823,7 @@ function QualificationInfo({ initialData, onDataChange }) {
                             URL.createObjectURL(form.gapCertificate),
                             "_blank"
                           )
-                        : window.open(
-                            `${API}/uploads/${form.gapCertificate}`,
-                            "_blank"
-                          )
+                        : window.open(form.gapCertificate, "_blank")
                     }
                   >
                     <FaEye /> View
