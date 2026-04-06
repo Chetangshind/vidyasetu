@@ -11,6 +11,8 @@ module.exports = (req, res, next) => {
     const token = authHeader.split(" ")[1];
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
+    console.log("AUTH decoded:", decoded);
+    
     // Make sure your login signs { id: user._id, email, role }
     req.user = {
       id: decoded.id,

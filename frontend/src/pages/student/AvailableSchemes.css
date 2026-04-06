@@ -11,7 +11,7 @@
   padding: 18px;
   box-sizing: border-box;
   min-height: calc(100vh - 80px);
-  background: #f6fbff;
+  background: "white";
   font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   color: #113146;
 }
@@ -1244,3 +1244,383 @@ table td {
   border-radius: 20px;
 }
 
+/* ═══════════════════════════════════════════════
+   APPEND THIS TO YOUR EXISTING AvailableSchemes.css
+   (do not replace the whole file)
+═══════════════════════════════════════════════ */
+
+/* ── Scheme name cell layout ─────────────────── */
+.scheme-name-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.scheme-name {
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.scheme-badges {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ── NEW badge ───────────────────────────────── */
+.badge-new {
+  background: #6366f1;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* Row highlight for new schemes */
+tr.row-new td {
+  background: rgba(99, 102, 241, 0.04);
+}
+
+/* ── Urgency badges ───────────────────────────── */
+.urgency-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 20px;
+}
+
+.urgency-badge.critical {
+  background: #fef2f2;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+  animation: pulse-badge 1.5s ease-in-out infinite;
+}
+
+.urgency-badge.warning {
+  background: #fffbeb;
+  color: #d97706;
+  border: 1px solid #fde68a;
+}
+
+@keyframes pulse-badge {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.65; }
+}
+
+/* ── Why eligible pill & dropdown ────────────── */
+.reasons-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.reason-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 2px 8px;
+  border-radius: 20px;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+}
+
+.reason-pill.eligible {
+  background: #f0fdf4;
+  color: #16a34a;
+  border: 1px solid #bbf7d0;
+}
+
+.reason-pill.ineligible {
+  background: #fef2f2;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+  cursor: default;
+}
+
+.reasons-dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  z-index: 100;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 10px 14px;
+  min-width: 240px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  font-size: 12px;
+  color: #374151;
+}
+
+.reasons-dropdown ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.reasons-dropdown ul li {
+  color: #16a34a;
+  font-size: 12px;
+}
+
+/* ── Missing docs alert ───────────────────────── */
+.missing-docs-alert {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  color: #d97706;
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  border-radius: 6px;
+  padding: 3px 8px;
+  margin-top: 2px;
+}
+
+/* ── AI Match box improvements ───────────────── */
+.ai-badge.high   { background: #f0fdf4; color: #16a34a; border: 1px solid #bbf7d0; }
+.ai-badge.medium { background: #fffbeb; color: #d97706; border: 1px solid #fde68a; }
+.ai-badge.low    { background: #fef2f2; color: #dc2626; border: 1px solid #fecaca; }
+
+.doc-readiness {
+  display: block;
+  font-size: 10px;
+  margin-top: 4px;
+  font-weight: 500;
+}
+
+.doc-readiness.complete { color: #16a34a; }
+.doc-readiness.partial  { color: #d97706; }
+.doc-readiness.none     { color: #dc2626; }
+
+/* ── Category filter bar ─────────────────────── */
+.category-filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding: 10px 0 4px;
+  margin-bottom: 8px;
+  color: #6b7280;
+}
+
+.cat-filter-btn {
+  padding: 5px 14px;
+  border-radius: 20px;
+  border: 1px solid #e5e7eb;
+  background: #f9fafb;
+  font-size: 12px;
+  font-weight: 500;
+  color: #374151;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.cat-filter-btn:hover {
+  background: #f3f4f6;
+  border-color: #d1d5db;
+}
+
+.cat-filter-btn.active {
+  background: #1e40af;
+  color: #fff;
+  border-color: #1e40af;
+}
+
+/* ═══════════════════════════════════════════
+   CLEAN TABLE REDESIGN — paste at end of file
+═══════════════════════════════════════════ */
+
+/* Remove old conflicting table rules */
+.vs-table { border-collapse: separate !important; border-spacing: 0 10px !important; }
+
+/* Row card */
+.vs-table tbody tr { background: #f7fafd !important; box-shadow: none !important; }
+.vs-table tbody tr:hover { transform: translateY(-1px); transition: 0.15s ease; }
+
+/* Cell base */
+.vs-table td {
+  padding: 14px 12px !important;
+  text-align: left !important;
+  vertical-align: middle !important;
+  border-bottom: none !important;
+}
+
+/* Round row corners */
+.vs-table tbody tr td:first-child { border-radius: 12px 0 0 12px !important; }
+.vs-table tbody tr td:last-child  { border-radius: 0 12px 12px 0 !important; }
+
+/* Column headers */
+.vs-table th {
+  font-size: 12px !important; font-weight: 600 !important;
+  color: #7a9ab5 !important; text-transform: uppercase;
+  letter-spacing: 0.5px; padding: 0 12px 8px !important;
+  text-align: left !important; background: transparent !important;
+}
+
+/* Scheme name */
+.scheme-name { font-weight: 700; font-size: 14px; color: #0b3c6f; display: block; }
+
+/* Badge row — keep all badges on ONE line, wrapping cleanly */
+.scheme-badges {
+  display: flex !important; flex-wrap: wrap !important;
+  gap: 5px !important; margin-top: 5px !important;
+  align-items: center !important;
+}
+
+/* Badge base */
+.badge-new, .badge-recommended, .urgency-badge, .missing-docs-alert {
+  display: inline-flex !important; align-items: center !important;
+  gap: 3px !important; padding: 2px 8px !important;
+  border-radius: 20px !important; font-size: 11px !important;
+  font-weight: 700 !important; white-space: nowrap !important;
+}
+.badge-new        { background: #0a64bc; color: #fff; }
+.badge-recommended{ background: #1a3a6b; color: #fff; border-radius: 20px !important; }
+.urgency-badge.critical { background: #fff3e0; color: #b45309; border: 1px solid #f6d28a; animation: none !important; }
+.urgency-badge.warning  { background: #fff3e0; color: #b45309; border: 1px solid #f6d28a; }
+.missing-docs-alert { background: #fff1f0; color: #b02b2b; border: 1px solid #f9c5c5; }
+
+/* Match cell */
+.ai-match-box {
+  display: flex !important; flex-direction: column !important;
+  align-items: center !important; gap: 4px !important;
+}
+.ai-badge { font-size: 14px !important; font-weight: 800 !important; border: none !important; padding: 0 !important; background: transparent !important; }
+.ai-badge.high   { color: #16a34a !important; }
+.ai-badge.medium { color: #d97706 !important; }
+.ai-badge.low    { color: #dc2626 !important; }
+
+.ai-progress { width: 72px !important; height: 5px !important; background: #e5e7eb; border-radius: 4px; overflow: hidden; }
+.ai-progress-fill { height: 100%; border-radius: 4px; }
+
+.doc-readiness { font-size: 10px !important; font-weight: 600 !important; }
+.doc-readiness.complete { color: #16a34a; }
+.doc-readiness.partial  { color: #d97706; }
+.doc-readiness.none     { color: #dc2626; }
+
+/* Status pill */
+.status {
+  display: inline-flex !important; padding: 4px 12px !important;
+  border-radius: 20px !important; font-size: 12px !important;
+  font-weight: 700 !important; white-space: nowrap !important;
+}
+.status.eligible  { background: #e6f4ea; color: #2e7d32; }
+.status.partially { background: #fff4e5; color: #b26a00; }
+.status.closed    { background: #fdecea; color: #d32f2f; }
+
+/* Action cell — right-aligned, single row, no wrap */
+.take-action-cell, .action-set {
+  display: flex !important; flex-direction: row !important;
+  align-items: center !important; justify-content: flex-end !important;
+  gap: 8px !important; flex-wrap: nowrap !important;
+  padding-right: 4px !important;
+}
+
+/* Unified button size */
+.vs-btn {
+  display: inline-flex !important; align-items: center !important;
+  justify-content: center !important; height: 34px !important;
+  padding: 6px 16px !important; border-radius: 20px !important;
+  font-size: 13px !important; font-weight: 700 !important;
+  white-space: nowrap !important; border: none; cursor: pointer;
+}
+.vs-btn.primary { background: #0a64bc; color: #fff; }
+.vs-btn.outline { background: transparent; border: 1.5px solid #b8d0e8 !important; color: #0a64bc; }
+
+/* ═══════════════════════════════════════════
+   FIX: Scheme name column — left-align, breathe
+═══════════════════════════════════════════ */
+
+/* Force ALL table cells left-aligned (overrides old center rules) */
+.vs-table td {
+  text-align: left !important;
+}
+
+/* Scheme name cell — proper column layout */
+.scheme-name-cell {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: 6px !important;
+  padding: 6px 14px !important;
+  min-width: 200px;
+}
+
+/* Scheme name text */
+.scheme-name {
+  font-weight: 700 !important;
+  font-size: 14px !important;
+  color: #0b3c6f !important;
+  text-align: left !important;
+  line-height: 1.4 !important;
+}
+
+/* Badge row — horizontal, left-aligned, wraps cleanly */
+.scheme-badges {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 5px !important;
+  margin-top: 2px !important;
+}
+
+/* All badges — uniform height and padding */
+.badge-new,
+.badge-recommended,
+.urgency-badge,
+.urgency-badge.critical,
+.urgency-badge.warning,
+.missing-docs-alert {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  height: 22px !important;
+  padding: 0 9px !important;
+  border-radius: 20px !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  white-space: nowrap !important;
+  line-height: 1 !important;
+}
+
+/* Badge colors */
+.badge-new        { background: #0a64bc !important; color: #fff !important; }
+.badge-recommended{ background: #1a3a6b !important; color: #fff !important; }
+.urgency-badge.critical,
+.urgency-badge.warning {
+  background: #fff3e0 !important;
+  color: #b45309 !important;
+  border: 1px solid #f6d28a !important;
+  animation: none !important;
+}
+.missing-docs-alert {
+  background: #fff1f0 !important;
+  color: #b02b2b !important;
+  border: 1px solid #f9c5c5 !important;
+}
+
+/* Row vertical padding — more breathing room */
+.vs-table tbody tr td {
+  padding-top: 18px !important;
+  padding-bottom: 18px !important;
+}
+
+/* Row spacing */
+.vs-table {
+  border-spacing: 0 12px !important;
+}

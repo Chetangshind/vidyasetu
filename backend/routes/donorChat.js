@@ -59,6 +59,7 @@ You help donors with:
 - Pending application: pincode filter for filtering students near donor (pincode) area or can donate from any pinocde wise area
 - Reviewing students: Click on any application to view the student's profile and documents
 - Approving or rejecting applications: Open the application → review details → Approve or Reject
+- Donations: There is no payment if donor want to donate then he will schedule meeting either digitally or physically and then after meeting he can proceed with payment (payment is out of our website)
 - Meetings: Applications → Approved section shows all scheduled meetings with date, time, and student details
 - Editing schemes: My Schemes → click on a scheme → Edit option to update details or close the scheme
 - Scheme status:
