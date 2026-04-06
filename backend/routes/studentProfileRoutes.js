@@ -4,8 +4,6 @@ const router = express.Router();
 const StudentProfile = require("../models/StudentProfile");
 const auth = require("../middlewares/authMiddleware");
 const upload = require("../middlewares/upload");
-const fs = require("fs");
-const path = require("path");
 const mongoose = require("mongoose");
 
 router.patch(
@@ -49,24 +47,24 @@ router.patch(
 
       // ✅ Attach uploaded file names (for normal sections)
       if (req.files?.incomeCertificate?.[0]) {
-        data.incomeCertificate = req.files.incomeCertificate[0].filename;
+        data.incomeCertificate = req.files.incomeCertificate[0].path;
       }
 
       if (req.files?.domicileCertificate?.[0]) {
         data.domicileCertificate =
-          req.files.domicileCertificate[0].filename;
+          req.files.domicileCertificate[0].path;
       }
 
       if (req.files?.marksheet?.[0]) {
-        data.marksheet = req.files.marksheet[0].filename;
+        data.marksheet = req.files.marksheet[0].path;
       }
 
       if (req.files?.gapCertificate?.[0]) {
-        data.gapCertificate = req.files.gapCertificate[0].filename;
+        data.gapCertificate = req.files.gapCertificate[0].path;
       }
 
       if (req.files?.collegeQR?.[0]) {
-        data.collegeQR = req.files.collegeQR[0].filename;
+        data.collegeQR = req.files.collegeQR[0].path;
       }
 
       // ✅ Find or create profile
@@ -84,7 +82,7 @@ router.patch(
 
         const documentName = parsed?.documentName;
         const documentNumber = parsed?.documentNumber;
-        const file = req.files?.otherDocFile?.[0]?.filename;
+        const file = req.files?.otherDocFile?.[0]?.path;
 
         if (!documentName || !file) {
           return res.status(400).json({
@@ -318,10 +316,14 @@ router.delete(
       profile.personal.otherDocuments.splice(index, 1);
       await profile.save();
 
-      if (fileName) {
-        const filePath = path.join(__dirname, "..", "uploads", fileName);
-        if (fs.existsSync(filePath)) fs.unlinkSync(filePath);
-      }
+if (fileName) {
+  // Extract public_id from Cloudinary URL
+  const publicId = fileName.split("/").slice(-2).join("/").split(".")[0];
+  const cloudinary = require("cloudinary").v2;
+  await cloudinary.uploader.destroy(`vidyasetu/${publicId}`, {
+    resource_type: "auto",
+  });
+}
 
       res.json({ success: true });
     } catch (err) {

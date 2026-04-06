@@ -1,3 +1,3 @@
-const API = "https://vidyasetu-k9b6.onrender.com";
+const API = "http://localhost:5050";
 
 export default API;
