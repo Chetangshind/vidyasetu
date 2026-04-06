@@ -11,13 +11,12 @@ cloudinary.config({
 
 const storage = new CloudinaryStorage({
   cloudinary,
-  params: {
+params: async (req, file) => ({
   folder: "vidyasetu",
   allowed_formats: ["jpg", "jpeg", "png", "pdf"],
   resource_type: "auto",
-  use_filename: true,       
-  unique_filename: false,  
-},
+  public_id: file.originalname.replace(/\.[^/.]+$/, "").replace(/\s+/g, "_"),
+}),
 });
 
 module.exports = multer({ storage });
