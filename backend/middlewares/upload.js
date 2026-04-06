@@ -16,7 +16,8 @@ const storage = new CloudinaryStorage({
   allowed_formats: ["jpg", "jpeg", "png", "pdf"],
   resource_type: "auto",
   use_filename: true,       
-  unique_filename: false,   
+  unique_filename: false,  
+},
 });
 
 module.exports = multer({ storage });
