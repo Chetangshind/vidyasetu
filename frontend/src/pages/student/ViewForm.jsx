@@ -457,12 +457,7 @@ if (!profile)
                     <td>
                       <button
                         className="view-doc-btn"
-                        onClick={() =>
-                          window.open(
-                            `${API}/uploads/${doc.file}`,
-                            "_blank",
-                          )
-                        }
+                      onClick={() => window.open(doc.file, "_blank")}
                       >
                         <FaEye className="view-icon" />
                         View Document
