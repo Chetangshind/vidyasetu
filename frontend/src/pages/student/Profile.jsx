@@ -17,6 +17,15 @@ import {
   FaEye,
 } from "react-icons/fa";
 
+// Helper to show short filename instead of full Cloudinary URL
+const getDisplayName = (url) => {
+  if (!url) return "No file chosen";
+  if (typeof url === "string" && url.startsWith("https://")) {
+    return url.split("/").pop().split("?")[0];
+  }
+  return url;
+};
+
 const REQUIRED_PERSONAL_FIELDS = [
   "name",
   "mobile",
@@ -1027,8 +1036,8 @@ return (
                   {form.incomeCertificateFile
                     ? form.incomeCertificateFile.name
                     : form.incomeCertificate
-                    ? form.incomeCertificate
-                    : "No file chosen"}
+                   ? getDisplayName(form.incomeCertificate)
+: "No file chosen"}
                 </div>
               </div>
 
@@ -1113,8 +1122,8 @@ return (
                   {form.domicileCertificateFile
                     ? form.domicileCertificateFile.name
                     : form.domicileCertificate
-                    ? form.domicileCertificate
-                    : "No file chosen"}
+                    ? getDisplayName(form.domicileCertificate)
+: "No file chosen"}
                 </div>
               </div>
 
@@ -2690,8 +2699,8 @@ const [course, setCourse] = useState({
                   {course.lastYearMarksheet
                     ? course.lastYearMarksheet.name
                     : course.marksheet
-                    ? course.marksheet
-                    : "No file chosen"}
+                   ? getDisplayName(course.marksheet)
+: "No file chosen"}
                 </div>
               </div>
 
@@ -3720,8 +3729,8 @@ function QualificationInfo({ initialData, onDataChange }) {
                   {form.marksheet instanceof File
                     ? form.marksheet.name
                     : form.marksheet
-                    ? form.marksheet
-                    : "No file chosen"}
+                     ? getDisplayName(form.marksheet)
+  : "No file chosen"}
                 </div>
               </div>
 
@@ -3808,8 +3817,8 @@ function QualificationInfo({ initialData, onDataChange }) {
                     {form.gapCertificate instanceof File
                       ? form.gapCertificate.name
                       : form.gapCertificate
-                      ? form.gapCertificate
-                      : "No file chosen"}
+                     ? getDisplayName(form.gapCertificate)
+: "No file chosen"}
                   </div>
                 </div>
 
