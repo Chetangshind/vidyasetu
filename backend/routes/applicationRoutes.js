@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const cloudinary = require("cloudinary").v2;
 
 const {
   applyScheme,
@@ -7,7 +8,7 @@ const {
   getDonorApplications,
   getApprovedApplications,
   updateApplicationStatus,
-  getApplicationById,   // ✅ ADD THIS
+  getApplicationById,
 } = require("../controllers/ApplicationController");
 
 const auth = require("../middlewares/authMiddleware");
@@ -15,20 +16,13 @@ const auth = require("../middlewares/authMiddleware");
 router.post("/apply", auth, applyScheme);
 router.get("/my", auth, getMyApplications);
 
-// ✅ NEW — donor applications (pending / approved / rejected)
+// donor applications (pending / approved / rejected)
 router.get("/donor", auth, getDonorApplications);
 
-// ✅ NEW — only approved applications (added from friend)
+// only approved applications
 router.get("/donor/approved", auth, getApprovedApplications);
 
-router.get("/:id", auth, getApplicationById);
-
-// ✅ NEW — approve / reject by donor
-router.patch("/:id/status", auth, updateApplicationStatus);
-
-const cloudinary = require("cloudinary").v2;
-
-// Signed URL for secure document viewing
+// ✅ MUST be before /:id — otherwise Express treats "document" as an id
 router.get("/document/signed-url", auth, async (req, res) => {
   try {
     const { publicId } = req.query;
@@ -40,7 +34,7 @@ router.get("/document/signed-url", auth, async (req, res) => {
     const signedUrl = cloudinary.url(publicId, {
       sign_url: true,
       expires_at: Math.floor(Date.now() / 1000) + 300, // 5 min
-      resource_type: "raw",
+      resource_type: "auto",
     });
 
     res.json({ url: signedUrl });
@@ -49,5 +43,9 @@ router.get("/document/signed-url", auth, async (req, res) => {
     res.status(500).json({ message: "Failed to generate URL" });
   }
 });
+
+// /:id routes MUST be after all specific routes
+router.get("/:id", auth, getApplicationById);
+router.patch("/:id/status", auth, updateApplicationStatus);
 
 module.exports = router;
