@@ -162,6 +162,38 @@ const uploadedDocs = buildUploadedDocs();
 
     navigate(-1);
   };
+
+  const openDoc = async (fileUrl) => {
+  if (!fileUrl) return;
+
+  if (fileUrl.startsWith("https://res.cloudinary.com")) {
+    try {
+      // Extract public ID from URL
+      // URL looks like: https://res.cloudinary.com/dvpp75sew/image/upload/v123456/vidyasetu/filename.pdf
+      const parts = fileUrl.split("/upload/");
+      const afterUpload = parts[1]; // v123456/vidyasetu/filename.pdf
+      const withoutVersion = afterUpload.replace(/^v\d+\//, ""); // vidyasetu/filename.pdf
+
+      const token = localStorage.getItem("token");
+      const res = await fetch(
+        `${API}/api/applications/document/signed-url?publicId=${encodeURIComponent(withoutVersion)}`,
+        { headers: { Authorization: "Bearer " + token } }
+      );
+
+      const data = await res.json();
+      if (data.url) {
+        window.open(data.url, "_blank");
+      } else {
+        alert("Could not open document");
+      }
+    } catch (err) {
+      console.error(err);
+      alert("Failed to load document");
+    }
+  } else {
+    window.open(`${API}/uploads/${fileUrl}`, "_blank");
+  }
+};
   
   /* ================= JSX ================= */
   return (
@@ -370,23 +402,12 @@ const uploadedDocs = buildUploadedDocs();
     <td>{doc.name}</td>
     <td>
       {doc.file ? (
-        <button
-          className="view-doc-btn"
-          onClick={() => {
-  if (!doc.file) return;
-
-  // If Cloudinary URL
-  if (doc.file.startsWith("http")) {
-    window.open(doc.file, "_blank");
-  } 
-  // If old local file (fallback)
-  else {
-    window.open(`${API}/uploads/${doc.file}`, "_blank");
-  }
-}}
-        >
-          <FaEye /> View
-        </button>
+<button
+  className="view-doc-btn"
+  onClick={() => openDoc(doc.file)}
+>
+  <FaEye /> View
+</button>
       ) : (
         <span style={{ color: "red", fontWeight: 600 }}>Not Uploaded</span>
       )}
